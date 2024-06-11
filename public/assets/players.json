@@ -1,0 +1,301 @@
+{
+  "Allen": [
+    {
+      "number": 45,
+      "name": "Kadeem Allen",
+      "position": "PG",
+      "height": "6-1",
+      "weight": 200,
+      "birthdate": "January 15, 1993",
+      "country": "us",
+      "experience": "R",
+      "college": "Arizona",
+      "logo": "kadeem_allen",
+      "player_id": "allenka01"
+    }
+  ],
+  "Baynes": [
+    {
+      "number": 46,
+      "name": "Aron Baynes",
+      "position": "C",
+      "height": "6-10",
+      "weight": 260,
+      "birthdate": "December 9, 1986",
+      "country": "nz",
+      "experience": 5,
+      "college": "Washington State",
+      "logo": "aron_baynes",
+      "player_id": "baynear01"
+    }
+  ],
+  "Bird": [
+    {
+      "number": 26,
+      "name": "Jabari Bird",
+      "position": "SG",
+      "height": "6-6",
+      "weight": 198,
+      "birthdate": "July 3, 1994",
+      "country": "us",
+      "experience": "R",
+      "college": "California",
+      "logo": "jabari_bird",
+      "player_id": "birdja01"
+    }
+  ],
+  "Brown": [
+    {
+      "number": 7,
+      "name": "Jaylen Brown",
+      "position": "SG",
+      "height": "6-6",
+      "weight": 223,
+      "birthdate": "October 24, 1996",
+      "country": "us",
+      "experience": 1,
+      "college": "California",
+      "logo": "jaylen_brown",
+      "player_id": "brownja02"
+    }
+  ],
+  "Eddie": [
+    {
+      "number": 9,
+      "name": "Jarell Eddie",
+      "position": "SF",
+      "height": "6-7",
+      "weight": 218,
+      "birthdate": "October 30, 1991",
+      "country": "us",
+      "experience": 2,
+      "college": "Virginia Tech",
+      "logo": "",
+      "player_id": "eddieja01"
+    }
+  ],
+  "Gibson": [
+    {
+      "number": 60,
+      "name": "Jonathan Gibson",
+      "position": "PG",
+      "height": "6-2",
+      "weight": 185,
+      "birthdate": "November 8, 1987",
+      "country": "us",
+      "experience": 1,
+      "college": "New Mexico State",
+      "logo": "",
+      "player_id": "gibsojo01"
+    }
+  ],
+  "Hayward": [
+    {
+      "number": 20,
+      "name": "Gordon Hayward",
+      "position": "SF",
+      "height": "6-7",
+      "weight": 225,
+      "birthdate": "March 23, 1990",
+      "country": "us",
+      "experience": 7,
+      "college": "Butler",
+      "player_id": "haywago01"
+    }
+  ],
+  "Horford": [
+    {
+      "number": 42,
+      "name": "Al Horford",
+      "position": "C",
+      "height": "6-9",
+      "weight": 240,
+      "birthdate": "June 3, 1986",
+      "country": "do",
+      "experience": 10,
+      "college": "Florida",
+      "logo": "al_holford",
+      "player_id": "horfoal01"
+    }
+  ],
+  "Irving": [
+    {
+      "number": 11,
+      "name": "Kyrie Irving",
+      "position": "PG",
+      "height": "6-2",
+      "weight": 195,
+      "birthdate": "March 23, 1992",
+      "country": "au",
+      "experience": 6,
+      "college": "Duke",
+      "logo": "kyrie_irving",
+      "player_id": "irvinky01"
+    }
+  ],
+  "Larkin": [
+    {
+      "number": 8,
+      "name": "Shane Larkin",
+      "position": "PG",
+      "height": "5-11",
+      "weight": 175,
+      "birthdate": "October 2, 1992",
+      "country": "us",
+      "experience": 3,
+      "college": "Miami (FL)",
+      "logo": "shane_larkin",
+      "player_id": "larkish01"
+    }
+  ],
+  "Monroe": [
+    {
+      "number": 55,
+      "name": "Greg Monroe",
+      "position": "C",
+      "height": "6-11",
+      "weight": 265,
+      "birthdate": "June 4, 1990",
+      "country": "us",
+      "experience": 7,
+      "college": "Georgetown",
+      "logo": "",
+      "player_id": "monrogr01"
+    }
+  ],
+  "Morris": [
+    {
+      "number": 13,
+      "name": "Marcus Morris",
+      "position": "PF",
+      "height": "6-8",
+      "weight": 218,
+      "birthdate": "September 2, 1989",
+      "country": "us",
+      "experience": 6,
+      "college": "Kansas",
+      "logo": "",
+      "player_id": "morrima03"
+    }
+  ],
+  "Nader": [
+    {
+      "number": 28,
+      "name": "Abdel Nader",
+      "position": "SF",
+      "height": "6-5",
+      "weight": 225,
+      "birthdate": "September 25, 1993",
+      "country": "eg",
+      "experience": "R",
+      "college": "Northern Illinois Iowa State",
+      "logo": "",
+      "player_id": "naderab01"
+    }
+  ],
+  "Ojeleye": [
+    {
+      "number": 37,
+      "name": "Semi Ojeleye",
+      "position": "PF",
+      "height": "6-6",
+      "weight": 240,
+      "birthdate": "December 5, 1994",
+      "country": "us",
+      "experience": "R",
+      "college": "Duke SMU",
+      "logo": "",
+      "player_id": "ojelese01"
+    }
+  ],
+  "Rozier": [
+    {
+      "number": 12,
+      "name": "Terry Rozier",
+      "position": "PG",
+      "height": "6-1",
+      "weight": 190,
+      "birthdate": "March 17, 1994",
+      "country": "us",
+      "experience": 2,
+      "college": "Louisville",
+      "logo": "",
+      "player_id": "roziete01"
+    }
+  ],
+  "Silas": [
+    {
+      "number": 9,
+      "name": "Xavier Silas",
+      "position": "SG",
+      "height": "6-5",
+      "weight": 205,
+      "birthdate": "January 22, 1988",
+      "country": "us",
+      "experience": 1,
+      "college": "Colorado Northern Illinois",
+      "logo": "",
+      "player_id": "silasxa01"
+    }
+  ],
+  "Smart": [
+    {
+      "number": 36,
+      "name": "Marcus Smart",
+      "position": "SG",
+      "height": "6-3",
+      "weight": 220,
+      "birthdate": "March 6, 1994",
+      "country": "us",
+      "experience": 3,
+      "college": "Oklahoma State",
+      "logo": "",
+      "player_id": "smartma01"
+    }
+  ],
+  "Tatum": [
+    {
+      "number": 0,
+      "name": "Jayson Tatum",
+      "position": "SF",
+      "height": "6-8",
+      "weight": 210,
+      "birthdate": "March 3, 1998",
+      "country": "us",
+      "experience": "R",
+      "college": "Duke",
+      "logo": "jayson_tatum",
+      "player_id": "tatumja01"
+    }
+  ],
+  "Theis": [
+    {
+      "number": 27,
+      "name": "Daniel Theis",
+      "position": "C",
+      "height": "6-8",
+      "weight": 245,
+      "birthdate": "April 4, 1992",
+      "country": "de",
+      "experience": "R",
+      "college": "",
+      "logo": "",
+      "player_id": "theisda01"
+    }
+  ],
+  "Yabusele": [
+    {
+      "number": 30,
+      "name": "Guerschon Yabusele",
+      "position": "PF",
+      "height": "6-8",
+      "weight": 260,
+      "birthdate": "December 17, 1995",
+      "country": "fr",
+      "experience": "R",
+      "college": "",
+      "logo": "",
+      "player_id": "yabusgu01"
+    }
+  ]
+}

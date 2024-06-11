@@ -1,0 +1,1262 @@
+[
+  {
+    "Game": 1,
+    "Date": "October 17 2017",
+    "Time": "8:01p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Cleveland Cavaliers",
+    "Result": "L",
+    "Score": {
+      "Team": 99,
+      "Opponent": 102
+    },
+    "Wins": 0,
+    "Losses": 1,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 2,
+    "Date": "October 18 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Milwaukee Bucks",
+    "Result": "L",
+    "Score": {
+      "Team": 100,
+      "Opponent": 108
+    },
+    "Wins": 0,
+    "Losses": 2,
+    "Streak": "L 2"
+  },
+  {
+    "Game": 3,
+    "Date": "October 20 2017",
+    "Time": "7:00p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Philadelphia 76ers",
+    "Result": "W",
+    "Score": {
+      "Team": 102,
+      "Opponent": 92
+    },
+    "Wins": 1,
+    "Losses": 2,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 4,
+    "Date": "October 24 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "New York Knicks",
+    "Result": "W",
+    "Score": {
+      "Team": 110,
+      "Opponent": 89
+    },
+    "Wins": 2,
+    "Losses": 2,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 5,
+    "Date": "October 26 2017",
+    "Time": "8:00p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Milwaukee Bucks",
+    "Result": "W",
+    "Score": {
+      "Team": 96,
+      "Opponent": 89
+    },
+    "Wins": 3,
+    "Losses": 2,
+    "Streak": "W 3"
+  },
+  {
+    "Game": 6,
+    "Date": "October 28 2017",
+    "Time": "8:00p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Miami Heat",
+    "Result": "W",
+    "Score": {
+      "Team": 96,
+      "Opponent": 90
+    },
+    "Wins": 4,
+    "Losses": 2,
+    "Streak": "W 4"
+  },
+  {
+    "Game": 7,
+    "Date": "October 30 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "San Antonio Spurs",
+    "Result": "W",
+    "Score": {
+      "Team": 108,
+      "Opponent": 94
+    },
+    "Wins": 5,
+    "Losses": 2,
+    "Streak": "W 5"
+  },
+  {
+    "Game": 8,
+    "Date": "November 1 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Sacramento Kings",
+    "Result": "W",
+    "Score": {
+      "Team": 113,
+      "Opponent": 86
+    },
+    "Wins": 6,
+    "Losses": 2,
+    "Streak": "W 6"
+  },
+  {
+    "Game": 9,
+    "Date": "November 3 2017",
+    "Time": "9:30p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Oklahoma City Thunder",
+    "Result": "W",
+    "Score": {
+      "Team": 101,
+      "Opponent": 94
+    },
+    "Wins": 7,
+    "Losses": 2,
+    "Streak": "W 7"
+  },
+  {
+    "Game": 10,
+    "Date": "November 5 2017",
+    "Time": "6:00p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Orlando Magic",
+    "Result": "W",
+    "Score": {
+      "Team": 104,
+      "Opponent": 88
+    },
+    "Wins": 8,
+    "Losses": 2,
+    "Streak": "W 8"
+  },
+  {
+    "Game": 11,
+    "Date": "November 6 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Atlanta Hawks",
+    "Result": "W",
+    "Score": {
+      "Team": 110,
+      "Opponent": 107
+    },
+    "Wins": 9,
+    "Losses": 2,
+    "Streak": "W 9"
+  },
+  {
+    "Game": 12,
+    "Date": "November 8 2017",
+    "Time": "8:00p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Los Angeles Lakers",
+    "Result": "W",
+    "Score": {
+      "Team": 107,
+      "Opponent": 96
+    },
+    "Wins": 10,
+    "Losses": 2,
+    "Streak": "W 10"
+  },
+  {
+    "Game": 13,
+    "Date": "November 10 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Charlotte Hornets",
+    "Result": "W",
+    "Score": {
+      "Team": 90,
+      "Opponent": 87
+    },
+    "Wins": 11,
+    "Losses": 2,
+    "Streak": "W 11"
+  },
+  {
+    "Game": 14,
+    "Date": "November 12 2017",
+    "Time": "3:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Toronto Raptors",
+    "Result": "W",
+    "Score": {
+      "Team": 95,
+      "Opponent": 94
+    },
+    "Wins": 12,
+    "Losses": 2,
+    "Streak": "W 12"
+  },
+  {
+    "Game": 15,
+    "Date": "November 14 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Brooklyn Nets",
+    "Result": "W",
+    "Score": {
+      "Team": 109,
+      "Opponent": 102
+    },
+    "Wins": 13,
+    "Losses": 2,
+    "Streak": "W 13"
+  },
+  {
+    "Game": 16,
+    "Date": "November 16 2017",
+    "Time": "8:00p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Golden State Warriors",
+    "Result": "W",
+    "Score": {
+      "Team": 92,
+      "Opponent": 88
+    },
+    "Wins": 14,
+    "Losses": 2,
+    "Streak": "W 14"
+  },
+  {
+    "Game": 17,
+    "Date": "November 18 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Atlanta Hawks",
+    "Result": "W",
+    "Score": {
+      "Team": 110,
+      "Opponent": 99
+    },
+    "Wins": 15,
+    "Losses": 2,
+    "Streak": "W 15"
+  },
+  {
+    "Game": 18,
+    "Date": "November 20 2017",
+    "Time": "8:30p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Dallas Mavericks",
+    "Result": "W",
+    "Score": {
+      "Team": 110,
+      "Opponent": 102
+    },
+    "Wins": 16,
+    "Losses": 2,
+    "Streak": "W 16"
+  },
+  {
+    "Game": 19,
+    "Date": "November 22 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Miami Heat",
+    "Result": "L",
+    "Score": {
+      "Team": 98,
+      "Opponent": 104
+    },
+    "Wins": 16,
+    "Losses": 3,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 20,
+    "Date": "November 24 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Orlando Magic",
+    "Result": "W",
+    "Score": {
+      "Team": 118,
+      "Opponent": 103
+    },
+    "Wins": 17,
+    "Losses": 3,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 21,
+    "Date": "November 25 2017",
+    "Time": "8:00p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "Indiana Pacers",
+    "Result": "W",
+    "Score": {
+      "Team": 108,
+      "Opponent": 98
+    },
+    "Wins": 18,
+    "Losses": 3,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 22,
+    "Date": "November 27 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Detroit Pistons",
+    "Result": "L",
+    "Score": {
+      "Team": 108,
+      "Opponent": 118
+    },
+    "Wins": 18,
+    "Losses": 4,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 23,
+    "Date": "November 30 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Philadelphia 76ers",
+    "Result": "W",
+    "Score": {
+      "Team": 108,
+      "Opponent": 97
+    },
+    "Wins": 19,
+    "Losses": 4,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 24,
+    "Date": "December 2 2017",
+    "Time": "1:00p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Phoenix Suns",
+    "Result": "W",
+    "Score": {
+      "Team": 116,
+      "Opponent": 111
+    },
+    "Wins": 20,
+    "Losses": 4,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 25,
+    "Date": "December 4 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Milwaukee Bucks",
+    "Result": "W",
+    "Score": {
+      "Team": 111,
+      "Opponent": 100
+    },
+    "Wins": 21,
+    "Losses": 4,
+    "Streak": "W 3"
+  },
+  {
+    "Game": 26,
+    "Date": "December 6 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Box Score": "",
+    "Opponent": "Dallas Mavericks",
+    "Result": "W",
+    "Score": {
+      "Team": 97,
+      "Opponent": 90
+    },
+    "Wins": 22,
+    "Losses": 4,
+    "Streak": "W 4"
+  },
+  {
+    "Game": 27,
+    "Date": "December 8 2017",
+    "Time": "9:30p",
+    "Location": "",
+    "Box Score": "@",
+    "Opponent": "San Antonio Spurs",
+    "Result": "L",
+    "Score": {
+      "Team": 102,
+      "Opponent": 105
+    },
+    "Wins": 22,
+    "Losses": 5,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 28,
+    "Date": "December 10 2017",
+    "Time": "4:00p",
+    "Location": "@",
+    "Opponent": "Detroit Pistons",
+    "Result": "W",
+    "Score": {
+      "Team": 91,
+      "Opponent": 81
+    },
+    "Wins": 23,
+    "Losses": 5,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 29,
+    "Date": "December 11 2017",
+    "Time": "8:00p",
+    "Location": "@",
+    "Opponent": "Chicago Bulls",
+    "Result": "L",
+    "Score": {
+      "Team": 85,
+      "Opponent": 108
+    },
+    "Wins": 23,
+    "Losses": 6,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 30,
+    "Date": "December 13 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Denver Nuggets",
+    "Result": "W",
+    "Score": {
+      "Team": 124,
+      "Opponent": 118
+    },
+    "Wins": 24,
+    "Losses": 6,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 31,
+    "Date": "December 15 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Utah Jazz",
+    "Result": "L",
+    "Score": {
+      "Team": 95,
+      "Opponent": 107
+    },
+    "Wins": 24,
+    "Losses": 7,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 32,
+    "Date": "December 16 2017",
+    "Time": "9:00p",
+    "Location": "@",
+    "Opponent": "Memphis Grizzlies",
+    "Result": "W",
+    "Score": {
+      "Team": 102,
+      "Opponent": 93
+    },
+    "Wins": 25,
+    "Losses": 7,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 33,
+    "Date": "December 18 2017",
+    "Time": "7:00p",
+    "Location": "@",
+    "Opponent": "Indiana Pacers",
+    "Result": "W",
+    "Score": {
+      "Team": 112,
+      "Opponent": 111
+    },
+    "Wins": 26,
+    "Losses": 7,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 34,
+    "Date": "December 20 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Miami Heat",
+    "Result": "L",
+    "Score": {
+      "Team": 89,
+      "Opponent": 90
+    },
+    "Wins": 26,
+    "Losses": 8,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 35,
+    "Date": "December 21 2017",
+    "Time": "8:00p",
+    "Location": "@",
+    "Opponent": "New York Knicks",
+    "Result": "L",
+    "Score": {
+      "Team": 93,
+      "Opponent": 102
+    },
+    "Wins": 26,
+    "Losses": 9,
+    "Streak": "L 2"
+  },
+  {
+    "Game": 36,
+    "Date": "December 23 2017",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Chicago Bulls",
+    "Result": "W",
+    "Score": {
+      "Team": 117,
+      "Opponent": 92
+    },
+    "Wins": 27,
+    "Losses": 9,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 37,
+    "Date": "December 25 2017",
+    "Time": "5:30p",
+    "Location": "",
+    "Opponent": "Washington Wizards",
+    "Result": "L",
+    "Score": {
+      "Team": 103,
+      "Opponent": 111
+    },
+    "Wins": 27,
+    "Losses": 10,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 38,
+    "Date": "December 27 2017",
+    "Time": "7:00p",
+    "Location": "@",
+    "Opponent": "Charlotte Hornets",
+    "Result": "W",
+    "Score": {
+      "Team": 102,
+      "Opponent": 91
+    },
+    "Wins": 28,
+    "Losses": 10,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 39,
+    "Date": "December 28 2017",
+    "Time": "8:00p",
+    "Location": "",
+    "Opponent": "Houston Rockets",
+    "Result": "W",
+    "Score": {
+      "Team": 99,
+      "Opponent": 98
+    },
+    "Wins": 29,
+    "Losses": 10,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 40,
+    "Date": "December 31 2017",
+    "Time": "5:30p",
+    "Location": "",
+    "Opponent": "Brooklyn Nets",
+    "Result": "W",
+    "Score": {
+      "Team": 108,
+      "Opponent": 105
+    },
+    "Wins": 30,
+    "Losses": 10,
+    "Streak": "W 3"
+  },
+  {
+    "Game": 41,
+    "Date": "January 3 2018",
+    "Time": "8:00p",
+    "Location": "",
+    "Opponent": "Cleveland Cavaliers",
+    "Result": "W",
+    "Score": {
+      "Team": 102,
+      "Opponent": 88
+    },
+    "Wins": 31,
+    "Losses": 10,
+    "Streak": "W 4"
+  },
+  {
+    "Game": 42,
+    "Date": "January 5 2018",
+    "Time": "7:00p",
+    "Location": "",
+    "Opponent": "Minnesota Timberwolves",
+    "Result": "W",
+    "Score": {
+      "Team": 91,
+      "Opponent": 84
+    },
+    "Wins": 32,
+    "Losses": 10,
+    "Streak": "W 5"
+  },
+  {
+    "Game": 43,
+    "Date": "January 6 2018",
+    "Time": "6:00p",
+    "Location": "@",
+    "Opponent": "Brooklyn Nets",
+    "Result": "W",
+    "Score": {
+      "Team": 87,
+      "Opponent": 85
+    },
+    "Wins": 33,
+    "Losses": 10,
+    "Streak": "W 6"
+  },
+  {
+    "Game": 44,
+    "Date": "January 11 2018",
+    "Time": "3:00p",
+    "Location": "@",
+    "Opponent": "Philadelphia 76ers",
+    "Result": "W",
+    "Score": {
+      "Team": 114,
+      "Opponent": 103
+    },
+    "Wins": 34,
+    "Losses": 10,
+    "Streak": "W 7",
+    "Notes": "at London England"
+  },
+  {
+    "Game": 45,
+    "Date": "January 16 2018",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "New Orleans Pelicans",
+    "Result": "L",
+    "Overtime": true,
+    "Score": {
+      "Team": 113,
+      "Opponent": 116
+    },
+    "Wins": 34,
+    "Losses": 11,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 46,
+    "Date": "January 18 2018",
+    "Time": "7:00p",
+    "Location": "",
+    "Opponent": "Philadelphia 76ers",
+    "Result": "L",
+    "Score": {
+      "Team": 80,
+      "Opponent": 89
+    },
+    "Wins": 34,
+    "Losses": 12,
+    "Streak": "L 2"
+  },
+  {
+    "Game": 47,
+    "Date": "January 21 2018",
+    "Time": "1:00p",
+    "Location": "",
+    "Opponent": "Orlando Magic",
+    "Result": "L",
+    "Score": {
+      "Team": 95,
+      "Opponent": 103
+    },
+    "Wins": 34,
+    "Losses": 13,
+    "Streak": "L 3"
+  },
+  {
+    "Game": 48,
+    "Date": "January 23 2018",
+    "Time": "10:30p",
+    "Location": "@",
+    "Opponent": "Los Angeles Lakers",
+    "Result": "L",
+    "Score": {
+      "Team": 107,
+      "Opponent": 108
+    },
+    "Wins": 34,
+    "Losses": 14,
+    "Streak": "L 4"
+  },
+  {
+    "Game": 49,
+    "Date": "January 24 2018",
+    "Time": "10:30p",
+    "Location": "@",
+    "Opponent": "Los Angeles Clippers",
+    "Result": "W",
+    "Score": {
+      "Team": 113,
+      "Opponent": 102
+    },
+    "Wins": 35,
+    "Losses": 14,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 50,
+    "Date": "January 27 2018",
+    "Time": "8:30p",
+    "Location": "@",
+    "Opponent": "Golden State Warriors",
+    "Result": "L",
+    "Score": {
+      "Team": 105,
+      "Opponent": 109
+    },
+    "Wins": 35,
+    "Losses": 15,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 51,
+    "Date": "January 29 2018",
+    "Time": "9:00p",
+    "Location": "@",
+    "Opponent": "Denver Nuggets",
+    "Result": "W",
+    "Score": {
+      "Team": 111,
+      "Opponent": 110
+    },
+    "Wins": 36,
+    "Losses": 15,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 52,
+    "Date": "January 31 2018",
+    "Time": "8:00p",
+    "Location": "",
+    "Opponent": "New York Knicks",
+    "Result": "W",
+    "Score": {
+      "Team": 103,
+      "Opponent": 73
+    },
+    "Wins": 37,
+    "Losses": 15,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 53,
+    "Date": "February 2 2018",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Atlanta Hawks",
+    "Result": "W",
+    "Score": {
+      "Team": 119,
+      "Opponent": 110
+    },
+    "Wins": 38,
+    "Losses": 15,
+    "Streak": "W 3"
+  },
+  {
+    "Game": 54,
+    "Date": "February 4 2018",
+    "Time": "12:00p",
+    "Location": "",
+    "Opponent": "Portland Trail Blazers",
+    "Result": "W",
+    "Score": {
+      "Team": 97,
+      "Opponent": 96
+    },
+    "Wins": 39,
+    "Losses": 15,
+    "Streak": "W 4"
+  },
+  {
+    "Game": 55,
+    "Date": "February 6 2018",
+    "Time": "7:30p",
+    "Location": "@",
+    "Opponent": "Toronto Raptors",
+    "Result": "L",
+    "Score": {
+      "Team": 91,
+      "Opponent": 111
+    },
+    "Wins": 39,
+    "Losses": 16,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 56,
+    "Date": "February 8 2018",
+    "Time": "8:00p",
+    "Location": "@",
+    "Opponent": "Washington Wizards",
+    "Result": "W",
+    "Overtime": true,
+    "Score": {
+      "Team": 110,
+      "Opponent": 104
+    },
+    "Wins": 40,
+    "Losses": 16,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 57,
+    "Date": "February 9 2018",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Indiana Pacers",
+    "Result": "L",
+    "Score": {
+      "Team": 91,
+      "Opponent": 97
+    },
+    "Wins": 40,
+    "Losses": 17,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 58,
+    "Date": "February 11 2018",
+    "Time": "3:30p",
+    "Location": "",
+    "Opponent": "Cleveland Cavaliers",
+    "Result": "L",
+    "Score": {
+      "Team": 99,
+      "Opponent": 121
+    },
+    "Wins": 40,
+    "Losses": 18,
+    "Streak": "L 2"
+  },
+  {
+    "Game": 59,
+    "Date": "February 14 2018",
+    "Time": "8:00p",
+    "Location": "",
+    "Opponent": "Los Angeles Clippers",
+    "Result": "L",
+    "Score": {
+      "Team": 119,
+      "Opponent": 129
+    },
+    "Wins": 40,
+    "Losses": 19,
+    "Streak": "L 3"
+  },
+  {
+    "Game": 60,
+    "Date": "February 23 2018",
+    "Time": "7:00p",
+    "Location": "@",
+    "Opponent": "Detroit Pistons",
+    "Result": "W",
+    "Score": {
+      "Team": 110,
+      "Opponent": 98
+    },
+    "Wins": 41,
+    "Losses": 19,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 61,
+    "Date": "February 24 2018",
+    "Time": "7:30p",
+    "Location": "@",
+    "Opponent": "New York Knicks",
+    "Result": "W",
+    "Score": {
+      "Team": 121,
+      "Opponent": 112
+    },
+    "Wins": 42,
+    "Losses": 19,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 62,
+    "Date": "February 26 2018",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Memphis Grizzlies",
+    "Result": "W",
+    "Score": {
+      "Team": 109,
+      "Opponent": 98
+    },
+    "Wins": 43,
+    "Losses": 19,
+    "Streak": "W 3"
+  },
+  {
+    "Game": 63,
+    "Date": "February 28 2018",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Charlotte Hornets",
+    "Result": "W",
+    "Score": {
+      "Team": 134,
+      "Opponent": 106
+    },
+    "Wins": 44,
+    "Losses": 19,
+    "Streak": "W 4"
+  },
+  {
+    "Game": 64,
+    "Date": "March 3 2018",
+    "Time": "8:30p",
+    "Location": "@",
+    "Opponent": "Houston Rockets",
+    "Result": "L",
+    "Score": {
+      "Team": 120,
+      "Opponent": 123
+    },
+    "Wins": 44,
+    "Losses": 20,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 65,
+    "Date": "March 5 2018",
+    "Time": "8:00p",
+    "Location": "@",
+    "Opponent": "Chicago Bulls",
+    "Result": "W",
+    "Score": {
+      "Team": 105,
+      "Opponent": 89
+    },
+    "Wins": 45,
+    "Losses": 20,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 66,
+    "Date": "March 8 2018",
+    "Time": "8:00p",
+    "Location": "@",
+    "Opponent": "Minnesota Timberwolves",
+    "Result": "W",
+    "Score": {
+      "Team": 117,
+      "Opponent": 109
+    },
+    "Wins": 46,
+    "Losses": 20,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 67,
+    "Date": "March 11 2018",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Indiana Pacers",
+    "Result": "L",
+    "Score": {
+      "Team": 97,
+      "Opponent": 99
+    },
+    "Wins": 46,
+    "Losses": 21,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 68,
+    "Date": "March 14 2018",
+    "Time": "8:00p",
+    "Location": "",
+    "Opponent": "Washington Wizards",
+    "Result": "L",
+    "Score": {
+      "Team": 124,
+      "Opponent": 125
+    },
+    "Wins": 46,
+    "Losses": 22,
+    "Streak": "L 2"
+  },
+  {
+    "Game": 69,
+    "Date": "March 16 2018",
+    "Time": "7:00p",
+    "Location": "@",
+    "Opponent": "Orlando Magic",
+    "Result": "W",
+    "Score": {
+      "Team": 92,
+      "Opponent": 83
+    },
+    "Wins": 47,
+    "Losses": 22,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 70,
+    "Date": "March 18 2018",
+    "Time": "6:00p",
+    "Location": "@",
+    "Opponent": "New Orleans Pelicans",
+    "Result": "L",
+    "Score": {
+      "Team": 89,
+      "Opponent": 108
+    },
+    "Wins": 47,
+    "Losses": 23,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 71,
+    "Date": "March 20 2018",
+    "Time": "8:00p",
+    "Location": "",
+    "Opponent": "Oklahoma City Thunder",
+    "Result": "W",
+    "Score": {
+      "Team": 100,
+      "Opponent": 99
+    },
+    "Wins": 48,
+    "Losses": 23,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 72,
+    "Date": "March 23 2018",
+    "Time": "10:00p",
+    "Location": "@",
+    "Opponent": "Portland Trail Blazers",
+    "Result": "W",
+    "Score": {
+      "Team": 105,
+      "Opponent": 100
+    },
+    "Wins": 49,
+    "Losses": 23,
+    "Streak": "W 2"
+  },
+  {
+    "Game": 73,
+    "Date": "March 25 2018",
+    "Time": "6:00p",
+    "Location": "@",
+    "Opponent": "Sacramento Kings",
+    "Result": "W",
+    "Score": {
+      "Team": 104,
+      "Opponent": 93
+    },
+    "Wins": 50,
+    "Losses": 23,
+    "Streak": "W 3"
+  },
+  {
+    "Game": 74,
+    "Date": "March 26 2018",
+    "Time": "10:00p",
+    "Location": "@",
+    "Opponent": "Phoenix Suns",
+    "Result": "W",
+    "Score": {
+      "Team": 102,
+      "Opponent": 94
+    },
+    "Wins": 51,
+    "Losses": 23,
+    "Streak": "W 4"
+  },
+  {
+    "Game": 75,
+    "Date": "March 28 2018",
+    "Time": "9:30p",
+    "Location": "@",
+    "Opponent": "Utah Jazz",
+    "Result": "W",
+    "Score": {
+      "Team": 97,
+      "Opponent": 94
+    },
+    "Wins": 52,
+    "Losses": 23,
+    "Streak": "W 5"
+  },
+  {
+    "Game": 76,
+    "Date": "March 31 2018",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Toronto Raptors",
+    "Result": "W",
+    "Score": {
+      "Team": 110,
+      "Opponent": 99
+    },
+    "Wins": 53,
+    "Losses": 23,
+    "Streak": "W 6"
+  },
+  {
+    "Game": 77,
+    "Date": "April 3 2018",
+    "Time": "8:00p",
+    "Location": "@",
+    "Opponent": "Milwaukee Bucks",
+    "Result": "L",
+    "Score": {
+      "Team": 102,
+      "Opponent": 106
+    },
+    "Wins": 53,
+    "Losses": 24,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 78,
+    "Date": "April 4 2018",
+    "Time": "8:00p",
+    "Location": "@",
+    "Opponent": "Toronto Raptors",
+    "Result": "L",
+    "Score": {
+      "Team": 78,
+      "Opponent": 96
+    },
+    "Wins": 53,
+    "Losses": 25,
+    "Streak": "L 2"
+  },
+  {
+    "Game": 79,
+    "Date": "April 6 2018",
+    "Time": "7:30p",
+    "Location": "",
+    "Opponent": "Chicago Bulls",
+    "Result": "W",
+    "Score": {
+      "Team": 111,
+      "Opponent": 104
+    },
+    "Wins": 54,
+    "Losses": 25,
+    "Streak": "W 1"
+  },
+  {
+    "Game": 80,
+    "Date": "April 8 2018",
+    "Time": "1:00p",
+    "Location": "",
+    "Opponent": "Atlanta Hawks",
+    "Result": "L",
+    "Score": {
+      "Team": 106,
+      "Opponent": 112
+    },
+    "Wins": 54,
+    "Losses": 26,
+    "Streak": "L 1"
+  },
+  {
+    "Game": 81,
+    "Date": "April 10 2018",
+    "Time": "8:00p",
+    "Location": "@",
+    "Opponent": "Washington Wizards",
+    "Result": "L",
+    "Score": {
+      "Team": 101,
+      "Opponent": 113
+    },
+    "Wins": 54,
+    "Losses": 27,
+    "Streak": "L 2"
+  },
+  {
+    "Game": 82,
+    "Date": "April 11 2018",
+    "Time": "8:00p",
+    "Location": "",
+    "Opponent": "Brooklyn Nets",
+    "Result": "W",
+    "Score": {
+      "Team": 110,
+      "Opponent": 97
+    },
+    "Wins": 55,
+    "Losses": 27,
+    "Streak": "W 1"
+  }
+]

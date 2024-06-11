@@ -1,0 +1,208 @@
+.slider-step-container{
+  @media (min-width:978px){
+    background-image: url('../img/timeline-grey-bg.svg');
+  }
+  background-image: url('../img/mobile-grey-bg.svg');
+
+  .outer-container{
+    @media (max-width:978px){
+      padding: 35px !important;
+    }
+  }
+
+}
+
+.slider-container{
+  @media (min-width:978px){
+    background-image: url('../img/timeline-bg.svg');
+  }
+  background-image: url('../img/timeline-bg-mobile.svg');
+}
+
+.matches-container{
+  @media (min-width:978px){
+    width: 94%;
+    height: 470px;
+  }
+  @media (min-width:1160px){
+    width: 94%;
+    height: 549px;
+  }
+  @media (min-width:1366px){
+    width: 90%;
+    height: 600px;
+  }
+  @media (min-width:1480px){
+    width: 85%;
+    height: 600px;
+  }
+  @media (min-width:1560px){
+    width: 75%;
+    height: 580px;
+  }
+  @media (min-width:1700px){
+    width: 65%;
+    height: 570px;
+  }
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -115%);
+  z-index: 999999;
+  display: block;
+  width: 97%;
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+
+  .controls{
+    @media (max-width:978px){
+      right: 50%;
+      transform: translate(50%, 0);
+    }
+    background: rgb(236,98,61);
+    background: linear-gradient(90deg, rgba(236,98,61,1) 0%, rgba(197,90,72,1) 58%, rgba(159,92,102,1) 100%);
+    padding: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: max-content;
+    position: absolute;
+    right: 5%;
+    .main-button{
+      @media (max-width:978px){
+        min-width: 125px !important;
+      }
+      box-shadow: 0 0 2px 3px #63636317;
+      cursor: pointer;
+      background: #d29a94;
+    }
+  }
+}
+
+.player-movement-box{
+  @media (min-width:978px){
+    clip-path: polygon(8% 0, 88% 0, 94% 50%, 100% 100%, 0 100%, 0 10%);
+  }
+  position: relative;
+  background: rgb(237,98,61);
+  padding: 15px;
+  background: linear-gradient(90deg, rgba(237,98,61,1) 0%, rgba(158,95,110,1) 53%, rgba(106,92,143,1) 100%);
+  clip-path: polygon(5% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 5%);
+
+  .player-image{
+    @media (max-width:978px){
+      height: 150px;
+      width: 200px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.step-title{
+  @media (max-width:978px){
+    min-height: 390px;
+  }
+  @media (min-width:978px){
+    clip-path: polygon(3% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 14%);
+    padding-bottom: 5px;
+    &:after{
+      width: 2px;
+      height: 60%;
+      left: 53%;
+      content: '';
+      position: absolute;
+      background: #ead8d8;
+      transform: translateX(-50%);
+    }
+  }
+  position: relative;
+  background: rgb(237,98,61);
+  background: linear-gradient(90deg, rgba(237,98,61,1) 0%, rgba(158,95,110,1) 53%, rgba(106,92,143,1) 100%);
+  clip-path: polygon(13% 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 10%);
+  padding-bottom: 15px;
+
+  .step-title-text{
+    @media (max-width:978px){
+      &:after{
+        width: 40%;
+        height: 2px;
+        left: 50%;
+        content: '';
+        position: absolute;
+        background: #ead8d8;
+        transform: translateX(-50%);
+        bottom: -12px;
+      }
+    }
+  }
+
+}
+#radarChart{
+  @media (max-width:978px){
+    width: 200px;
+    height: 200px;
+  }
+  width: 400px;
+  height: 400px;
+}
+
+.outer-circle{
+  @media (max-width:978px){
+    margin-top: 50px !important;
+    width: 200px;
+    height: 200px;
+  }
+  width: 400px;
+  height: 400px;
+}
+
+#myCanvas{
+  position: absolute;
+  z-index: 101;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#radarChart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.timeline-slide{
+  cursor: pointer;
+  @media (min-width:978px){
+    &:before{
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ffffff;
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+    }
+    &:after{
+      content: "";
+      width: 15px;
+      height: 15px;
+      background-color: white;
+      border-radius: 25px;
+      border: 1px solid #ddd;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      left: 50%;
+      transition: all 200ms ease-in;
+      cursor: pointer;
+    }
+  }
+
+
+}
+

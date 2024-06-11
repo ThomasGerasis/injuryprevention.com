@@ -1,0 +1,35 @@
+body{font-family:Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:.8125rem;line-height:1.5385;color:#333;margin:.9375rem 1.25rem}.cke_editable{font-size:.8125rem;line-height:1.5385;word-wrap:break-word}blockquote{font-style:italic;font-family:Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:.9375rem;padding:.3125rem 0;border-style:solid;border-color:#eee;border-width:0;padding-left:1.25rem;padding-right:1.25rem;border-left-width:5px}a{color:#2196f3}a:hover{color:#0a6ebd}dl,ol,ul{padding:0 1.875rem}h1,h2,h3,h4,h5,h6{font-weight:400;line-height:1.5385}hr{border:0;border-top:1px solid #ddd}img.right{border:1px solid #ddd;float:right;margin-left:1.25rem;padding:.3125rem}img.left{border:1px solid #ddd;float:left;margin-right:1.25rem;padding:.3125rem}pre{white-space:pre-wrap;word-wrap:break-word;-moz-tab-size:4;-o-tab-size:4;tab-size:4}.marker{background-color:#fcf8e3;padding:.25rem .5rem}span[lang]{font-style:italic}figure{text-align:center;outline:1px solid #ddd;background:#fff;padding:.625rem;margin:1.25rem;display:inline-block}figure>figcaption{text-align:center;display:block}a>img{padding:0;margin:0;border:none;outline:0}.image-clean{border:0;background:0 0;padding:0}.image-clean>figcaption{font-size:.9em;text-align:right}.image-grayscale{background-color:#fff;color:#666}.image-grayscale img,img.image-grayscale{-webkit-filter:grayscale(100%);filter:grayscale(100%)}.embed-240p{max-width:426px;max-height:240px;margin:0 auto}.embed-360p{max-width:640px;max-height:360px;margin:0 auto}.embed-480p{max-width:854px;max-height:480px;margin:0 auto}.embed-720p{max-width:1280px;max-height:720px;margin:0 auto}.embed-1080p{max-width:1920px;max-height:1080px;margin:0 auto}
+/*fox styles*/
+.font-xs{font-size:60%;}
+.font-0-8{font-size:0.8rem;}
+.font-0-9{font-size:0.9rem;}
+.font-1{font-size:1rem;}
+.font-1-1{font-size:1.1rem;}
+.font-1-2{font-size:1.2rem;}
+.font-1-3{font-size:1.3rem;}
+.font-1-4{font-size:1.4rem;}
+.font-1-5{font-size:1.5rem;}
+.font-2{font-size:2rem;}
+.font-3{font-size:3rem;}
+.font-4{font-size:4rem;}
+.font-fff{color:#fff}
+.font-orange{color:#fe4f00}
+.divider{margin:10px 0 20px;clear:both;height:10px;display:block;overflow:hidden;background:url(//www.foxbet.gr/wp-content/themes/jarida/images/stripe.png) 0 0 repeat-x}.highlight{background:#ff9}.dropcap{display:block;float:left;margin:0 8px 0 0;font-size:50px;line-height:50px}.starlist li,.checklist li,.xlist li{background-position:left top;background-repeat:no-repeat;padding-left:25px;list-style:none !important}.starlist li{background-image:url('https://www.foxbet.gr/wp-content/themes/jarida/images/bullet_star.png')}.checklist li{background-image:url('https://www.foxbet.gr/wp-content/themes/jarida/images/bullet_check.png')}.xlist li{background-image:url('https://www.foxbet.gr/wp-content/themes/jarida/images/bullet_x.png')}
+.fbox{padding:20px;background-color:#f6f6f6;margin-bottom:20px;word-wrap:break-word;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;border:1px solid #fff}
+.fbox.shadow,.fbox.shadow2{-moz-box-shadow:2px 2px 7px rgba(153,153,153,.6);-webkit-box-shadow:2px 2px 7px rgba(153,153,153,.6);box-shadow:2px 2px 7px rgba(153,153,153,.6);border:1px solid #aaa}
+.fbox.info{background:#d6f6ff;border-color:#bfe3ec}
+.fbox.success{background:#e2f2cb;border-color:#d1e4b7}
+.fbox.warning{background:#fffddb;border-color:#e9e59e}
+.fbox.error{background:#ffe6e2;border-color:#eebfb8}
+.fbox.download{background:#e2f2cb;border-color:#d1e4b7}
+.fbox.shadow2{padding:5px}
+.fbox.float-right {
+    float: right;
+}
+.fbox.float-left {
+    float: left;
+}
+.fbox.float-center {
+    margin-left: auto;
+    margin-right: auto;
+}

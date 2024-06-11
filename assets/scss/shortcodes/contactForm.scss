@@ -1,0 +1,11 @@
+.contact-form{
+  input,textarea{
+    background: #a88d91;
+    border: none;
+    padding: 20px;
+    border-radius: 0;
+    &::placeholder{
+      color: #e5d9d9;
+    }
+  }
+}

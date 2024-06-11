@@ -1,0 +1,20 @@
+{
+    "stats": [
+        {
+            "Number of games played": 85,
+            "Number of full games analyzed": 77
+        },
+        {
+            "Number of games played": 85,
+            "Non-full games analyzed": 2
+        },
+        {
+            "Number of games played": 85,
+            "Number of games not analyzed due to difficulty finding the game": 6
+        },
+        {
+            "Number of games played": 85,
+            "Data pool": 22148
+        }
+    ]
+}

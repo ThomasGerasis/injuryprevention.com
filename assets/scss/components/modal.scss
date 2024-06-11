@@ -1,0 +1,130 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-popup:not(.show) {
+  opacity: 0;
+}
+
+.modal-popup {
+  @media (min-width: 1024px) {
+    width: 100vw;
+    height: 100vh;
+  }
+  position: fixed;
+  z-index: 9999;
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
+  border-radius: 0.6rem;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop.show {
+  opacity: .5;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.fade {
+  transition: opacity 0.15s linear;
+}
+
+.ajaxLoginModal .modal-container {
+  @media (min-width: 680px) {
+    max-width: 50%;
+  }
+  @media (min-width: 992px) {
+    max-width: 35%;
+  }
+  @media (min-width: 1480px) {
+    max-width: 25%;
+  }
+  max-width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1024px) {
+  //.modal-popup.fade .modal-container {
+  //  transform: translate(-50%, -90%);
+  //}
+  //.modal-popup.show .modal-container {
+  //  transform: translate(-50%, -50%);
+  //}
+  .ajaxModal .modal-container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: 1479px) and (min-width: 1024px) {
+      max-width: 90%;
+    }
+    @media (min-width: 1480px) {
+      max-width: 70%;
+    }
+    max-width: 100%;
+  }
+}
+
+.modal-container {
+  transition: transform .3s ease-out;
+  position: relative;
+  width: auto;
+}
+
+.close-modal {
+  @media (min-width: 1024px) {
+    right: 10px;
+    top: 10px;
+  }
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+  z-index: 1056;
+  filter: brightness(0.6);
+}
+
+.modal-body {
+  @media (min-width: 1024px) {
+    .modal-body {
+      padding: 1.5rem;
+    }
+  }
+  width: auto;
+  position: relative;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  color: #fff;
+  pointer-events: auto;
+  background-color: #000;
+  background-clip: padding-box;
+  border: 1px solid $secondary;
+  border-radius: 0.6rem;
+  outline: 0;
+
+  p {
+    @media (max-width: 1023px) {
+      font-size: 0.8rem;
+    }
+  }
+}

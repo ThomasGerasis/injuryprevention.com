@@ -1,0 +1,19 @@
+.player-row-slide{
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  .player-box{
+    @media (min-width:978px){
+      min-height: 220px;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    padding: 10px;
+  }
+}

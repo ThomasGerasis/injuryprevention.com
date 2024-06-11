@@ -1,0 +1,1 @@
+<div class="vertical-space-<?php echo (empty($attrs['height']) ? 10 : $attrs['height']);?>"></div>

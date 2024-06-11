@@ -1,0 +1,201 @@
+$primary: #231f20;
+$secondary: #3a3738;
+$menu: #101318;
+$submenu: #262626;
+$blackish: #0F1116;
+$live: #c60f01;
+$menu-hover: #3D2300;
+$menu-selected: #9E6210;
+$white-opacity-20: rgba(255, 255, 255, 0.2);
+$white-opacity-50: rgba(255, 255, 255, 0.5);
+$white-opacity-60: rgba(255, 255, 255, 0.6);
+$white-opacity-75: rgba(255, 255, 255, 0.75);
+$dark-grey: #333333;
+$grey: #191919;
+$black-grey: #121212;
+$light-grey:#b2b2b2;
+
+.font-red{
+  color: #ce532f;
+}
+
+.font-fff,
+.font-fff:hover {
+  color: #fff;
+}
+
+.font-000,
+.font-000-hover:hover {
+  color: #000;
+}
+
+.font-fff-opacity-75 {
+  color: $white-opacity-75;
+}
+
+.font-fff-opacity-60 {
+  color: $white-opacity-60;
+}
+
+.font-secondary {
+  color: $secondary;
+}
+
+.font-40 {
+  color: #404040;
+}
+
+.font-blackish {
+  color: $blackish;
+}
+
+.font-weight-normal {
+  font-weight: 400;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
+.w-100{
+  width: 100%;
+}
+.w-20{
+  width: 80%;
+}
+.w-50{
+  width: 50%;
+}
+.w-80{
+  width: 80%;
+}
+.justify-content-around{
+  justify-content: space-around;
+}
+.justify-content-between{
+  justify-content: space-between;
+}
+
+
+$displays: (flex, block, inline-block, none);
+@each $display in $displays {
+  .d-#{$display} {
+    display: #{$display};
+  }
+}
+
+@media (min-width:978px){
+  @each $display in $displays {
+    .d-xl-#{$display} {
+      display: #{$display};
+    }
+  }
+}
+
+@media (max-width:978px) {
+  @each $display in $displays {
+    .d-#{$display} {
+      display: #{$display} !important;
+    }
+  }
+}
+
+$positions: (relative, absolute, inherit);
+@each $position in $positions {
+  .position-#{$position} {
+    position: #{$position};
+  }
+}
+
+$orders: (right, left, center);
+@each $order in $orders {
+  .text-#{$order} {
+    text-align: #{$order};
+  }
+  .align-items-#{$order}{
+    align-items: #{$order};
+  }
+}
+
+//$flexes: (wrap, column, row);
+//@each $flex in $flexes {
+//  .flex-#{$flex} {
+//    flex-flow: #{$flex};
+//  }
+//}
+
+$sizes: (0,3, 4, 5, 8, 9, 10, 15, 20, 25, 30, 40, 50,100,200,300);
+@each $size in $sizes {
+  .border-radius-#{$size} {
+    border-radius: #{$size}px;
+  }
+  .margin-top-#{$size}{
+    margin-top: #{$size}px;
+  }
+
+  .margin-bottom-#{$size}{
+    margin-bottom: #{$size}px;
+  }
+
+  .margin-left-#{$size}{
+    margin-left: #{$size}px;
+  }
+  .margin-right-#{$size}{
+    margin-right: #{$size}px;
+  }
+  .padding-left-#{$size}{
+    padding-left: #{$size}px;
+  }
+  .padding-right-#{$size}{
+    padding-right: #{$size}px;
+  }
+  .padding-#{$size}{
+    padding: #{$size}px !important;
+  }
+  .margin-#{$size}{
+    margin: #{$size}px !important;
+  }
+}
+
+
+@media (min-width:978px){
+  @each $size in $sizes {
+    .padding-xl-#{$size}{
+      padding: #{$size}px !important;
+    }
+    .margin-xl-#{$size}{
+      padding: #{$size}px !important;
+    }
+
+    .margin-top-xl-#{$size}{
+      margin-top: #{$size}px !important;
+    }
+
+    .margin-bottom-xl-#{$size}{
+      margin-bottom: #{$size}px !important;
+    }
+
+    .margin-left-xl-#{$size}{
+      margin-left: #{$size}px !important;
+    }
+    .margin-right-xl-#{$size}{
+      margin-right: #{$size}px !important;
+    }
+  }
+}
+
+$borderSizes: (1, 2, 3, 4, 5);
+@each $borderSize in $borderSizes {
+  .border-solid-#{$borderSize} {
+    border: #{$borderSize}px solid;
+  }
+}
+

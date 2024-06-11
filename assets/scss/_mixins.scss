@@ -1,0 +1,28 @@
+@mixin swiper-cls-fix-type1 {
+  max-width: 100%;
+  @media (min-width: 758px) {
+    max-width: calc(50% - 30px);
+    margin-right: 30px;
+  }
+  @media (min-width: 992px) {
+    max-width: calc(33% - 30px);
+    margin-right: 30px;
+  }
+}
+
+
+@mixin swiper-cls-fix-type2 {
+  max-width: 100%;
+  @media (min-width: 576px) {
+    max-width: calc(50% - 25px);
+    margin-right: 25px;
+  }
+  @media (min-width: 992px) {
+    max-width: calc(33% - 25px);
+    margin-right: 25px;
+  }
+  @media (min-width: 1400px) {
+    max-width: calc(25% - 30px);
+    margin-right: 30px;
+  }
+}

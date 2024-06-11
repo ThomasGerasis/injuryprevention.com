@@ -1,0 +1,119 @@
+//.flip-clock__piece:not(:last-child) {
+//  margin: 0 5px;
+//}
+
+.flip-clock__piece{
+  min-width: 82px;
+}
+
+.flip-clock__slot {
+  font-size: 11px;
+  line-height: 11px;
+  color: #FD960B;
+  padding-top: 5px;
+}
+
+.clock-card {
+  padding-bottom: $clockHeight;
+  font-size: 36px;
+  line-height: 41px;
+  overflow: hidden;
+}
+
+.card__top,
+.card__bottom,
+.card__back::before,
+.card__back::after {
+  display: block;
+  height: $clockHeight;
+  color: #ccc;
+  background: #222;
+  padding: 0.25em 0.25em;
+  border-radius: $clockBorderRadius $clockBorderRadius 0 0;
+  backface-visiblity: hidden;
+  transform-style: preserve-3d;
+  width: 1.8em;
+  transform: translateZ(0);
+}
+
+.card__bottom {
+  color: #FFF;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-top: solid 1px #000;
+  background: #393939;
+  border-radius: 0 0 $clockBorderRadius $clockBorderRadius;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.card__bottom::after {
+  display: block;
+  margin-top: -$clockHeight;
+}
+
+.card__back::before,
+.card__bottom::after {
+  content: attr(data-value);
+}
+
+.card__back {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+}
+
+.card__back::before {
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.flip .card__back::before {
+  animation: flipTop 0.3s cubic-bezier(.37, .01, .94, .35);
+  animation-fill-mode: both;
+  transform-origin: center bottom;
+}
+
+.flip .card__back .card__bottom {
+  transform-origin: center top;
+  animation-fill-mode: both;
+  animation: flipBottom 0.6s cubic-bezier(.15, .45, .28, 1); // 0.3s;
+}
+
+@keyframes flipTop {
+  0% {
+    /*transform: rotateX(0deg);*/
+    rotate: x 0deg;
+    z-index: 2;
+  }
+  0%, 99% {
+    opacity: 0.99;
+  }
+  100% {
+    /*transform: rotateX(-90deg);*/
+    rotate: x -90deg;
+    opacity: 0;
+  }
+}
+
+@keyframes flipBottom {
+  0%, 50% {
+    z-index: -1;
+    /*transform: rotateX(90deg);*/
+    rotate: x 90deg;
+    opacity: 0;
+  }
+  51% {
+    opacity: 0.99;
+  }
+  100% {
+    opacity: 0.99;
+    /*transform: rotateX(0deg);*/
+    rotate: x 0deg;
+    z-index: 5;
+  }
+}

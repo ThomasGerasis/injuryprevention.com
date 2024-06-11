@@ -1,0 +1,99 @@
+//#onesignal-popover-container.slide-down #onesignal-popover-dialog,
+//#onesignal-popover-container.slide-down #onesignal-slidedown-dialog,
+//#onesignal-slidedown-container.slide-down #onesignal-popover-dialog,
+//#onesignal-slidedown-container.slide-down #onesignal-slidedown-dialog{
+//  width: 920px !important;
+//}
+
+#onesignal-popover-container #onesignal-popover-dialog,
+#onesignal-popover-container #onesignal-slidedown-dialog,
+#onesignal-slidedown-container #onesignal-popover-dialog,
+#onesignal-slidedown-container #onesignal-slidedown-dialog{
+  border-bottom: 1px solid #ea9216 !important;
+  border-left: 1px solid #ea9216 !important;
+  border-right: 1px solid #ea9216 !important;
+  background: #000000!important;
+  color: #ffffff !important;
+}
+body #onesignal-slidedown-dialog{
+  @media (max-width: 992px) {
+    padding: 0.7em !important;
+  }
+  background: #000000!important;
+  color: #ffffff !important;
+}
+#onesignal-popover-container .tagging-container, #onesignal-slidedown-container .tagging-container{
+  margin: 1.3em 0 !important;
+}
+
+#onesignal-popover-container .tagging-container, #onesignal-slidedown-container .tagging-container{
+  @media (min-width: 992px) {
+    gap: 3rem !important;
+  }
+  justify-content: center;
+}
+
+#onesignal-popover-container .onesignal-category-label, #onesignal-slidedown-container .onesignal-category-label{
+  color: #f29215 !important;
+}
+
+#onesignal-popover-container .onesignal-category-label .onesignal-category-label-input:checked~.onesignal-checkmark,
+#onesignal-slidedown-container .onesignal-category-label .onesignal-category-label-input:checked~.onesignal-checkmark{
+  background-color: #f49a13 !important;
+  border-radius: 50% !important;
+}
+
+#onesignal-popover-container .onesignal-category-label .onesignal-checkmark:after,
+#onesignal-slidedown-container .onesignal-category-label .onesignal-checkmark:after{
+  border-color: #000 !important;
+}
+
+#onesignal-popover-container #onesignal-popover-dialog .popover-button.primary,
+#onesignal-popover-container #onesignal-popover-dialog .slidedown-button.primary,
+#onesignal-popover-container #onesignal-slidedown-dialog .popover-button.primary,
+#onesignal-popover-container #onesignal-slidedown-dialog .slidedown-button.primary,
+#onesignal-slidedown-container #onesignal-popover-dialog .popover-button.primary,
+#onesignal-slidedown-container #onesignal-popover-dialog .slidedown-button.primary,
+#onesignal-slidedown-container #onesignal-slidedown-dialog .popover-button.primary,
+#onesignal-slidedown-container #onesignal-slidedown-dialog .slidedown-button.primary{
+  background: #ea9216 !important;
+  color: #000!important;
+  border-radius: 25px;
+}
+
+#onesignal-slidedown-dialog .slidedown-button.primary:hover{
+  background: #ce7f11 !important;
+}
+
+#onesignal-popover-container #onesignal-popover-dialog .popover-button.secondary,
+#onesignal-popover-container #onesignal-popover-dialog .slidedown-button.secondary,
+#onesignal-popover-container #onesignal-slidedown-dialog .popover-button.secondary,
+#onesignal-popover-container #onesignal-slidedown-dialog .slidedown-button.secondary,
+#onesignal-slidedown-container #onesignal-popover-dialog .popover-button.secondary,
+#onesignal-slidedown-container #onesignal-popover-dialog .slidedown-button.secondary,
+#onesignal-slidedown-container #onesignal-slidedown-dialog .popover-button.secondary,
+#onesignal-slidedown-container #onesignal-slidedown-dialog .slidedown-button.secondary{
+  background: #aaa!important;
+  border-radius: 25px;
+  color: #000000!important;
+}
+
+
+body #onesignal-slidedown-container #onesignal-slidedown-dialog .slidedown-body-message{
+  //text-align: center;
+  color: #fff !important;
+  @media (min-width: 992px) {
+    padding-top: 15px !important;
+  }
+  padding-top: 5px !important;
+}
+
+#onesignal-bell-container.onesignal-reset .onesignal-bell-launcher .onesignal-bell-launcher-dialog button.action{
+  background: #fd960b !important;
+}
+#onesignal-bell-container.onesignal-reset .onesignal-bell-launcher.onesignal-bell-launcher-theme-default .onesignal-bell-launcher-button svg .background {
+  fill: #fd970b !important;
+}
+#onesignal-bell-container.onesignal-reset .onesignal-bell-launcher .onesignal-bell-launcher-dialog button.action:active {
+  background: #e48709 !important;
+}
