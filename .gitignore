@@ -129,7 +129,4 @@ public/dist
 public/dist/*
 
 
-
-.idea
 /node_modules
-/vendor
