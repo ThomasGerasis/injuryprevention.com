@@ -58,11 +58,12 @@
   .controls{
     @media (max-width:978px){
       right: 50%;
+      padding: 10px;
       transform: translate(50%, 0);
     }
     background: rgb(236,98,61);
     background: linear-gradient(90deg, rgba(236,98,61,1) 0%, rgba(197,90,72,1) 58%, rgba(159,92,102,1) 100%);
-    padding: 10px;
+    padding: 5px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     width: max-content;
@@ -71,6 +72,7 @@
     .main-button{
       @media (max-width:978px){
         min-width: 125px !important;
+        padding: 5px;
       }
       box-shadow: 0 0 2px 3px #63636317;
       cursor: pointer;

@@ -1,5 +1,9 @@
 @import "node_modules/swiper/modules/pagination/pagination.scss";
 
+.swiper-pagination-bullets {
+  bottom: -25px !important;
+}
+
 .swiper, swiper-container {
   margin-left: auto;
   margin-right: auto;

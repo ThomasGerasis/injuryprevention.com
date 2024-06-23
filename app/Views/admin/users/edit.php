@@ -38,7 +38,7 @@
 			<div class="form-group row">
 				<label class="col-form-label col-lg-2">Email*</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" required name="email" value="<?php echo @$user['email']; ?>">
+					<input type="email" class="form-control" required name="email" value="<?php echo @$user['email']; ?>">
 				</div>
 			</div>
 			<div class="form-group row">

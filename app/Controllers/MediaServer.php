@@ -11,7 +11,8 @@ class MediaServer extends Controller
 
 	public function index($folder = 'sqr200', $filename){
 
-		$image_sizes = config("ImagesConfig")->image_sizes;
+	    $image_sizes = config("ImagesConfig")->image_sizes;
+
 		if(!in_array($folder, array_keys($image_sizes))){
 			log_message('error','cannot find size for: '.$folder);
 			//return FALSE;
@@ -28,6 +29,7 @@ class MediaServer extends Controller
 		$target_setup = $image_sizes[$folder];
 		$target_file = $folder.'/'.$file_id.'.'.$file_extension;
 		$target_file_abs = config("ImagesConfig")->site_media_path.'/'.$target_file;
+
 		if($folder == 'customSize'){
 			$fnn = explode('_',$file_id);
 			if(count($fnn) >= 3 && is_numeric($fnn[count($fnn)-1]) && is_numeric($fnn[count($fnn)-2])){
@@ -44,16 +46,14 @@ class MediaServer extends Controller
 		}
 		
 		$target_folder = config("ImagesConfig")->site_media_path.'/'.$folder;
-		if (!is_dir($target_folder))
-		{
-			$create_folder = mkdir($target_folder);
-			if ($create_folder == FALSE)
-			{
-				log_message('error','cannot mkdir for '.$target_folder);
-				//return FALSE;
-				throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-			}
-		}
+		if (!is_dir($target_folder)) {
+            $create_folder = mkdir($target_folder);
+            if ($create_folder == FALSE) {
+                log_message('error', 'cannot mkdir for ' . $target_folder);
+                //return FALSE;
+                throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+            }
+        }
 		
 		if (is_file($target_file_abs)){
 			$mimetype = get_image_mime($target_file_abs);

@@ -30,7 +30,7 @@
     </style>
     <link rel="stylesheet" href="/dist/css/bootstrap.css?v=2<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
     <link rel="stylesheet" href="/dist/css/main.css?v=2.5<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
-    <link rel="stylesheet" href="/dist/css/customSwiper.css?v=2.5<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+    <link rel="stylesheet" href="/dist/css/customSwiper.css?v=2.7<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
 
     <?php if (isset($loadCss) && is_array($loadCss)) : ?>
         <?php foreach ($loadCss as $cssFilename) : ?>

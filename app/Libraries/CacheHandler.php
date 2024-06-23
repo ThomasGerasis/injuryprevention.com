@@ -75,8 +75,8 @@ class CacheHandler
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-           $allFixtures = file_get_contents('assets/stats.json');
-           $cached_response =  !empty($allFixtures) ? json_decode($allFixtures,true) : [];
+           $allFixtures = curlGetContent('https://injurypreventionlab.com/assets/stats.json');
+           $cached_response =  !empty($allFixtures) ? $allFixtures : [];
            $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
         }
         return $cached_response;
@@ -84,7 +84,7 @@ class CacheHandler
 
     public function getFixtureByDate($date, $refreshCache = false)
     {
-        $cache_item_name = "fixture_".$date;
+        $cache_item_name = "fixture_data_".$date;
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
@@ -122,8 +122,8 @@ class CacheHandler
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-            $players = file_get_contents('assets/players.json');
-            $cached_response = !empty($players) ? json_decode($players,true) : [];
+            $players = curlGetContent('https://injurypreventionlab.com/assets/players.json');
+            $cached_response = !empty($players) ? $players : [];
             $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
         }
         return $cached_response;

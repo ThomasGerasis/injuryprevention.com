@@ -41,7 +41,6 @@ class AccessControl extends BaseController
 
 	function logout()
 	{
-	    die('logot');
 		$this->session->remove('loggedUser');
 		$this->session->destroy();
 		$this->session->setFlashdata('success', 'Ελπίζουμε να μας ξανάρθεις.');

@@ -15,9 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     controlMatches.addEventListener("click", () => {
         fetchMatches(gamesContainer,sliderContainer,controls,controlPlayers);
+
     });
 
-    controlPlayers.addEventListener("click", () => {
+    controlPlayers.addEventListener("click", (game) => {
         fetchPlayers(controlPlayers,gamesContainer,sliderContainer,controls,controlPlayers);
     });
 
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let matches = document.querySelectorAll('.timeline-slide');
     matches.forEach((game) => {
         game.addEventListener("click", () => {
+            localStorage.setItem('activeMatch',game.dataset.slide);
             fetchPlayers(game,gamesContainer,sliderContainer,controls,controlPlayers);
         });
 
@@ -59,6 +61,7 @@ window.fetchMatches = function(gamesContainer,sliderContainer,controls,controlPl
             let matches = document.querySelectorAll('.timeline-slide');
             matches.forEach((game) => {
                 game.addEventListener("click", () => {
+                    localStorage.setItem('activeMatch',game.dataset.slide);
                     fetchPlayers(game,gamesContainer,sliderContainer,controls,controlPlayers);
                 });
 
