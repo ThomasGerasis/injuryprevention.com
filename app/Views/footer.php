@@ -48,8 +48,8 @@
 
 </div>
 
-<script src="/dist/js/main.js?v=3.9<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
-<script src="/dist/js/customSwiper.js?v=3.2<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/main.js?v=3.91<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/customSwiper.js?v=3.3<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/footer.js?v=1.1<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/bootstrap.js?v=1.1<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <!-- load scripts necessary for curtain pages -->
@@ -57,7 +57,7 @@
 
 <?php if (isset($loadJs) && is_array($loadJs)) : ?>
     <?php foreach ($loadJs as $script) : ?>
-        <script src="<?php echo base_url("dist/js/$script.js?v=9.7") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
+        <script src="<?php echo base_url("dist/js/$script.js?v=9.72") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 
@@ -70,12 +70,12 @@
 
 
 <?php if (ENVIRONMENT !== 'development') { ?>
-<!--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X57GBYP4FX"></script>-->
+<!--    <script async src="https://www.googletagmanager.com/gtag/js?id="></script>-->
 <!--    <script>-->
 <!--        window.dataLayer = window.dataLayer || [];-->
 <!--        function gtag(){dataLayer.push(arguments);}-->
 <!--        gtag('js', new Date());-->
-<!--        gtag('config', 'G-X57GBYP4FX');-->
+<!--        gtag('config', '');-->
 <!--    </script>-->
 <?php } ?>
 
