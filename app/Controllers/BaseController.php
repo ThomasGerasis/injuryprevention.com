@@ -61,7 +61,8 @@ abstract class BaseController extends Controller
         $this->db = \Config\Database::connect();
         $this->session = \Config\Services::session();
         $this->cacheHandler = new CacheHandler();
-        $this->isMobile = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile")); //extra simplified
+        $userAgent = isset($_SERVER["HTTP_USER_AGENT"]) ? strtolower($_SERVER["HTTP_USER_AGENT"]) : '';
+        $this->isMobile = is_numeric(strpos($userAgent, "mobile"));
         $this->contentParser = new ContentParser($this->isMobile, $this->cacheHandler);
     }
 }

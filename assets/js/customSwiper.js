@@ -83,13 +83,17 @@ export function setUpSliders(selector) {
         parent.querySelector('.' + prefix + '-swiper').classList.add(prefix + '-swiper-' + i);
         // parent.querySelector('.swiper-button-next').classList.add(prefix+'-swiper-button-next-' + i);
         // parent.querySelector('.swiper-button-prev').classList.add(prefix+'-swiper-button-prev-' + i);
+
+        let activeMatch = localStorage.getItem('activeMatch');
+        let activeSlide = activeMatch ? Number(activeMatch) : 0;
+
         let swiper = new Swiper('.' + prefix + '-swiper-' + i, {
             loop: false,
             speed: 400,
             observer: true,
             observeParents: true,
             paginationClickable: true,
-            centeredSlides: parent.classList.contains('timeline-swiper-container'),
+            centeredSlides: parent.classList.contains('timeline-swiper-container') || activeSlide !== 0,
             spaceBetween: breakpointsTypes[breakpointType],
             slidesPerView: 1,
             pagination: {
@@ -99,7 +103,7 @@ export function setUpSliders(selector) {
             breakpoints: breakpointsTypes[breakpointType]
         });
 
-        let activeSlide = Number(localStorage.getItem('activeMatch'));
+
         swiper.slideTo(activeSlide ?? 0); // Scroll to the third slide
     }
 }

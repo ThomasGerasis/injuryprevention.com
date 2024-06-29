@@ -48,6 +48,8 @@ class Validation extends BaseConfig
     ];
 
     public $editUser = [
+        'id' => '',
+        'email' => 'required|is_unique[users.email]',
         'username' => 'required|is_unique[users.username,id,{id}]',
     ];
 

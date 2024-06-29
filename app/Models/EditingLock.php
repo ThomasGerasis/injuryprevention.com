@@ -9,7 +9,7 @@ class EditingLock extends Model
 	protected $table = 'editing_lock';
 	protected $primaryKey = 'id';
 
-	function getLock($type, $type_id)
+    public function getLock($type, $type_id)
 	{
 		$builder = $this->db->table('editing_lock');
 		$builder->select('editing_lock.*, users.username');
@@ -21,12 +21,12 @@ class EditingLock extends Model
 		return (empty($row['id']) ? false : $row);
 	}
 
-	function saveLock($type, $type_id, $user_id, $time)
+    public function saveLock($type, $type_id, $user_id, $time)
 	{
 		$this->db->query("INSERT INTO editing_lock (type, type_id, user_id, updated) VALUES ('" . $type . "', '" . $type_id . "', '" . $user_id . "', '" . date('Y-m-d H:i:s', $time) . "') ON DUPLICATE KEY update user_id = VALUES(user_id), updated = VALUES(updated)");
 	}
 
-	function cleanLocks()
+	public function cleanLocks()
 	{
 		$builder = $this->db->table('editing_lock');
 		$builder->where('updated <', date('Y-m-d H:i:s', (time() - 40)));

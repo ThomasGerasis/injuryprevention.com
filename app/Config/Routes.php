@@ -77,9 +77,11 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
     $routes->post('siteOptions/(:any)', 'SiteOptions::edit/$1',['filter' => 'adminFilter']);
     $routes->get('siteOptions/getLock/(:any)', 'SiteOptions::getLock/$1',['filter' => 'adminFilter']);
 
-    $routes->get('crons/cleanLocks', 'Crons::cleanLocks');
+//    $routes->get('crons/cleanLocks', 'Crons::cleanLocks');
     $routes->cli('crons/cleanLocks', 'Crons::cleanLocks');
 
+//    $routes->get('crons/publishContent', 'Crons::publishContent');
+    $routes->cli('crons/publishContent', 'Crons::publishContent');
 
     $routes->group('mediaLibrary',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], static function ($routes) {
         $routes->get('/', 'MediaLibrary::index');

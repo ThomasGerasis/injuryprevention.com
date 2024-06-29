@@ -45,25 +45,30 @@ class AjaxData extends BaseController
 			echo json_encode($resp);return;die();
         }
 		$ex_permalink = check_permalink(get_permalink($_POST['value']),$check_id);
-		echo json_encode($ex_permalink);return;die();
+		echo json_encode($ex_permalink);
+		return;
 	}
 	
     public function editLock(){
         if (!$this->request->isAJAX()) {
             $resp = array('resp'=>false,'msg'=>'Δεν επιτρέπεται η πρόσβαση');
-			echo json_encode($resp);return;die();
+			echo json_encode($resp);return;
         }
 		if (empty($_POST['type']) || empty($_POST['type_id'])) {
             $resp = array('resp'=>false,'msg'=>'Προέκυψε ένα πρόβλημα στην αποθήκευση locking.');
-			echo json_encode($resp);return;die();
+			echo json_encode($resp);return;
         }
 		$editingLock = model(EditingLock::class);
 		$existing_lock = $editingLock->getLock($_POST['type'],$_POST['type_id']);
-		if(!empty($existing_lock) && $existing_lock['user_id'] != $this->session->get('loggedUser')['id']){
-			echo json_encode(array('resp'=>false,'msg'=>'Ο χρήστης '.$existing_lock['username'].' έχει κάνει ανάληψη.'));return;die();
+		if(!empty($existing_lock) && $existing_lock['user_id'] != $this->session->get('loggedUser')['id'])
+		{
+			echo json_encode(array('resp'=>false,'msg'=>'Ο χρήστης '.$existing_lock['username'].' έχει κάνει ανάληψη.'));
+			return;
 		}
 		$editingLock->saveLock($_POST['type'],$_POST['type_id'],$this->session->get('loggedUser')['id'],time());
-		echo json_encode(array('resp'=>true));return;die();
+		echo json_encode(array('resp'=>true));
+		return;
+
 	}
 	
 	public function imageBank(){
@@ -82,7 +87,7 @@ class AjaxData extends BaseController
 			$images = $dbModel->getPaginatedList(1,$s_array);
 			echo view('admin/media_library/image_bank', array('images'=>$images));
 		}
-		return;die();
+		return;
 	}
 	
 
