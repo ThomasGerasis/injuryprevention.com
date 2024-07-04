@@ -15,7 +15,7 @@ class Cache extends Controller
     public function rebuild($hash)
     {
         if (empty($hash)) {
-            return ''; die();
+            return '';
         }
 
         helper(['display','misc']);
@@ -24,10 +24,9 @@ class Cache extends Controller
 
         $data = $cacheModel->where('hash', $hash)->first();
 
-
         if (!$data) {
             log_message('error','rebuild no data');
-            return ''; die();
+            return '';
         }
 
         $date = strtotime($data['date']);
@@ -36,12 +35,10 @@ class Cache extends Controller
         $notValid = $date > $time || $date < $twoMinutesAgo;
 
         if ($notValid) {
-            $cacheModel->delete($data['id']);
-            return ''; die();
+            return '';
         }
         $cacheHandler = new CacheHandler();
         $cacheHandler->rebuild($data);
-        $cacheModel->delete($data['id']);
         
         return true;
     }

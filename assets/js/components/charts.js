@@ -153,6 +153,7 @@ export function playerMovementChart() {
 // }
 
 export function varianceChart() {
+    const isMobile = window.innerWidth <= 768; // Check if the device is mobile (width <= 768px) indexAxis based on device type
     const data = {
         labels: [
             'kadeem_allen',
@@ -175,33 +176,58 @@ export function varianceChart() {
             }
         ]
     };
+
+    if (isMobile) {
+         // Reverse the data arrays
+        data.labels.reverse();
+        data.datasets.forEach(dataset => {
+            dataset.data.reverse();
+        });
+    }
+
     // Radar Chart Options
     let options = {
+        indexAxis: isMobile ? 'y' : 'x', // Set indexAxis based on device type
         plugins: {
             legend: {
                 display: false // Hide dataset labels
             }
         },
+        layout: {
+            padding: {
+                left: isMobile ? 35 : 0, // Add left padding for mobile, adjust as needed
+                right: 0, // Optional: Add right padding if needed
+                top: 0, // Optional: Add top padding if needed
+                bottom: 0 // Optional: Add bottom padding if needed
+            }
+        },
         scales: {
             y: {
-                beginAtZero: true,
+                beginAtZero: !isMobile,
+                padding: isMobile ? 55 : 0,
                 grid: {
-                    color: "rgba(255, 255, 255, 1)" // Color of the angle lines
+                    color: "rgba(255, 255, 255, 1)",
+                    display: !isMobile
+                    // Color of the angle lines
                 },
                 ticks: {
+                    padding: 45,
+                    color: "rgba(255, 255, 255, 1)", // Color of the angle lines
                     display: false // Hide y-axis labels
                 }
             },
             x: {
+                beginAtZero: isMobile,
                 ticks: {
-                    padding: 45,
+                    padding: isMobile ? 0 : 45, // Add padding at the bottom for x-axis labels on mobile
                     color: "rgba(255, 255, 255, 1)" // Color of the angle lines
                     // callback: ((value,index,values) => {
                     //     return '';
                     // })
                 },
                 grid: {
-                    display: false // Disable y-axis grid lines
+                    color: "rgba(255, 255, 255, 1)",
+                    display: isMobile
                 },
             },
         },
@@ -217,12 +243,17 @@ export function varianceChart() {
     const playerImages = {
         id: 'playerImage',
         afterDatasetDraw: (chart, args, options) => {
-            const {ctx,data,chartArea:{bottom},scales : {x}} = chart;
+            const {ctx,data,chartArea:{left,bottom},scales : {x,y}} = chart;
             ctx.save();
             data.labels.forEach((playerName,index) =>{
                 const label = new Image();
                 label.src = getPlayerImageFromName(playerName);
-                ctx.drawImage(label,x.getPixelForValue(index) - 25,x.top,50,40);
+                if (isMobile) {
+                    // For mobile, draw images on the y-axis
+                    ctx.drawImage(label,left-35,y.getPixelForValue(index) - 12,25,25);
+                } else {
+                    ctx.drawImage(label,x.getPixelForValue(index) - 25,x.top,50,40);
+                }
             })
             // ctx.restore();
         },
@@ -231,7 +262,9 @@ export function varianceChart() {
         }
     }
 
-    let ctx = document.getElementById("barChart").getContext("2d");
+    let barChartIdentifier = isMobile ? 'barChartMobile' : 'barChart';
+
+    let ctx = document.getElementById(barChartIdentifier).getContext("2d");
 
     let barChart = new Chart(
         ctx,

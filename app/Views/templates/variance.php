@@ -12,6 +12,7 @@
         <span class="d-block font-weight-bold font-size-16rem "> VARIANCE </span>
     </div>
 </div>
-<div class="position-relative margin-top-20 w-sm-100 w-80 d-block mx-auto px-3">
-    <canvas id="barChart" width="900" height="300"></canvas>
+<div class="position-relative margin-top-20 w-sm-100 w-80 d-block mx-auto px-xl-3 px-1">
+    <canvas class="d-none d-xl-block" id="barChart" width="900" height="300"></canvas>
+    <canvas class="d-block d-xl-none" id="barChartMobile" width="600" height="700"></canvas>
 </div>

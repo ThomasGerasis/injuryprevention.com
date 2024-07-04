@@ -3,11 +3,11 @@
     <div class="main-content pb-5">
 
         <h1 class="font-fff margin-0 d-block text-center font-xl-size-27rem font-size-22rem">
-            WELCOME
+            <?php echo $pageData['welcome_title'] ?? 'Welcome'; ?>
         </h1>
 
         <span class="d-block text-center font-fff font-xl-size-22rem font-size-16rem">
-            TO THE NON-INVASIVE ERA
+            <?php echo $pageData['welcome_text']; ?>
         </span>
 
         <img class="mx-auto margin-top-20 margin-bottom-20 d-block" src="<?php echo base_url('assets/img/circle_button.svg'); ?>" loading="lazy" alt="Circle Button" width="50" height="50">
@@ -15,9 +15,7 @@
         <div class="about-us font-fff w-100 text-center">
             <h3 class="d-block mx-auto font-fff margin-bottom-20 font-xl-size-22rem font-size-16rem">ABOUT US</h3>
             <p class="margin-bottom-10 font-fff d-block">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                and scrambled it to make a type specimen book.
+              <?php echo $aboutUsText; ?>
             </p>
 
             <a href="/about-us" class="main-button font-fff primary-gradient">

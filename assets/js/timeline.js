@@ -200,17 +200,17 @@ window.fetchVariance = function(player,gameDate,gameOpponent,sliderContainer,con
             "gameOpponent": gameOpponent,
         })
     })
-        .then(
-            response => response.json()
-        )
-        .then(data => {
-            let jsonData = JSON.parse(data.html);
-            sliderContainer.innerHTML = jsonData;
-            varianceChart();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    .then(
+        response => response.json()
+    )
+    .then(data => {
+        let jsonData = JSON.parse(data.html);
+        sliderContainer.innerHTML = jsonData;
+        varianceChart();
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 }
 
 

@@ -35,8 +35,32 @@
 			<textarea rows="3" cols="3" name="seo_description" class="form-control"><?php echo htmlspecialchars(@$page['seo_description']);?></textarea>
 		</div>
 
+		<label>Welcome Title</label>
+		<div class="form-group">
+		<input type="text" name="welcome_title" class="form-control" placeholder="Title" value="<?php echo htmlspecialchars(@$page['welcome_title']);?>">
+		</div>
+
+		<label>Welcome SubTitle</label>
+		<div class="form-group">
+			<textarea rows="3" cols="3" name="welcome_text" class="form-control"><?php echo htmlspecialchars(@$page['welcome_text']);?></textarea>
+		</div>
+
 		<div class="row">
 			<div class="col-md-8 col-lg-9">
+				<div class="mb-3">
+					<label>About Us Text</label>
+					<textarea class="tinymce_editor" name="about_us_text" class="form-control"><?php echo htmlentities(@$page['about_us_text']);?></textarea>
+					<div class="d-none">
+						<div id="qlinks"><?php //echo json_encode($links);?></div>
+						<select id="shortcodes">
+							<?php $shortcodes = getShortcodes();
+							foreach($shortcodes as $scode=>$sopts){?>
+								<option value="<?php echo $scode;?>" data-filters="<?php echo count($sopts['attrs']);?>"><?php echo $sopts['name'];?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+
 				<div class="mb-3">
 					<label>Content</label>
 					<textarea class="tinymce_editor" name="content" class="form-control"><?php echo htmlentities(@$page['content']);?></textarea>

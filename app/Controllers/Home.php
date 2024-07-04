@@ -7,7 +7,7 @@ class Home extends BaseController
     public function index()
     {
         $data = array();
-        $pageData = $this->cacheHandler->getHomePage(false);
+        $pageData = $this->cacheHandler->getHomePage();
         $data['isFrontpage'] = true;
         $metaData = array(
             'isPage'=>true,
@@ -30,6 +30,10 @@ class Home extends BaseController
         $data['players'] = [];
         $parsedConted = $this->contentParser->parseContent($pageData['content']);
         $data['pageContent'] = $parsedConted['content'] ?? '';
+
+        $parsedAboutUsText = $this->contentParser->parseContent($pageData['about_us_text']);
+        $data['aboutUsText'] = $parsedAboutUsText['content'] ?? '';
+
         $data['loadCss'] = $parsedConted['cssFiles'] ?? array();
         if(!empty($pageData['faqs'])){
             $data['loadCss']['faqs'] = 'faqs';
