@@ -9,7 +9,7 @@ class HomepageData extends Model
 	protected $table = 'homepage';
 	protected $primaryKey = 'id';
 	protected $allowedFields = [
-	    'title', 'seo_title', 'seo_description','social_image_id',
+	    'title', 'seo_title', 'seo_description','social_image_id','bg_image_id',
         'social_title','about_us_text', 'content', 'date_published',
         'date_created', 'modified_by','welcome_title','welcome_text', 'modified_date',
         'faq_title','faq_subtitle','faq_heading','faq_content'
@@ -38,6 +38,7 @@ class HomepageData extends Model
 			'title' => $post_data['title'],
 			'seo_title' => $post_data['seo_title'],
 			'seo_description' => $post_data['seo_description'],
+            'bg_image_id' => (empty($post_data['bg_image_id']) ? NULL : $post_data['bg_image_id']),
 			'social_image_id' => (empty($post_data['social_image_id']) ? NULL : $post_data['social_image_id']),
 			'social_title' => $post_data['social_title'],
             'welcome_title' => $post_data['welcome_title'],

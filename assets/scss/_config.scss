@@ -15,6 +15,24 @@ $grey: #191919;
 $black-grey: #121212;
 $light-grey:#b2b2b2;
 
+
+$light-green: #00fb00;
+$yellow: #fae700;
+$orange: #ff7a00;
+
+.bg-orange{
+  background: $orange;
+}
+.bg-yellow{
+  background: $yellow;
+  color: #111;
+}
+
+.bg-light-green{  
+  background: $light-green;
+  color: #111;
+}
+
 .font-red{
   color: #ce532f;
 }

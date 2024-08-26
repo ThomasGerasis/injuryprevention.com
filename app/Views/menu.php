@@ -1,15 +1,13 @@
 <div class="main-menu">
+    <div class="text-left d-block d-xl-none mobile-col-4 toggle-menu cursor-pointer ps-2">
+        <img src="<?php echo base_url('assets/img/mobile_menu_bars.svg'); ?>" alt="" width="20" height="14">
+    </div>
 
-<div class="text-left d-block d-xl-none mobile-col-4 toggle-menu cursor-pointer ps-2">
-    <img src="<?php echo base_url('assets/img/mobile_menu_bars.svg'); ?>" alt="" width="20" height="14">
-</div>
-
-<div class="menu-item logo">
-    <a href="<?php echo base_url(); ?>" class="d-inline-block mx-auto">
-        <img src="<?php echo base_url('assets/img/logo.svg'); ?>" alt="nba" width="125" height="85" id="site-logo">
-    </a>
-</div>
-
+    <div class="menu-item logo">
+        <a href="<?php echo base_url(); ?>" class="d-inline-block mx-auto">
+            <img src="<?php echo base_url('assets/img/logo.svg'); ?>" alt="nba" width="56" height="56" id="site-logo">
+        </a>
+    </div>
 
     <?php $menuItems = $cacheHandler->getMenuItems();?>
     <?php $openParent = false; $parentId = false;

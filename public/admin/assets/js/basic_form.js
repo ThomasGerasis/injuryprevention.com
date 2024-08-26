@@ -40,7 +40,6 @@ var BasicFormFunctions = function()
 			if(data.result.resp != 'ok'){
 				data.context.html('');
 				swal('Πρόβλημα!',data.result.error,'warning');
-				swal('Πρόβλημα!',data.result.error,'warning');
 				return;
 			}
 			data.context.find('.progress').remove();

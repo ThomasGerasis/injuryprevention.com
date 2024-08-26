@@ -41,11 +41,11 @@
 }
 
 .category-tab:hover {
-  border: 2px solid $secondary;
+  border: 2px solid var(--bs-secondary);
 }
 
 .category-tab:focus {
-  background: $secondary;
+  background: var(--bs-secondary);
   color: black;
   font-weight: bold;
 }

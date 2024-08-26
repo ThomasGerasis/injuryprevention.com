@@ -134,7 +134,7 @@ body.show-sticky #sidebar-nav{
   background: none;
 }
 .sidebar-menu-item.submenu-open .sidebar-menu-item-text, .sidebar-menu-item.submenu-open:hover .sidebar-menu-item-text{
-  color: $secondary;
+  color: var(--bs-secondary);
   font-weight: 700;
 }
 
@@ -167,7 +167,7 @@ body.show-sidebar #sidebar-nav {
   background: #101318;
   border-radius: 10px 10px 0 0;
   padding-left: 5px;
-  color: $secondary;
+  color: var(--bs-secondary);
 }
 
 #dropdownMenuButton{
@@ -211,7 +211,7 @@ body.show-sidebar #sidebar-nav {
     padding: 7px 20px 7px 20px;
   }
   .dropdown-item:hover{
-    background: $secondary !important;
+    background: var(--bs-secondary) !important;
     color: #000 !important;
     border-radius: 10px;
   }

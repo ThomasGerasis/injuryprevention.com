@@ -8,7 +8,7 @@ class Page extends Model
 {
 	protected $table = 'pages';
 	protected $primaryKey = 'id';
-	protected $allowedFields = ['title', 'seo_title', 'seo_description', 'permalink','opener_image_id', 'social_image_id', 'social_title', 'content', 'date_published','published', 'date_created', 'user_id', 'faq_title', 'faq_subtitle', 'faq_heading', 'faq_content', 'modified_by', 'modified_date'];
+	protected $allowedFields = ['title', 'seo_title', 'seo_description', 'permalink','opener_image_id','bg_image_id', 'social_image_id', 'social_title', 'content', 'date_published','published', 'date_created', 'user_id', 'faq_title', 'faq_subtitle', 'faq_heading', 'faq_content', 'modified_by', 'modified_date'];
 
 	private ActionLog $actionLogModel;
 	
@@ -147,6 +147,7 @@ class Page extends Model
 			'seo_title' => $post_data['seo_title'],
 			'seo_description' => $post_data['seo_description'],
 			'permalink' => $post_data['permalink'],
+			'bg_image_id' => (empty($post_data['bg_image_id']) ? NULL : $post_data['bg_image_id']),
 			'opener_image_id' => (empty($post_data['opener_image_id']) ? NULL : $post_data['opener_image_id']),
 			'social_image_id' => (empty($post_data['social_image_id']) ? NULL : $post_data['social_image_id']),
 			'social_title' => $post_data['social_title'],

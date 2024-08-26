@@ -134,7 +134,7 @@
 							} ?>
 						</div>
 						<button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left single-image-upload-btn"><b><i class="icon-image2"></i></b> <?php echo (empty($page['social_image_id']) ? 'Choose' : 'Change'); ?> image</button>
-						<input type="file" class="d-none single-image-upload" data-input-name="social_image_id" data-target="#social_image-container" data-template="new-image-template" data-url="<?php echo base_url(); ?>/admin/fileUpload/do_upload_image/social">
+						<input type="file" class="d-none single-image-upload" data-input-name="social_image_id" data-target="#social_image-container" data-template="new-image-template" data-url="<?php echo base_url(); ?>admin/fileUpload/do_upload_image/social">
 						<button type="button" class="btn bg-info btn-labeled btn-labeled-left open-image-bank"><b><i class="icon-image2"></i></b> Image bank</button>
 					</div>
 				</div>

@@ -29,7 +29,7 @@
 			<div id="tinymce-image" class="original">
 
 			</div>
-			<input type="file" class="d-none single-image-upload" data-input-name="tinymce_image" data-target="#tinymce-image" data-template="shimg-template" data-url="<?php echo base_url();?>/admin/fileUpload/do_upload_image/original">
+			<input type="file" class="d-none single-image-upload" data-input-name="tinymce_image" data-target="#tinymce-image" data-template="shimg-template" data-url="<?php echo base_url();?>admin/fileUpload/do_upload_image/original">
 			<button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left single-image-upload-btn"><b><i class="icon-image2"></i></b> Επιλογή εικόνας</button>
 			<button type="button" class="btn bg-info btn-labeled btn-labeled-left open-image-bank"><b><i class="icon-image2"></i></b> Image bank</button>
 		</div>

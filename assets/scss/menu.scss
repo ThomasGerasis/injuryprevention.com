@@ -2,10 +2,12 @@
   @media (min-width:978px){
     justify-content: center;
     padding: 0;
+    flex-direction: row;
   }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row-reverse;
   padding: 2px;
   .logo {
     @media (min-width:978px){

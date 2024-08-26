@@ -1,24 +1,18 @@
 import Chart from 'chart.js/auto';
+import * as d3 from 'd3';
 
-export function playerMovementChart() {
+const siteUrl = window.location.origin;
+const ajaxUrl = siteUrl + '/ajaxFunctions/';
+const isMobile = window.innerWidth <= 768; // Check if the device is mobile (width <= 768px) indexAxis based on device type
+
+export function playerMovementChart(playerMovementData) 
+{
     const data = {
-        labels: [
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            ''
-        ],
+        labels: ['', '', '', '', '', '', '', '', '', '', '', ''],
         datasets: [
             {
-                label: 'My First Dataset',
-                data: [65, 59, 90, 81, 56, 55, 40, 65, 59, 90, 81],
+                label: 'Percentage',
+                data : playerMovementData,
                 fill: true,
                 backgroundColor: 'rgb(241, 98, 58)',
                 borderColor: 'rgba(0, 0, 0, 0)',
@@ -26,25 +20,36 @@ export function playerMovementChart() {
             }
         ]
     };
+
     // Radar Chart Options
     let options = {
         plugins: {
+            filler: {
+                propagate: true
+            },
             legend: {
                 display: false // Hide dataset labels
             }
         },
         elements: {
             line: {
-                borderWidth: 3
+                fill: true,
+                pointStyle: false,
+                backgroundColor: 'rgba(241, 98, 58, 0.2)',
+                spanGaps : true,
+                tension : 0.1,
             }
         },
         scales: {
             r: {
+                // suggestedMin: 0,
+                // suggestedMax: 100,
                 grid: {
                     circular: true,
                     // color: "transparent" // Transparent color for the grid lines
                 },
                 ticks: {
+                    // beginAtZero: true,
                     display: false // Hide scale labels
                 },
                 angleLines: {
@@ -95,7 +100,7 @@ export function playerMovementChart() {
         beforeDraw: (chart, args, options) => {
             let {ctx} = chart;
             ctx.save();
-            let chartWidthHeight = window.innerWidth < 978 ? 200 : 400;
+            let chartWidthHeight = window.innerWidth < 978 ? 200 : 300;
             let centerX = chartWidthHeight / 2;
             let centerY = chartWidthHeight / 2;
             let radius = (chartWidthHeight - 20) / 2; // Adjusted to fit within canvas
@@ -135,7 +140,6 @@ export function playerMovementChart() {
         }
     }
 
-
     let radarChart = new Chart(
         ctx,
         {
@@ -148,12 +152,307 @@ export function playerMovementChart() {
 
 }
 
-// export function riskChart() {
-//
+//Chartjs  Risk Chart
+
+// export function riskChart(teamRiskData) 
+// {
+//     let teamRiskPercentage = teamRiskData['teamRiskPercentage'];
+
+//     let dataSetOptions = {
+//         label: '',
+//         barPercentage: 1.2,
+//         categoryPercentage: 1.2,
+//         barThickness: 10,
+//     }
+
+//     const data = {
+//         labels: ['Low Risk', '', '', '', 'High Risk'],
+//         datasets: [
+//             { ...dataSetOptions, data: [teamRiskPercentage[0], null, null, null, null], backgroundColor: '#00fb00' },
+//             { ...dataSetOptions, data: [teamRiskPercentage[1], null, null, null, null], backgroundColor: '#fae700' },
+//             { ...dataSetOptions, data: [null, teamRiskPercentage[2], null, null, null], backgroundColor: '#00fb00' },
+//             { ...dataSetOptions, data: [null, teamRiskPercentage[3], null, null, null], backgroundColor: '#fae700' },
+//             { ...dataSetOptions, data: [null, null, teamRiskPercentage[4], null, null], backgroundColor: '#00fb00' },
+//             { ...dataSetOptions, data: [null, null, teamRiskPercentage[5], null, null], backgroundColor: '#fae700' },
+//             { ...dataSetOptions, data: [null, null, teamRiskPercentage[6], null, null], backgroundColor: '#ff7a00' },
+//             { ...dataSetOptions, data: [null, null, teamRiskPercentage[7], null, null], backgroundColor: '#ff0000' },
+//             { ...dataSetOptions, data: [null, null, null, teamRiskPercentage[8], null], backgroundColor: '#00fb00' },
+//             { ...dataSetOptions, data: [null, null, null, teamRiskPercentage[9], null], backgroundColor: '#fae700' },
+//             { ...dataSetOptions, data: [null, null, null, teamRiskPercentage[10], null], backgroundColor: '#ff0000' },
+//             { ...dataSetOptions, data: [null, null, null, null, teamRiskPercentage[11]], backgroundColor: '#ff0000' },
+//         ]
+//     };
+
+//     const options = {
+//         responsive: true,
+//         onClick: (event, elements, chart) => 
+//         {
+//             const x = event.x;
+//             const xScale = chart.scales.x;
+//             const labelIndex = xScale.getValueForPixel(x);
+            
+//             if (labelIndex >= 0) {
+//                 // fetch(ajaxUrl + 'buildPlayerPercentage', {
+//                 //     method: "POST",
+//                 //     headers: {
+//                 //         'Accept': 'application/json',
+//                 //         'Content-type': 'application/json',
+//                 //         "X-Requested-With": "XMLHttpRequest"
+//                 //     },
+//                 //     body: JSON.stringify({
+//                 //         "numberOfAnalysis": numberOfAnalysis,
+//                 //         "risk": datasetIndex,
+//                 //         "playersRiskPercentages": playersRiskPercentages,
+//                 //     })
+//                 // })
+//                 // .then(
+//                 //     response => response.json()
+//                 // )
+//                 // .then(data => {
+//                 //     let jsonData = JSON.parse(data.html);
+//                 //     playerPercentage.innerHTML = jsonData;
+//                 // })
+//                 // .catch(function (error) {
+//                 //     console.log(error);
+//                 // });
+    
+//             }
+//         },
+//         plugins: {
+//             legend: {
+//                 display: false // Hide dataset labels
+//             },
+           
+//         },
+//         scales: {
+//             x: {
+//                 stacked: false,
+//                 grid: {
+//                     display: false,
+//                     color: "rgba(255, 255, 255, 1)",
+//                 },
+//                 ticks: {
+//                     color: "rgba(255, 255, 255, 1)", // Color of the angle lines
+//                 }
+//             },
+//             y: {
+//                 stacked: false,
+//                 grid: {
+//                     display: true,
+//                     color: "rgba(255, 255, 255, 1)",
+//                 },
+//                 ticks: {
+//                     color: "rgba(255, 255, 255, 1)", // Color of the angle lines
+//                 },
+//                 min: 0, // Minimum value of y-axis
+//                 max: 100, // Maximum value of y-axis
+//             }
+//         },
+
+//     };
+    
+
+//     const areaBackground = {
+//         id: 'background',
+//         beforeDraw: (chart) => {
+//             const ctx = chart.ctx;
+//             ctx.save();
+
+//             const margin = 10; // Margin between each label area
+//             const totalWidth = chart.scales.x.width;
+//             const labelCount = chart.scales.x.ticks.length;
+//             const groupWidth = totalWidth / labelCount;
+//             const rectWidth = groupWidth - margin; // Rectangle width minus margin
+
+//             // Iterate over each label and draw a rectangle behind it
+//             chart.scales.x.ticks.forEach((tick, index) => {
+//                 // Calculate the x-coordinate for the rectangle
+//                 const x = chart.scales.x.getPixelForValue(tick.value) - rectWidth / 2;
+//                 // Set the background color for the label areas
+//                 ctx.fillStyle = 'rgba(154, 149, 151, 0.5)';
+            
+//                 // Draw the rectangle with margin
+//                 ctx.fillRect(x, chart.chartArea.top, rectWidth, chart.chartArea.bottom - chart.chartArea.top);
+//             });
+
+//             ctx.restore();
+//         }
+//     }
+
+//     let ctx = document.getElementById("riskChart").getContext("2d");
+    
+//     const myChart = new Chart(ctx, {
+//         type: 'bar',
+//         data: data,
+//         options: options,
+//         plugins: [areaBackground]
+//     });
+
 // }
 
+
+//D3 js risk chart
+export function riskChart(teamData) {
+    const margin = { top: 20, right: 30, bottom: 40, left: 40 };
+    const width = isMobile ? 360 - margin.left - margin.right : 700 - margin.left - margin.right;
+    const height = isMobile ? 240 - margin.top - margin.bottom : 280 - margin.top - margin.bottom;
+  
+    let data  = teamData['teamRiskPercentage'];
+
+    let playersRisks = teamData['playersRiskPercentages'];
+    let teamRiskPercentage = [
+        10,
+        null,
+        30,
+        50,
+        40,
+        60,
+        30,
+        70,
+        90,
+        40,
+        50,
+        70,
+      ];
+
+    const svg = d3
+      .select("#riskChart")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+  
+    const labels = ["0-1", "2-3", "4-7", "8-10", "11"];
+    const sectionData = [
+        data.slice(0, 1),
+        data.slice(2, 4),
+        data.slice(4, 8),
+        data.slice(8, 11),
+        data.slice(11)
+    ];
+  
+    // Define scales
+    const x0 = d3.scaleBand().domain(labels).range([0, width]).padding(0.2);
+  
+    const x1 = d3
+      .scaleBand()
+      .domain(d3.range(4)) // Maximum of 4 bars per section
+      .range([0, x0.bandwidth()])
+      .padding(0.1);
+  
+    const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+  
+    const color = d3
+      .scaleOrdinal()
+      .domain(d3.range(4))
+      .range(["#f1633b", "#e34c22", "#ff7a00", "#e34c22"]);
+  
+    // Add shaded background areas
+    svg
+      .selectAll(".background-rect")
+      .data(labels)
+      .enter()
+      .append("rect")
+      .attr("class", "background-rect")
+      .attr("x", (d) => x0(d))
+      .attr("y", 0)
+      .attr("width", x0.bandwidth())
+      .attr("height", height)
+      .attr("fill", "rgba(154, 149, 151, 0.5)");
+  
+    // Add bars
+    svg
+      .append("g")
+      .selectAll("g")
+      .data(sectionData)
+      .enter()
+      .append("g")
+      .attr("transform", (d, i) => `translate(${x0(labels[i])},0)`)
+      .selectAll("rect")
+      .data((d, i) => d)
+      .enter()
+      .append("rect")
+      .attr("x", (d, i) => x1(i))
+      .attr("y", (d) => y(d))
+      .attr("width", x1.bandwidth())
+      .attr("height", (d) => height - y(d))
+      .attr("fill", (d, i) => color(i))
+      .attr("class", (d, i) => ("bar"))
+      .on("click", function(event, d) {
+        handleRiskScalesClick(event, d,playersRisks);
+      }) // Add event listener to each bar;
+      .on("mouseover", function(event, d) {
+        d3.select(this).classed("highlight", true); // Add 'hovered' class on hover
+      })
+      .on("mouseout", function(event, d) {
+        d3.select(this).classed("highlight", false); // Remove 'hovered' class when not hovering
+      });
+
+        // Add y-axis with labels
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        // Add "Low Risk" label
+        svg.append("text")
+            .attr("x", -margin.left / 4)
+            .attr("y", height + margin.bottom - 10)
+            .attr("class", "label-text text-white")
+            .style("text-anchor", "start")
+            .text("Low Risk");
+
+        // Add "High Risk" label
+        svg.append("text")
+            .attr("x", width + margin.right / 4)
+            .attr("y", height + margin.bottom - 10)
+            .attr("class", "label-text text-white")
+            .style("text-anchor", "end")
+            .text("High Risk");
+            
+        const yAxis = d3
+        .axisLeft(y)
+        .tickSize(-width) // Extend the tick lines across the width of the chart
+        .tickPadding(10); // Space between ticks and axis labels
+        
+        svg.append("g").call(yAxis).selectAll("text").style("fill", "white"); // Set y-axis label color to white
+    
+        svg
+            .selectAll(".tick line") // Select only the tick lines
+            .style("stroke", "white") // Set the stroke color to white for the tick lines
+            .style("stroke-width", 1) // Optional: Set the width of the tick lines
+            .style("stroke-opacity", 0.6); // Optional: Set the width of the tick lines
+}
+
+function handleRiskScalesClick(event, d,playersRisks) 
+{
+    console.log(d);
+    console.log(playersRisks);
+    fetch(ajaxUrl + 'buildPlayerPercentage', {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json',
+            "X-Requested-With": "XMLHttpRequest"
+        },
+        body: JSON.stringify({
+            "numberOfAnalysis": 0,
+            "risk": d,
+            "playersRiskPercentages": playersRisks,
+        })
+    })
+    .then(
+        response => response.json()
+    )
+    .then(data => {
+        let jsonData = JSON.parse(data.html);
+        playerPercentage.innerHTML = jsonData;
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
 export function varianceChart() {
-    const isMobile = window.innerWidth <= 768; // Check if the device is mobile (width <= 768px) indexAxis based on device type
+  
     const data = {
         labels: [
             'kadeem_allen',

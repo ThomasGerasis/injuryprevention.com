@@ -42,6 +42,7 @@ class Home extends BaseController
         $data['loadJs']['timeline'] = 'timeline';
         $data['pageId'] = 1;
         $data['cacheHandler'] = $this->cacheHandler;
+        $data['isHomePage'] = true;
 
         return view('header', $data) . view('home', $data) . view('footer', $data);
     }

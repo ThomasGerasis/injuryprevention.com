@@ -1,44 +1,35 @@
 import "../scss/timeline.scss";
 import {setUpSliders} from "./customSwiper";
-import {varianceChart, playerMovementChart} from "./components/charts";
+import {varianceChart, playerMovementChart, riskChart} from "./components/charts";
 
 const siteUrl = window.location.origin;
 const ajaxUrl = siteUrl + '/ajaxFunctions/';
 
+const gamesContainer = document.querySelector('.matches-container');
+const sliderContainer = gamesContainer.querySelector('.outer-container');
+
 document.addEventListener('DOMContentLoaded', function () {
-    const gamesContainer = document.querySelector('.matches-container');
-    const sliderContainer = gamesContainer.querySelector('.outer-container');
-    const controls = gamesContainer.querySelector('.controls');
-    const controlMatches = controls.querySelector('.matches');
-    const controlPlayers = controls.querySelector('.players');
-    // const controlRisk = controls.querySelector('.risk');
-
-    controlMatches.addEventListener("click", () => {
-        fetchMatches(gamesContainer,sliderContainer,controls,controlPlayers);
-
-    });
-
-    controlPlayers.addEventListener("click", (game) => {
-        fetchPlayers(controlPlayers,gamesContainer,sliderContainer,controls,controlPlayers);
-    });
+    handleMatches();
+}, false);
 
 
+function handleMatches() {
     let matches = document.querySelectorAll('.timeline-slide');
     matches.forEach((game) => {
         game.addEventListener("click", () => {
             localStorage.setItem('activeMatch',game.dataset.slide);
-            fetchPlayers(game,gamesContainer,sliderContainer,controls,controlPlayers);
+            localStorage.setItem('activeMonth',game.dataset.month);
+            localStorage.setItem('activeYear',game.dataset.year);
+            if (game.classList.contains('injury')) {
+                fetchInjuries(game);
+            }else{
+                fetchPlayers(game);
+            }
         });
-
     });
+}
 
-    // controlRisk.addEventListener("click", () => {
-    //     fetchRiskGraph(controlPlayers,gamesContainer,sliderContainer,controls,controlPlayers);
-    // });
-
-}, false);
-
-window.fetchMatches = function(gamesContainer,sliderContainer,controls,controlPlayers){
+window.fetchMatches = function(){
     fetch(ajaxUrl + 'fetchMatches', {
         method: "GET",
         headers: {
@@ -56,17 +47,7 @@ window.fetchMatches = function(gamesContainer,sliderContainer,controls,controlPl
             gamesContainer.classList.remove('slider-step-container');
             sliderContainer.innerHTML = jsonData;
             setUpSliders('.swiper-container');
-            controls.style.display = 'none';
-
-            let matches = document.querySelectorAll('.timeline-slide');
-            matches.forEach((game) => {
-                game.addEventListener("click", () => {
-                    localStorage.setItem('activeMatch',game.dataset.slide);
-                    fetchPlayers(game,gamesContainer,sliderContainer,controls,controlPlayers);
-                });
-
-            });
-
+            handleMatches();
         })
         .catch(function (error) {
             console.log(error);
@@ -74,7 +55,7 @@ window.fetchMatches = function(gamesContainer,sliderContainer,controls,controlPl
 }
 
 
-window.fetchPlayers = function(game,gamesContainer,sliderContainer,controls,controlPlayers){
+window.fetchPlayers = function(game){
     let gameDate = game.dataset.date;
     let gameOpponent = game.dataset.opponent;
     fetch(ajaxUrl + 'fetchPlayers', {
@@ -102,12 +83,11 @@ window.fetchPlayers = function(game,gamesContainer,sliderContainer,controls,cont
             let players = document.querySelectorAll('.player-row-slide');
             players.forEach((player) => {
                 player.addEventListener("click", () => {
-                    buildPlayerChart(player,gameDate,gameOpponent,sliderContainer,controlPlayers);
+                    buildPlayerChart(game,player,gameDate,gameOpponent);
                 });
             });
 
-            controls.style.display = 'flex';
-            controlPlayers.style.display = 'none';
+            controlsHandler(game,gameDate,gameOpponent);
 
         })
         .catch(function (error) {
@@ -115,42 +95,77 @@ window.fetchPlayers = function(game,gamesContainer,sliderContainer,controls,cont
         });
 }
 
-// window.fetchRiskGraph = function(game,gamesContainer,sliderContainer,controls,controlPlayers){
-//     let gameDate = game.dataset.date;
-//     let gameOpponent = game.dataset.opponent;
-//     fetch(ajaxUrl + 'fetchRisk', {
-//         method: "POST",
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-type': 'application/json',
-//             "X-Requested-With": "XMLHttpRequest"
-//         },
-//         body: JSON.stringify({
-//             "gameDate": gameDate,
-//             "gameOpponent": gameOpponent,
-//         })
-//     })
-//         .then(
-//             response => response.json()
-//         )
-//         .then(data => {
-//             let jsonData = JSON.parse(data.html);
-//             gamesContainer.classList.remove('slider-container');
-//             gamesContainer.classList.add('slider-step-container');
-//             sliderContainer.innerHTML = jsonData;
-//             controls.style.display = 'flex';
-//             controlPlayers.style.display = 'none';
-//             riskChart()
-//         })
-//         .catch(function (error) {
-//             console.log(error);
-//         });
-// }
+window.fetchInjuries = function(game){
+    let gameDate = game.dataset.date;
+    let gameOpponent = game.dataset.opponent;
+    fetch(ajaxUrl + 'fetchInjuries', {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json',
+            "X-Requested-With": "XMLHttpRequest"
+        },
+        body: JSON.stringify({
+            "gameDate": gameDate,
+            "gameOpponent": gameOpponent,
+        })
+    })
+        .then(
+            response => response.json()
+        )
+        .then(data => {
+            let jsonData = JSON.parse(data.html);
+            gamesContainer.classList.remove('slider-container');
+            gamesContainer.classList.add('slider-step-container');
+            
+            sliderContainer.innerHTML = jsonData;
+            setUpSliders('.swiper-container');
+            controlsHandler(game,gameDate,gameOpponent);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 
 
-window.buildPlayerChart = function (player,gameDate,gameOpponent,sliderContainer,controlPlayers) {
+window.fetchRiskGraph = function(game,gameDate, gameOpponent)
+{
+    fetch(ajaxUrl + 'fetchRisk', {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json',
+            "X-Requested-With": "XMLHttpRequest"
+        },
+        body: JSON.stringify({
+            "game": game,
+            "gameDate": gameDate,
+            "gameOpponent": gameOpponent,
+        })
+    })
+        .then(
+            response => response.json()
+        )
+        .then(data => {
+            let jsonData = JSON.parse(data.html);
+            let teamRiskData = JSON.parse(data.teamRisk);
+
+            gamesContainer.classList.remove('slider-container');
+            gamesContainer.classList.add('slider-step-container');
+            sliderContainer.innerHTML = jsonData;
+            riskChart(teamRiskData);
+            controlsHandler(game,gameDate,gameOpponent);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+
+window.buildPlayerChart = function (game,player,gameDate,gameOpponent) {
     let playerName = player.dataset.name;
     let playerLogo = player.dataset.img;
+    let playerKey = player.dataset.key;
     fetch(ajaxUrl + 'buildPlayerChart', {
         method: "POST",
         headers: {
@@ -162,7 +177,8 @@ window.buildPlayerChart = function (player,gameDate,gameOpponent,sliderContainer
             "gameDate": gameDate,
             "gameOpponent": gameOpponent,
             "playerName": playerName,
-            "playerLogo": playerLogo
+            "playerLogo": playerLogo,
+            "playerKey": playerKey
         })
     })
     .then(
@@ -170,16 +186,10 @@ window.buildPlayerChart = function (player,gameDate,gameOpponent,sliderContainer
     )
     .then(data => {
         let jsonData = JSON.parse(data.html);
+        let playerMovementData = JSON.parse(data.playerMovementData);
         sliderContainer.innerHTML = jsonData;
-        controlPlayers.style.display = 'block';
-        controlPlayers.dataset.opponent = gameOpponent;
-        controlPlayers.dataset.date = gameDate;
-        playerMovementChart();
-        // runColoring();/
-        document.querySelector('.player-image').addEventListener("click", () => {
-            fetchVariance(player,gameDate,gameOpponent,sliderContainer,controlPlayers);
-        });
-
+        playerMovementChart(playerMovementData);
+        controlsHandler(game,gameDate,gameOpponent);
     })
     .catch(function (error) {
         console.log(error);
@@ -187,7 +197,7 @@ window.buildPlayerChart = function (player,gameDate,gameOpponent,sliderContainer
 
 }
 
-window.fetchVariance = function(player,gameDate,gameOpponent,sliderContainer,controlPlayers){
+window.fetchVariance = function(game,gameDate,gameOpponent){
     fetch(ajaxUrl + 'fetchVariance', {
         method: "POST",
         headers: {
@@ -196,7 +206,7 @@ window.fetchVariance = function(player,gameDate,gameOpponent,sliderContainer,con
             "X-Requested-With": "XMLHttpRequest"
         },
         body: JSON.stringify({
-            "gameDate": gameOpponent,
+            "gameDate": gameDate,
             "gameOpponent": gameOpponent,
         })
     })
@@ -207,10 +217,55 @@ window.fetchVariance = function(player,gameDate,gameOpponent,sliderContainer,con
         let jsonData = JSON.parse(data.html);
         sliderContainer.innerHTML = jsonData;
         varianceChart();
+        controlsHandler(game,gameDate,gameOpponent);
     })
     .catch(function (error) {
         console.log(error);
     });
+}
+
+
+
+
+function controlsHandler(game,gameDate,gameOpponent)
+{
+    let allMatchesButton = document.querySelectorAll('.all-matches');
+    if (allMatchesButton){
+        allMatchesButton.forEach(element => {
+            element.addEventListener("click", (event) => {
+                 event.preventDefault();
+                 fetchMatches();
+            });
+        });
+    }
+
+    let variancePlayersButton = document.querySelector('.variancePlayersButton');
+    if (variancePlayersButton){
+        variancePlayersButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            fetchVariance(game,gameDate, gameOpponent);
+        });
+    }
+    
+    let controls = document.querySelector('.controls');
+    if (controls) {
+        let chartButtons = document.querySelectorAll('.chartButton');
+        chartButtons.forEach(element => {
+            element.addEventListener("click", (event) => {
+                if(element.classList.contains('active')){
+                    return;
+                }
+                let datasetValue = element.dataset.chart;
+                if (datasetValue === 'variance') {
+                    fetchVariance(game,gameDate,gameOpponent);
+                } else if (datasetValue === 'players') {
+                    fetchPlayers(game);
+                } else if (datasetValue === 'teams') {
+                    fetchRiskGraph(game,gameDate, gameOpponent);
+                }
+            });
+        });
+    }
 }
 
 

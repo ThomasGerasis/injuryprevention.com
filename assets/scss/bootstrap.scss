@@ -1,3 +1,13 @@
+$primary: #231f20;
+$secondary: #3a3738;
+$danger : #ff0000;
+
+$progress-height:4rem;
+$progress-height-sm: 2rem;
+
+$progress-border-radius: 2px;
+$progress-bg: transparent;
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 .table{

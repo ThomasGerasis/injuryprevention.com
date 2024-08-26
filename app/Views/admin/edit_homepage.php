@@ -82,6 +82,26 @@
 					<input type="text" class="form-control" name="social_title" value="<?php echo @$page['social_title']; ?>">
 				</div>
 
+				<label>Background image (1920x1080)</label>
+				<div class="form-group">
+					<div class="single-img-container">
+						<div id="logo_filename-container" class="d-inline-block">
+							<?php if (!empty($page['bg_image_id'])) {
+								echo view('admin/widgets/_single_image_part', array(
+									'input_name' => 'bg_image_id',
+									'image_id' => $page['bg_image_id'],
+									'filename' => get_image($page['bg_image_id'], 'rect400'),
+									'watermark' => 0
+								));
+							} ?>
+						</div>
+						<button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left single-image-upload-btn"><b><i class="icon-image2"></i></b> <?php echo (empty($page['bg_image_id']) ? 'Choose' : 'Change'); ?> logo</button>
+						<input type="file" class="d-none single-image-upload" data-input-name="bg_image_id" data-target="#logo_filename-container" data-template="new-image-template" data-url="<?php echo base_url(); ?>admin/fileUpload/do_upload_image/rect400">
+						<button type="button" class="btn bg-info btn-labeled btn-labeled-left open-image-bank"><b><i class="icon-image2"></i></b> Image bank</button>
+					</div>
+				</div>
+		
+
 				<label>Social image</label>
 				<div class="form-group">
 					<div class="single-img-container">

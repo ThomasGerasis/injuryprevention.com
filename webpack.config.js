@@ -1,6 +1,17 @@
+const glob = require("glob-all");
 const path = require("path");
+const zlib = require("zlib");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
+function collectSafelist() {
+  return {
+    standard: [],
+    //  deep: [/^safelisted-deep-/],
+    //  greedy: [/^safelisted-greedy/],
+  };
+}
 module.exports = {
   context: path.resolve(__dirname, "assets"),
   entry: {
@@ -30,6 +41,16 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
+    }),
+    new PurgeCSSPlugin({
+      paths: glob.sync([
+          "./app/Libraries/ContentParser.php",
+          "./app/Views/**/*.php",
+          "./assets/js/**/*.js",
+          "./assets/scss/**/*.scss",
+      ]),
+      safelist: collectSafelist,
+      only: ['bootstrap'],
     }),
   ],
   watchOptions: {
@@ -78,4 +99,6 @@ module.exports = {
       },
     ],
   },
+
+  
 };

@@ -7,10 +7,7 @@ class CacheHandler
 {
     private \CodeIgniter\Cache\CacheInterface $cache;
     private int $cache_ttl = 90000; //25 hours;
-
     private int $cacheStatsTTl = 604800; //7 days;
-
-
 
     public function __construct()
     {
@@ -66,7 +63,6 @@ class CacheHandler
         return $output;
     }
 
-
     public function getFixtures($refreshCache = false)
     {
         $cache_item_name = "all_fixtures";
@@ -75,7 +71,7 @@ class CacheHandler
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-           $allFixtures = curlGetContent('https://injurypreventionlab.com/assets/stats.json');
+           $allFixtures = curlGetContent('https://testing.injurypreventionlab.com/assets/stats.json');
            $cached_response =  !empty($allFixtures) ? $allFixtures : [];
            $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
         }
@@ -84,7 +80,7 @@ class CacheHandler
 
     public function getFixtureByDate($date, $refreshCache = false)
     {
-        $cache_item_name = "fixture_data_".$date;
+        $cache_item_name = "fixture_data_by_date".$date;
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
@@ -96,7 +92,6 @@ class CacheHandler
         }
         return $cached_response;
     }
-
 
     public function getFixturePlayers($date, $refreshCache = false)
     {
@@ -113,10 +108,24 @@ class CacheHandler
         return $cached_response;
     }
 
+    public function getFixtureInjuries($date, $refreshCache = false){
+        $cache_item_name = "fixtures_".$date."_injuries";
+        $cached_response = false;
+        if (!$refreshCache) {
+            $cached_response = $this->cache->get($cache_item_name);
+        }
+        if (!$cached_response) {
+            $fixtures = $this->getFixtures();
+            $cached_response =  $fixtures[$date.'injury'] ?? [];
+            $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
+        }
+        return $cached_response;
+    }
+
 
     public function getAllPlayers($refreshCache = false)
     {
-        $cache_item_name = "players";
+        $cache_item_name = "players_list";
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
@@ -131,7 +140,7 @@ class CacheHandler
 
     public function getFixturePlayerDetails($player, $refreshCache = false)
     {
-        $cache_item_name = "player_".$player."_details";
+        $cache_item_name = "playera_".$player."_details";
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);

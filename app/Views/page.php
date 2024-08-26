@@ -1,7 +1,10 @@
 <div class="container font-fff">
-    <?php if (strpos($pageContent,'<h1') === false) {?>
+
+    <?php if (strpos($pageContent,'<h1') === false) { ?>
         <div class="heading-container">
-            <h1 class="font-fff font-weight-700 text-center d-block border-radius-40 px-4"><?php echo $pageData['title'];?></h1>
+            <h1 class="font-fff font-weight-700 text-center d-block border-radius-40 px-4">
+                <?php echo $pageData['title'];?>
+            </h1>
         </div>
         <div class="vertical-space"></div>
     <?php } ?>
@@ -36,7 +39,9 @@
                                     <rect width="2" height="16" x="9" y="2" class="ver" />
                                 </svg>
                             </div>
-							<div class="faq-answer font-000"><?php echo $faq['answer'];?></div>
+							<div class="faq-answer font-000">
+                                <?php echo $faq['answer'];?>
+                            </div>
                         </div>
                     <?php } ?>
                     <div class="vertical-space"></div>

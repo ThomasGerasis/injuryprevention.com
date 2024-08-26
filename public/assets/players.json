@@ -70,7 +70,7 @@
       "country": "us",
       "experience": 2,
       "college": "Virginia Tech",
-      "logo": "",
+      "logo": "jarel_eddie",
       "player_id": "eddieja01"
     }
   ],
@@ -85,7 +85,7 @@
       "country": "us",
       "experience": 1,
       "college": "New Mexico State",
-      "logo": "",
+      "logo": "jonathan_gibson",
       "player_id": "gibsojo01"
     }
   ],
@@ -100,6 +100,7 @@
       "country": "us",
       "experience": 7,
       "college": "Butler",
+      "logo": "gordon_hayward",
       "player_id": "haywago01"
     }
   ],
@@ -159,7 +160,7 @@
       "country": "us",
       "experience": 7,
       "college": "Georgetown",
-      "logo": "",
+      "logo": "greg_monroe",
       "player_id": "monrogr01"
     }
   ],
@@ -174,7 +175,7 @@
       "country": "us",
       "experience": 6,
       "college": "Kansas",
-      "logo": "",
+      "logo": "marcus_morris",
       "player_id": "morrima03"
     }
   ],
@@ -189,7 +190,7 @@
       "country": "eg",
       "experience": "R",
       "college": "Northern Illinois Iowa State",
-      "logo": "",
+      "logo": "abdel_nader",
       "player_id": "naderab01"
     }
   ],
@@ -204,7 +205,7 @@
       "country": "us",
       "experience": "R",
       "college": "Duke SMU",
-      "logo": "",
+      "logo": "semi_ojeleye",
       "player_id": "ojelese01"
     }
   ],
@@ -219,7 +220,7 @@
       "country": "us",
       "experience": 2,
       "college": "Louisville",
-      "logo": "",
+      "logo": "terry_rozier",
       "player_id": "roziete01"
     }
   ],
@@ -234,7 +235,7 @@
       "country": "us",
       "experience": 1,
       "college": "Colorado Northern Illinois",
-      "logo": "",
+      "logo": "xavier_silas",
       "player_id": "silasxa01"
     }
   ],
@@ -249,7 +250,7 @@
       "country": "us",
       "experience": 3,
       "college": "Oklahoma State",
-      "logo": "",
+      "logo": "marcus_smart",
       "player_id": "smartma01"
     }
   ],
@@ -279,7 +280,7 @@
       "country": "de",
       "experience": "R",
       "college": "",
-      "logo": "",
+      "logo": "daniel_theis",
       "player_id": "theisda01"
     }
   ],
@@ -294,7 +295,7 @@
       "country": "fr",
       "experience": "R",
       "college": "",
-      "logo": "",
+      "logo": "guerschon_yabusele",
       "player_id": "yabusgu01"
     }
   ]

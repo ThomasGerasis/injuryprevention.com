@@ -166,7 +166,7 @@ $shortcode_fields = $shortcode_attrs['attrs'];?>
 								));
 							}?>
 						</div>
-						<input type="file" class="d-none single-image-upload" data-input-name="<?php echo $tid;?>" data-target="#<?php echo $tid;?>-image" data-template="shimg-template" data-url="<?php echo base_url();?>/admin/fileUpload/do_upload_image/<?php echo empty($tattrs['iclass']) ? 'rct200' : $tattrs['iclass'];?>">
+						<input type="file" class="d-none single-image-upload" data-input-name="<?php echo $tid;?>" data-target="#<?php echo $tid;?>-image" data-template="shimg-template" data-url="<?php echo base_url();?>admin/fileUpload/do_upload_image/<?php echo empty($tattrs['iclass']) ? 'rct200' : $tattrs['iclass'];?>">
 						<button type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left single-image-upload-btn"><b><i class="icon-image2"></i></b> Επιλογή εικόνας</button> <button type="button" class="btn bg-info btn-labeled btn-labeled-left open-image-bank"><b><i class="icon-image2"></i></b> Image bank</button>
 					<?php } ?>
 					<?php if(!empty($tattrs['desc'])){?>
