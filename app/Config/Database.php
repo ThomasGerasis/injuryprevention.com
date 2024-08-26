@@ -44,15 +44,36 @@ class Database extends Config
         'port'     => PORT,
     ];
 
+
+    public array $default = [
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'nba_research',
+        'DBDriver' => 'MySQLi',
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => true,
+        'charset'  => 'utf8mb4',
+        'DBCollat' => 'utf8mb4_unicode_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => PORT,
+    ];
+
     /**
      * The default database connection.
      */
-    public array $default = [
+    public array $production = [
         'DSN'      => '',
-        'hostname' => HOSTNAME,
-        'username' => USERNAME,
-        'password' => PASSWORD,
-        'database' => DATABASE,
+        'hostname' => 'localhost',
+        'username' => 'inju9756_admin',
+        'password' => 'nn6ShYjw8pNSF*%9',
+        'database' => 'inju9756_preventionlab',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

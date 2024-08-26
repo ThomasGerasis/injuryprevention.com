@@ -130,3 +130,11 @@ public/dist/*
 
 
 /node_modules
+
+package-lock.json
+public/media
+public/dist
+/vendor
+/writable
+spark
+preload.php

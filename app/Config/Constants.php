@@ -83,9 +83,9 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125);    // highest a
 defined('PAGE_LENGTH')      || define('PAGE_LENGTH', 20);
 
 /** Custom defined variables */
-defined('ENVIRONMENT')        || define('ENVIRONMENT','production');
+defined('ENVIRONMENT')        || define('ENVIRONMENT','development');
 defined('SITE_URL')           || define('SITE_URL', getenv('SITE_URL'));
-defined('FRONT_SITE_URL')     || define('FRONT_SITE_URL','https://injurypreventionlab.com/');
+defined('FRONT_SITE_URL')     || define('FRONT_SITE_URL','http://localhost:8080/');
 defined('HOSTNAME')           || define('HOSTNAME','localhost');
 defined('USERNAME')           || define('USERNAME', 'inju9756_admin');
 defined('PASSWORD')           || define('PASSWORD', 'hxot*0EHcCV5aEcd');
