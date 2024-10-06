@@ -9,7 +9,11 @@
         </a>
     </div>
 
-    <?php $menuItems = $cacheHandler->getMenuItems();?>
+    <?php 
+    
+    $menuItems = $cacheHandler->getMenuItems();
+    $socials = $cacheHandler->getOption('info');
+    ?>
     <?php $openParent = false; $parentId = false;
     foreach($menuItems as $menuItem){
         $url = (empty($menuItem['relative_url']) ? (empty($menuItem['external_url']) ? false : $menuItem['external_url']) : ($menuItem['relative_url'] == 'homepage' ? base_url() : base_url($menuItem['relative_url'])));
@@ -27,15 +31,15 @@
     <?php } ?>
 
     <div class="socials menu-item">
-        <a target="_blank" rel="nofollow" href="<?php echo base_url(); ?>" class="social-icon d-inline-block facebook">
+        <a target="_blank" rel="nofollow" href="<?php echo $socials['facebook_url'] ?? '#'; ?>" class="social-icon d-inline-block facebook">
             <img src="<?php echo base_url('assets/img/facebook.svg'); ?>" alt="nba" width="15" height="15">
         </a>
 
-        <a target="_blank" rel="nofollow" href="<?php echo base_url(); ?>" class="social-icon d-inline-block instagram">
+        <a target="_blank" rel="nofollow" href="<?php echo $socials['instagram_url'] ?? '#'; ?>" class="social-icon d-inline-block instagram">
             <img src="<?php echo base_url('assets/img/instagram.svg'); ?>" alt="nba" width="15" height="15">
         </a>
 
-        <a target="_blank" rel="nofollow"  href="<?php echo base_url(); ?>" class="social-icon d-inline-block twitter">
+        <a target="_blank" rel="nofollow"  href="<?php echo $socials['twitter_url'] ?? '#'; ?>" class="social-icon d-inline-block twitter">
             <img src="<?php echo base_url('assets/img/twitter.svg'); ?>" alt="nba" width="15" height="15">
         </a>
     </div>

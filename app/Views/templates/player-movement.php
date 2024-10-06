@@ -24,7 +24,10 @@
         <a href="#" class="main-button m-auto font-fff mt-2 primary-gradient variancePlayersButton">
             <span class="button-slanted-content">SEE PLAYER ON VARIANCE</span>
         </a>
-        <span class="font-fff font-weight-normal d-block w-100 mt-2 text-center font-xl-size-12rem">*No copyright infringement is intended.</span>
+        <?php $timelineTexts = $cacheHandler->getOption('timelineSetup');?>
+        <span class="font-fff font-weight-normal d-block w-100 mt-2 text-center font-xl-size-12rem">
+             <?=$timelineTexts['copyright_text'] ?? '*No copyright infringement is intended.'?>
+        </span>
     </div>
 
     <div class="d-block d-lg-none mb-1 mt-3" style="width: 90%; height: 1px; opacity: 0.25; border: 1px white solid"></div>

@@ -290,7 +290,6 @@ export function playerMovementChart(playerMovementData)
 
 // }
 
-
 //D3 js risk chart
 export function riskChart(teamData) {
     const margin = { top: 20, right: 30, bottom: 40, left: 40 };
@@ -298,22 +297,7 @@ export function riskChart(teamData) {
     const height = isMobile ? 240 - margin.top - margin.bottom : 280 - margin.top - margin.bottom;
   
     let data  = teamData['teamRiskPercentage'];
-
     let playersRisks = teamData['playersRiskPercentages'];
-    let teamRiskPercentage = [
-        10,
-        null,
-        30,
-        50,
-        40,
-        60,
-        30,
-        70,
-        90,
-        40,
-        50,
-        70,
-      ];
 
     const svg = d3
       .select("#riskChart")
@@ -360,6 +344,7 @@ export function riskChart(teamData) {
       .attr("height", height)
       .attr("fill", "rgba(154, 149, 151, 0.5)");
   
+    let globalIndex = 1;
     // Add bars
     svg
       .append("g")
@@ -369,63 +354,68 @@ export function riskChart(teamData) {
       .append("g")
       .attr("transform", (d, i) => `translate(${x0(labels[i])},0)`)
       .selectAll("rect")
-      .data((d, i) => d)
+      .data((d, i) => d.map((value, index) => ({ value, index }))) // Create an  .data((d, i) => d.map((value, index) => ({ value, index }))) // Create an 
       .enter()
       .append("rect")
       .attr("x", (d, i) => x1(i))
-      .attr("y", (d) => y(d))
+      .attr("y", (d) => y(d.value))
       .attr("width", x1.bandwidth())
-      .attr("height", (d) => height - y(d))
+      .attr("height", (d) => height - y(d.value))
       .attr("fill", (d, i) => color(i))
       .attr("class", (d, i) => ("bar"))
-      .on("click", function(event, d) {
-        handleRiskScalesClick(event, d,playersRisks);
-      }) // Add event listener to each bar;
       .on("mouseover", function(event, d) {
         d3.select(this).classed("highlight", true); // Add 'hovered' class on hover
       })
       .on("mouseout", function(event, d) {
         d3.select(this).classed("highlight", false); // Remove 'hovered' class when not hovering
+      })
+      .each(function(d, i) {
+        // Assign the globalIndex before binding the event listener
+        const currentIndex = globalIndex;
+        globalIndex++; // Increment for the next bar
+
+        // Bind event listener with the correct index
+        d3.select(this).on("click", function(event) {
+          handleRiskScalesClick(event, currentIndex, playersRisks);
+        });
       });
 
-        // Add y-axis with labels
-        svg.append("g")
-            .call(d3.axisLeft(y));
+    // Add y-axis with labels
+    svg.append("g")
+        .call(d3.axisLeft(y));
 
-        // Add "Low Risk" label
-        svg.append("text")
-            .attr("x", -margin.left / 4)
-            .attr("y", height + margin.bottom - 10)
-            .attr("class", "label-text text-white")
-            .style("text-anchor", "start")
-            .text("Low Risk");
+    // Add "Low Risk" label
+    svg.append("text")
+        .attr("x", -margin.left / 4)
+        .attr("y", height + margin.bottom - 10)
+        .attr("class", "label-text text-white")
+        .style("text-anchor", "start")
+        .text("Low Risk");
 
-        // Add "High Risk" label
-        svg.append("text")
-            .attr("x", width + margin.right / 4)
-            .attr("y", height + margin.bottom - 10)
-            .attr("class", "label-text text-white")
-            .style("text-anchor", "end")
-            .text("High Risk");
-            
-        const yAxis = d3
-        .axisLeft(y)
-        .tickSize(-width) // Extend the tick lines across the width of the chart
-        .tickPadding(10); // Space between ticks and axis labels
+    // Add "High Risk" label
+    svg.append("text")
+        .attr("x", width + margin.right / 4)
+        .attr("y", height + margin.bottom - 10)
+        .attr("class", "label-text text-white")
+        .style("text-anchor", "end")
+        .text("High Risk");
         
-        svg.append("g").call(yAxis).selectAll("text").style("fill", "white"); // Set y-axis label color to white
+    const yAxis = d3
+    .axisLeft(y)
+    .tickSize(-width) // Extend the tick lines across the width of the chart
+    .tickPadding(10); // Space between ticks and axis labels
     
-        svg
-            .selectAll(".tick line") // Select only the tick lines
-            .style("stroke", "white") // Set the stroke color to white for the tick lines
-            .style("stroke-width", 1) // Optional: Set the width of the tick lines
-            .style("stroke-opacity", 0.6); // Optional: Set the width of the tick lines
+    svg.append("g").call(yAxis).selectAll("text").style("fill", "white"); // Set y-axis label color to white
+
+    svg
+        .selectAll(".tick line") // Select only the tick lines
+        .style("stroke", "white") // Set the stroke color to white for the tick lines
+        .style("stroke-width", 1) // Optional: Set the width of the tick lines
+        .style("stroke-opacity", 0.6); // Optional: Set the width of the tick lines
 }
 
 function handleRiskScalesClick(event, d,playersRisks) 
 {
-    console.log(d);
-    console.log(playersRisks);
     fetch(ajaxUrl + 'buildPlayerPercentage', {
         method: "POST",
         headers: {

@@ -21,19 +21,22 @@
 
         </div>
 
+        <?php $socials = $cacheHandler->getOption('info');?>
         <div class="footer_info col-12 col-lg-6 d-flex flex-column justify-content-center justify-content-lg-end">
             <span class="font-fff text-center text-lg-end">INJURY PREVENTION LAB</span>
-            <span class="font-fff text-center text-lg-end">+30698408037</span>
-            <span class="font-fff text-center text-lg-end">somalabagency@gmail.com</span>
+            <span class="font-fff text-center text-lg-end"><?=$socials['email']?></span>
+            <span class="font-fff text-center text-lg-end"><?=$socials['mobile']?></span>
             <div class="socials menu-item pt-2">
-                <a target="_blank" rel="nofollow" href="<?php echo base_url(); ?>" class="social-icon d-inline-block facebook">
-                    <img src="<?php echo base_url('assets/img/facebook.svg'); ?>" loading="lazy" alt="facebook" width="15" height="15">
+                <a target="_blank" rel="nofollow" href="<?php echo $socials['facebook_url'] ?? '#'; ?>" class="social-icon d-inline-block facebook">
+                    <img src="<?php echo base_url('assets/img/facebook.svg'); ?>" alt="nba" width="15" height="15">
                 </a>
-                <a target="_blank" rel="nofollow" href="<?php echo base_url(); ?>" class="social-icon d-inline-block instagram">
-                    <img src="<?php echo base_url('assets/img/instagram.svg'); ?>" loading="lazy" alt="instagram" width="15" height="15">
+
+                <a target="_blank" rel="nofollow" href="<?php echo $socials['instagram_url'] ?? '#'; ?>" class="social-icon d-inline-block instagram">
+                    <img src="<?php echo base_url('assets/img/instagram.svg'); ?>" alt="nba" width="15" height="15">
                 </a>
-                <a target="_blank" rel="nofollow"  href="<?php echo base_url(); ?>" class="social-icon d-inline-block twitter">
-                    <img src="<?php echo base_url('assets/img/twitter.svg'); ?>" loading="lazy" alt="twitter" width="15" height="15">
+
+                <a target="_blank" rel="nofollow"  href="<?php echo $socials['twitter_url'] ?? '#'; ?>" class="social-icon d-inline-block twitter">
+                    <img src="<?php echo base_url('assets/img/twitter.svg'); ?>" alt="nba" width="15" height="15">
                 </a>
             </div>
         </div>

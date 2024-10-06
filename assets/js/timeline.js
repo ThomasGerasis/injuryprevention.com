@@ -149,7 +149,6 @@ window.fetchRiskGraph = function(game,gameDate, gameOpponent)
         .then(data => {
             let jsonData = JSON.parse(data.html);
             let teamRiskData = JSON.parse(data.teamRisk);
-
             gamesContainer.classList.remove('slider-container');
             gamesContainer.classList.add('slider-step-container');
             sliderContainer.innerHTML = jsonData;

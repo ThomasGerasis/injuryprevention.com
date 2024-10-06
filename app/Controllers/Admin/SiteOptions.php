@@ -20,10 +20,10 @@ class SiteOptions extends BaseController
 		$editingLock = model(EditingLock::class);
 		$optionModel = model(Option::class);
         $data = array();
+
 		$data['option'] = $optionModel->where('name',$name)->first();
         if(empty($data['option'])){
-			$this->session->setFlashdata('error', 'Page not found.');
-			return redirect()->to('admin/dashboard');
+			$data['option'] = array('name' => $name, 'value' => '');
         }
     
         $lock = $editingLock->getLock('option', $name);
@@ -34,7 +34,7 @@ class SiteOptions extends BaseController
         $editingLock->saveLock('option', $name, $this->session->get('loggedUser')['id'], time());
 		
         if ($_POST) {
-			$savedResponse = $optionModel->saveData($_POST, $this->session->get('loggedUser')['id'], $data['option']['id']);
+			$savedResponse = $optionModel->saveData($_POST, $this->session->get('loggedUser')['id'], $name);
 			if ($savedResponse) {
 			    rebuildCache('option', $name, 'update');
 				$this->session->setFlashdata('success', 'Οι αλλαγές σας αποθηκεύτηκαν.');
@@ -44,8 +44,10 @@ class SiteOptions extends BaseController
 			}
 		}
 
-		$data['pageData'] = array('title' => 'Edit '.$data['option']['title'].' options');
+		$data['pageData'] = array('title' => 'Edit options');
 
+
+		// var_dump('edit_'.$name);
 		echo view('admin/header', $data);
 		echo view('admin/options/edit_'.$name, $data);
 		echo view('admin/footer', ['tinymce' => true, 'loadJs' => ['editing_neweditor.js', 'custom_tinymce.js', 'edit_lock.js']]);

@@ -16,9 +16,6 @@ class Options extends Migration
             PRIMARY KEY (`id`),
             KEY `name` (`name`)
           ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
-        
-        $this->db->query("INSERT INTO `options` (`id`, `name`, `title`) VALUES
-			(1, 'exitPage', 'exit page')");
 
     }
 

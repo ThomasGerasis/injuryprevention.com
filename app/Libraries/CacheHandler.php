@@ -2,6 +2,8 @@
 
 namespace App\Libraries;
 
+use App\Models\Permalink;
+use App\Models\Option;
 
 class CacheHandler
 {
@@ -44,7 +46,6 @@ class CacheHandler
         return $cached_response;
     }
 
-
     private function my_email_crypt($string, $action = 'e')
     {
         // you may change these values to your own
@@ -71,7 +72,9 @@ class CacheHandler
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-           $allFixtures = curlGetContent('https://testing.injurypreventionlab.com/assets/stats.json');
+        //    $allFixtures = curlGetContent('https://testing.injurypreventionlab.com/assets/stats.json');
+             $allFixtures = file_get_contents(FCPATH .'assets/stats.json');
+            $allFixtures = json_decode($allFixtures, true);
            $cached_response =  !empty($allFixtures) ? $allFixtures : [];
            $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
         }
@@ -92,6 +95,7 @@ class CacheHandler
         }
         return $cached_response;
     }
+
 
     public function getFixturePlayers($date, $refreshCache = false)
     {
@@ -131,7 +135,8 @@ class CacheHandler
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-            $players = curlGetContent('https://injurypreventionlab.com/assets/players.json');
+            $players = file_get_contents(FCPATH .'assets/players.json');
+            $players = json_decode($players, true);
             $cached_response = !empty($players) ? $players : [];
             $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
         }

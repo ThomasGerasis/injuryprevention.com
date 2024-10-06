@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $development = [
         'DSN'      => '',
-        'hostname' => 'localhost',
+        'hostname' => 'host.docker.internal',
         'username' => 'root',
-        'password' => '',
-        'database' => 'nba_research',
+        'password' => '1234',
+        'database' => 'inju9756_preventionlab',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
@@ -47,10 +47,10 @@ class Database extends Config
 
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
+        'hostname' => 'host.docker.internal',
         'username' => 'root',
-        'password' => '',
-        'database' => 'nba_research',
+        'password' => '1234',
+        'database' => 'inju9756_preventionlab',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

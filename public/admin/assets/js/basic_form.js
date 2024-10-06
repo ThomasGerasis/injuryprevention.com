@@ -133,35 +133,7 @@ var BasicFormFunctions = function()
 	}
 	
 	function init(){
-		
-		
-		if($('#bookmaker_review_restriction_text').length){
-			var introduction = document.getElementById('bookmaker_review_restriction_text');
-			introduction.setAttribute('contenteditable', true);
-			CKEDITOR.inline('bookmaker_review_restriction_text', {
-				extraAllowedContent: 'a(documentation);abbr[title];code',
-				removePlugins: 'stylescombo',
-				extraPlugins: 'justify,wordcount',
-				entities: false,
-				removeButtons: 'Save,Templates,Cut,Copy,Paste,Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,CreateDiv,BidiLtr,BidiRtl,Language,Anchor,Image,Flash,PageBreak,Iframe,Font,ShowBlocks,About',
-				disableNativeSpellChecker: false
-			});
-		}
-		
-		if($('#sport-positions-sortable').length){
-			$('.add-template-btn').click(add_template);
-			$('#sport-positions-sortable').sortable( {
-				dropOnEmpty: false,
-				cursor: "move",
-				handle: ".btn-move-part",
-				update: function( event, ui ) {
-					$(this).children().each(function(index) {
-						$(this).find('input.sort_order').val(index + 1);
-					});
-				}
-			});
-		}
-		
+
 		
 		if($('.form-check-input-switch').length){
 			jQuery.ajax({
@@ -209,77 +181,7 @@ var BasicFormFunctions = function()
 				minimumResultsForSearch: Infinity
 			});
 		}
-		if($('textarea#user_content').length){
-			CKEDITOR.stylesSet.add( 'default', [
-				{ name: '60% font size', element: 'span', attributes: { 'class': 'font-xs' } },
-				{ name: 'Small', element: 'small' },
-				{ name: '0.8rem font size', element: 'span', attributes: { 'class': 'font-0-8' } },
-				{ name: '0.9rem font size', element: 'span', attributes: { 'class': 'font-0-9' } },
-				{ name: '1rem font size', element: 'span', attributes: { 'class': 'font-1' } },
-				{ name: '1.1rem font size', element: 'span', attributes: { 'class': 'font-1-1' } },
-				{ name: '1.2rem font size', element: 'span', attributes: { 'class': 'font-1-2' } },
-				{ name: '1.3rem font size', element: 'span', attributes: { 'class': 'font-1-3' } },
-				{ name: '1.4rem font size', element: 'span', attributes: { 'class': 'font-1-4' } },
-				{ name: '1.5rem font size', element: 'span', attributes: { 'class': 'font-1-5' } },
-				{ name: '2rem font size', element: 'span', attributes: { 'class': 'font-2' } },
-				{ name: '3rem font size', element: 'span', attributes: { 'class': 'font-3' } },
-				{ name: '4rem font size', element: 'span', attributes: { 'class': 'font-4' } },
-				{ name: 'Highlight', element: 'span', attributes: { 'class': 'highlight' } },
-				{ name: 'Dropcap', element: 'span', attributes: { 'class': 'dropcap' } },
-			]);
-			CKEDITOR.timestamp='v6';
-			CKEDITOR.replace('user_content', {
-				customConfig: '../../../editor_ckeditor_full_config.js?v=58',
-				embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
-			});
-		}
-		
-		if($('textarea#fox_review').length){
-			CKEDITOR.stylesSet.add( 'default', [
-				{ name: '60% font size', element: 'span', attributes: { 'class': 'font-xs' } },
-				{ name: 'Small', element: 'small' },
-				{ name: '0.8rem font size', element: 'span', attributes: { 'class': 'font-0-8' } },
-				{ name: '0.9rem font size', element: 'span', attributes: { 'class': 'font-0-9' } },
-				{ name: '1rem font size', element: 'span', attributes: { 'class': 'font-1' } },
-				{ name: '1.1rem font size', element: 'span', attributes: { 'class': 'font-1-1' } },
-				{ name: '1.2rem font size', element: 'span', attributes: { 'class': 'font-1-2' } },
-				{ name: '1.3rem font size', element: 'span', attributes: { 'class': 'font-1-3' } },
-				{ name: '1.4rem font size', element: 'span', attributes: { 'class': 'font-1-4' } },
-				{ name: '1.5rem font size', element: 'span', attributes: { 'class': 'font-1-5' } },
-				{ name: '2rem font size', element: 'span', attributes: { 'class': 'font-2' } },
-				{ name: '3rem font size', element: 'span', attributes: { 'class': 'font-3' } },
-				{ name: '4rem font size', element: 'span', attributes: { 'class': 'font-4' } },
-				{ name: 'Highlight', element: 'span', attributes: { 'class': 'highlight' } },
-				{ name: 'Dropcap', element: 'span', attributes: { 'class': 'dropcap' } },
-			]);
-			CKEDITOR.timestamp='v6';
-			CKEDITOR.replace('fox_review', {
-				customConfig: '../../../editor_ckeditor_full_config.js?v=58',
-				embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
-			});
-			CKEDITOR.replace('shortcode_minireview', {
-				customConfig: '../../../editor_ckeditor_full_config.js?v=58',
-				embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
-			});
-			CKEDITOR.replace('shortcode_promos', {
-				customConfig: '../../../editor_ckeditor_full_config.js?v=58',
-				embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
-			});
-			if($('textarea#shortcode_livecasino').length){
-				CKEDITOR.replace('shortcode_livecasino', {
-					customConfig: '../../../editor_ckeditor_full_config.js?v=58',
-					embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
-				});
-				CKEDITOR.replace('shortcode_slots', {
-					customConfig: '../../../editor_ckeditor_full_config.js?v=58',
-					embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
-				});
-				CKEDITOR.replace('shortcode_cs', {
-					customConfig: '../../../editor_ckeditor_full_config.js?v=58',
-					embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
-				});
-			}
-		}
+
 		
 		if($('.rating_slider').length){
 			$('.rating_slider').each(function(){
@@ -356,98 +258,6 @@ var BasicFormFunctions = function()
 				return false;
 			});
 		}*/
-		
-		if($('#add_new_payment').length){
-			$('#add_new_payment').click(function(){
-				if(!$('select#new_payment').val()) return false;
-				var new_pid = $('select#new_payment').val();
-				var opt = $('select#new_payment option[value="'+new_pid+'"]');
-				var part_attrs = {};
-				part_attrs["pid"] = new_pid;
-				part_attrs["pname"] = opt.html();
-				$('select#new_payment').val('');
-				opt.hide();
-				var new_part = $.tmpl($('#new_payment_row').html(), part_attrs);
-				$('table.all_payments').append(new_part);
-				return false;
-			});
-			$(document).on("click", ".btn-remove-row", function () {
-				var pid = $(this).parents('tr').attr('data-payment-id');
-				$('select#new_payment option[value="'+pid+'"]').show();
-				$(this).parents('tr').remove();
-				return false;
-			});
-			$('table.all_payments tbody').sortable( {
-				dropOnEmpty: false,
-				cursor: "move",
-				handle: ".btn-move-part",
-				update: function( event, ui ) {
-					$(this).children().each(function(index) {
-						$(this).find('input.sort_order').val(index + 1);
-					});
-				}
-			});
-		}
-		
-		$(document).on("click", ".change-video-url", function () {
-			$(this).parents('.video-block-container').find('.video-url-container').show();
-			$(this).hide();
-			return false;
-		})
-		
-		$(document).on("click", ".video-url-submit", function () {
-			var p = $(this).parents('.video-block-container');
-			var input_target = $(this).attr('data-target');
-			var vp = p.find('input.video_url');
-			var video = vp.val();
-			if(video){
-				var found = false;
-				//var videoid = video.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-				var myRegexp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-				var match = myRegexp.exec(video);
-				if(match !== null && typeof(match) !== "undefined"){
-					if(match[2] !== null){
-						var videoid = match[2];
-						found = true;
-						found = true;
-						p.find('.video_source').css('margin-top','10px');
-						$('input[name="'+input_target+'"]').val(videoid);
-						p.find('.video_source').html('<iframe src="https://www.youtube.com/embed/'+videoid+'" allowfullscreen="" width="400" height="300" frameborder="0"></iframe>');
-					}
-				}
-				if(!found){
-					//check fb
-					var myRegexp = /^http(?:s?):\/\/(?:www\.|web\.|m\.)?facebook\.com\/([A-z0-9\.]+)\/videos(?:\/[0-9A-z].+)?\/(\d+)(?:.+)?$/gm;
-					var match = myRegexp.exec(video);
-					if(match !== null && typeof(match) !== "undefined"){
-						if(match[2] !== null){
-							videoid = match[2];
-							found = true;
-							p.find('.video_source').css('margin-top','10px');
-							$('input[name="'+input_target+'"]').val(videoid);
-							p.find('.video_source').html('<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F'+videoid+'%2F&width=400&show_text=false&height=300" width="400" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>');
-						}
-					}
-				}
-				if(!found){ 
-					swal({
-						title: 'Πρόβλημα',
-						text: 'To url του video δεν είναι σωστό.',
-						icon: 'warning',
-						timer: 3000
-					});
-				}
-			}else{
-				swal({
-					title: 'Πρόβλημα',
-					text: 'Παρακαλώ εισάγετε το url του video.',
-					icon: 'warning',
-					timer: 3000
-				});
-			}
-			return false;
-		})
-		
 		
 		$(document).on("keyup", "input.required", function(e){
 			if($(this).val() != ''){

@@ -20,8 +20,8 @@
         ]
     ); ?>
 </div>
-
+<?php $timelineTexts = $cacheHandler->getOption('timelineSetup');?>
 <span class="font-fff font-weight-normal d-flex align-items-center justify-content-lg-end justify-content-center w-100 mt-1 mb-1 font-xl-size-12rem">
-    *No copyright infringement is intended.  <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/info.svg'); ?>" 
+    <?=$timelineTexts['copyright_text'] ?? '*No copyright infringement is intended.'?>  <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/info.svg'); ?>" 
     loading="lazy"  alt="Info" width="18" height="18"> 
 </span>

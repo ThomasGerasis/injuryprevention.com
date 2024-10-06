@@ -1,7 +1,11 @@
-<h1 class="font-fff font-bold d-block w-100 text-center mt-lg-0 mt-3 margin-bottom-5 margin-bottom-xl-10">IN-GAME</h1>
+<h1 class="font-fff font-bold d-block w-100 text-center mt-lg-0 mt-3 margin-bottom-5 margin-bottom-xl-10">
+    <?php echo $timelineTexts['main_title'] ??  'IN-GAME' ;?>
+</h1>
 <span class="font-fff d-block w-100 text-center font-xl-size-14rem">
-    BOSTON CELTICS 2017-2018 NO WEARABLES HUMAN MOVEMENT ANALYSIS INTO INJURY RISK
-    AND INJURIES OCCURED AFTER OUR DANGER OF INJURY REPORT
+
+    <?php echo $timelineTexts['main_description'] ?? 'BOSTON CELTICS 2017-2018 NO WEARABLES HUMAN MOVEMENT ANALYSIS INTO INJURY RISK
+    AND INJURIES OCCURED AFTER OUR DANGER OF INJURY REPORT';?>
+
 </span>
 <?php $randomId = getToken(8); ?>
 <div class="position-relative timeline-swiper-container swiper-container  margin-top-xl-20 w-100 px-3" data-breakpoint="type1" data-prefix="timeline" id="timeline-swipe-<?php echo $randomId;?>">

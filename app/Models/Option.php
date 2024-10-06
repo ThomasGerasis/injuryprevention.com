@@ -17,9 +17,21 @@ class Option extends Model
         $this->actionLogModel = model(ActionLog::class);
     }
 	
-    function saveData($post_data, $user_id, $id)
+    function saveData($post_data, $user_id, $optionName)
 	{
 		$this->db->transBegin();
+
+		$currentData = $this->where('name',$optionName)->first();
+	
+		$data = array('value' => (empty($post_data) ? NULL : json_encode($post_data)));
+
+		if (empty($currentData)) {
+			$data['name'] = $optionName;
+			$id = $this->insert($data);
+		}else{
+			$id = $currentData['id'];	
+			$this->update($id, $data);
+		}
 
 		$actionData = array(
 			'user_id' => $user_id, 
@@ -29,8 +41,6 @@ class Option extends Model
 			'model_name' => 'Update options'
 		);
 
-		$data = array('value' => (empty($post_data) ? NULL : json_encode($post_data)));
-		$this->update($id, $data);
 		$this->actionLogModel->insert($actionData);
 
 		if ($this->db->transStatus() === false) {

@@ -138,6 +138,8 @@
 										<a href="#" class="nav-link <?php echo ($controller == '\App\Controllers\Admin\SiteOptions' ? 'active' : '');?>">Site options</a>
 										<ul class="nav nav-group-sub" <?php echo ($controller == '\App\Controllers\Admin\SiteOptions' ? 'style="display:block;"' : '');?>>
 											<li class="nav-item"><a href="<?php echo base_url('admin/siteOptions/info');?>" class="nav-link <?php echo $controller == '\App\Controllers\Admin\SiteOptions' && @$params[0] == 'info' ? 'active' : ''; ?>">Information / Socials</a></li>
+											<li class="nav-item"><a href="<?php echo base_url('admin/siteOptions/timelineSetup');?>" class="nav-link <?php echo $controller == '\App\Controllers\Admin\SiteOptions' && @$params[0] == 'timelineSetup' ? 'active' : ''; ?>">Timeline Setup</a></li>
+									
 										</ul>
 									</li>
 								</ul>

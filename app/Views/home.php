@@ -40,7 +40,10 @@
 
 </div>
 
-<?php $matches = $cacheHandler->getFixtures(true); ?>
+<?php
+$matches = $cacheHandler->getFixtures();
+$timelineTexts = $cacheHandler->getOption('timelineSetup');
+?>
 <div class="homepage-content bg-white margin-top-100 text-center pb-2 pb-xl-5">
 
     <div class="matches-container slider-container position-absolute">
@@ -49,6 +52,7 @@
                 [
                     'cacheHandler' => $cacheHandler,
                     'matches' => $matches,
+                    'timelineTexts' => $timelineTexts
                 ]
             ); ?>
         </div>

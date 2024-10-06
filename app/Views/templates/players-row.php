@@ -21,7 +21,7 @@
                             <img class="d-block player-image" src="<?php echo base_url('assets/img/players/'.$playerDetails['logo'].'.svg'); ?>"
                                  loading="lazy" alt="nba" width="150" height="150" alt="<?=$playerDetails['name']?>">
                         <?php } ?>
-                        <span class="d-block font-fff font-bold font-size-09rem position-absolute" style="bottom: 15%">
+                        <span class="d-block font-fff font-bold font-size-09rem position-absolute" style="bottom: 6px;">
                             <?=$playerDetails['name']?>
                         </span>
                     </div>
