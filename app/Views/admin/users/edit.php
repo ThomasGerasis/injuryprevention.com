@@ -84,18 +84,10 @@
 										$selected_ids = (empty($user_relations[$group_rel]) ? array() : $user_relations[$group_rel]);
 										$list = false;
 										switch ($group_rel) {
-											case 'channels':
-												$list = $channels;
-												$iname = 'Channels';
-												break;
-											case 'streamers':
-												$list = $streamers;
-												$iname = 'Streamers';
-												break;
-											case 'casinos':
-												$list = $casinos;
-												$iname = 'Casinos';
-												break;
+											// case 'channels':
+											// 	$list = $channels;
+											// 	$iname = 'Channels';
+											// 	break;
 											default:
 												break;
 										}

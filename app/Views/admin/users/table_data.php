@@ -3,7 +3,6 @@ $sortingColumn = (!empty($sessionData['sortingColumn']) ? $sessionData['sortingC
 $orderType = (!empty($sessionData['sortingType']) ? $sessionData['sortingType'] : 'asc');
 $sortingType = 'sorting_' . $orderType;
 $orderTypeOpposite = ($orderType == 'asc' ? 'desc' : 'asc');
-$sw_names = array('both' => 'Bookmaker, Casino', 'casino' => 'Casino', 'bookmaker' => 'Bookmaker');
 ?>
 <div class="table-responsive">
 	<table class="table datatable-basic dataTable no-footer table-hover table-bordered table-striped ci_datatable">
@@ -53,4 +52,4 @@ $sw_names = array('both' => 'Bookmaker, Casino', 'casino' => 'Casino', 'bookmake
 		</tbody>
 	</table>
 </div>
-<?php echo ajax_pagination($count, $page, base_url('admin/bookmakers/dir'), base_url('admin/bookmakers/getPaginatedList')); ?>
+<?php echo ajax_pagination($count, $page, base_url('admin/users/dir'), base_url('admin/users/getPaginatedList')); ?>

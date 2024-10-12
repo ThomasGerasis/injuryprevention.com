@@ -15,7 +15,7 @@
         <div class="d-flex justify-content-center">
             <div id="searchInnerContainer" class="col-12 col-lg-10 col-xl-8 border-radius-25 my-3 search-container-box d-flex align-items-center background-fff position-relative">
                 <div class="flex-fill position-relative z2-index text-right">
-                    <input type="search" class="search-input" id="searchInput" placeholder="<?php echo (empty($attrs['search_placeholder']) ? 'Which casino you need help with?' : $attrs['search_placeholder']);?>">
+                    <input type="search" class="search-input" id="searchInput" placeholder="<?php echo (empty($attrs['search_placeholder']) ? 'You need help with?' : $attrs['search_placeholder']);?>">
                 </div>
                 <div class="submit-box text-center py-2 px-5 position-relative font-weight-500 font-size-11rem font-000 z2-index">
                     Search
@@ -54,7 +54,9 @@
                     if (empty($articleData)) { continue; }
                     ?>
                     <div class="col-12 col-md-4 col-xl-3 mb-3">
-                        <a href="<?php echo base_url($articleData['permalink']);?>" class="d-block search-top-article font-000 mx-2 py-2 px-2 overflow-hidden text-left"><?php echo $articleData['title'];?></a>
+                        <a href="<?php echo base_url($articleData['permalink']);?>" class="d-block search-top-article font-000 mx-2 py-2 px-2 overflow-hidden text-left">
+                            <?php echo $articleData['title'];?>
+                        </a>
                     </div>
                 <?php } ?>
             </div>

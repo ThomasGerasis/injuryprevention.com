@@ -1514,7 +1514,6 @@
 			return {
 			  title: 'Insert image',
 			url: info.foxBase+'admin/ajaxData/getTinymceInsertImage'
-			//url: 'http://localhost/admin.foxbet.gr/admin/ajaxData/getTinymceInsertImage'
 			};
 		}
       };

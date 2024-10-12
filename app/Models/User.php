@@ -284,38 +284,6 @@ class User extends Model
                     $rs = json_decode($group['relation_ids'], true);
                     foreach ($rs as $gkey => $gval) {
                         switch ($gkey) {
-                            case 'all_channels':
-                                $rs[$gkey . '_names'] = 'Όλα τα channels';
-                                break;
-                            case 'channels':
-                                $names = array();
-                                foreach ($gval as $lid) {
-                                    $names[] = $this->db->table('channels')->select('title')->where('id', $lid)->get()->getRow()->title;
-                                }
-                                $rs[$gkey . '_names'] = 'Channels: ' . implode(', ', $names);
-                                break;
-                            case 'all_casinos':
-                                $rs[$gkey . '_names'] = 'Όλα τα casinos';
-                                break;
-                            case 'casinos':
-                                $names = array();
-                                $gamingApi = new \App\Libraries\IgamingApi();
-                                $casinos = $gamingApi->getCasinos();
-                                foreach ($gval as $lid) {
-                                    $names[] = $casinos[$lid]['title'];
-                                }
-                                $rs[$gkey . '_names'] = 'Casinos: ' . implode(', ', $names);
-                                break;
-                            case 'all_streamers':
-                                $rs[$gkey . '_names'] = 'Όλες οι streamers';
-                                break;
-                            case 'streamers':
-                                $names = array();
-                                foreach ($gval as $lid) {
-                                    $names[] = $this->db->table('streamers')->select('name')->where('id', $lid)->get()->getRow()->title;
-                                }
-                                $rs[$gkey . '_names'] = 'Streamers: ' . implode(', ', $names);
-                                break;
                             default:
                                 break;
                         }

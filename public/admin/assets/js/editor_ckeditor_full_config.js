@@ -24,7 +24,6 @@ CKEDITOR.editorConfig = function( config ) {
 		config.skin = 'default';
     }
 
-	//http://localhost/admin.foxbet.gr/assets/js/plugins/editors/ckeditor/
 
     // Load content styles
 	config.contentsCss = [CKEDITOR.basePath+'../../../../css/bootstrap.min.css',CKEDITOR.basePath+'skins/' + config.skin + '/contents.css?v=3'];

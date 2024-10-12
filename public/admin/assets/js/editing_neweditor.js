@@ -420,7 +420,7 @@ var EditingFunctions = function()
 				paste_webkit_styles: 'none',
 				paste_word_valid_elements: 'b,strong,i,em,h1,h2,h3,p,a',
 				entity_encoding: 'raw',
-				content_css: [config.base_url+'assets/css/bootstrap.min.css',config.base_url+'assets/js/custom_tinymce.css?v=23'],//,'http://localhost/www.foxbet.gr/assets/css/foxbet.css'],
+				content_css: [config.base_url+'assets/css/bootstrap.min.css',config.base_url+'assets/js/custom_tinymce.css?v=23'],
 				style_formats_merge: true,
 				fox_base_url: config.base_url,
 				//link_list: $.parseJSON($('#qlinks').html()),//config.base_url+'ajaxData/getTinymceLinks',

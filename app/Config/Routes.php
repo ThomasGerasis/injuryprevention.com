@@ -212,7 +212,6 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
         $routes->get('searchArticles', 'TokenInputSearch::searchArticles');
         $routes->get('searchArticles/(:any)', 'TokenInputSearch::searchArticles/$1');
         $routes->get('searchArticleCategories', 'TokenInputSearch::searchArticleCategories');
-        $routes->get('searchPolls', 'TokenInputSearch::searchPolls');
     });
 
 });
