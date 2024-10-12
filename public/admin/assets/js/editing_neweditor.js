@@ -577,20 +577,7 @@ var EditingFunctions = function()
 				(key >= 48 && key <= 57) ||
 				(key >= 96 && key <= 105));
 		});
-		
-		if($("#streamers-container").length){
-			$("#streamers-container").sortable( {
-				dropOnEmpty: false,
-				cursor: "move",
-				handle: ".btn-move-part",
-				update: function( event, ui ) {
-					$(this).children().each(function(index) {
-						$(this).find('input.sort_order').val(index + 1);
-					});
-				}
-			});
-		}
-		
+
 		if($(".btn-move-part-parent").length){
 			$(".btn-move-part-parent").each(function(){
 				$(this).sortable( {
@@ -606,18 +593,8 @@ var EditingFunctions = function()
 			})
 		}
 
-		if($("#channels-container").length){
-			$("#channels-container").sortable( {
-				dropOnEmpty: false,
-				cursor: "move",
-				handle: ".btn-move-part",
-				update: function( event, ui ) {
-					$(this).children().each(function(index) {
-						$(this).find('input.sort_order').val(index + 1);
-					});
-				}
-			});
-		}
+
+		
 		if($("#faq-container").length){
 			$("#faq-container").sortable( {
 				dropOnEmpty: false,

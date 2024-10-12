@@ -110,24 +110,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const parentContainer = el.closest('.tab-container');
         const parentContainerId = el.closest('.tab-container').id;
         const parentTabsContainer = el.closest('.toggle-tabs');
-        if (el.classList.contains('channel-toggle')) {
-            //channel schedule
-            let outerParent = parentContainer.parentElement.parentElement;
-            // make all tabs and toggles inactive
-            [].forEach.call(outerParent.querySelectorAll(".channel-toggle"), function(el) {
-                el.classList.remove("active-tab");
-            });
-            [].forEach.call(outerParent.querySelectorAll(".channel-tab-content"), function(el) {
-                el.classList.add("d-none");
-            });
-            //activate only the ones based on channel key
-            let activeChannel = el.dataset.channel;
-            let activeChannelTabs = document.querySelectorAll(".channel-toggle[data-channel=" + activeChannel + "]");
-            activeChannelTabs.forEach((activeChannelTab) => {
-                activeChannelTab.classList.add("active-tab");
-                document.querySelector('#' + activeChannelTab.dataset.target + '').classList.remove('d-none');
-            });
-        } else {
+      
             [].forEach.call(parentTabsContainer.querySelectorAll(".toggle-tab.active-tab"), function(el) {
                 el.classList.remove("active-tab");
             });
@@ -138,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 el.classList.add("d-none");
             });
             document.getElementById(el.getAttribute('data-target')).classList.remove("d-none");
-        }
+        
         return false;
 
     }));
