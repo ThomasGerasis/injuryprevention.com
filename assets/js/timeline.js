@@ -215,7 +215,9 @@ window.fetchVariance = function(game,gameDate,gameOpponent){
     .then(data => {
         let jsonData = JSON.parse(data.html);
         sliderContainer.innerHTML = jsonData;
-        varianceChart();
+        let playersVariation = JSON.parse(data.playersVariation);
+        let playerLogos = JSON.parse(data.playerLogos);
+        varianceChart(playersVariation,playerLogos);
         controlsHandler(game,gameDate,gameOpponent);
     })
     .catch(function (error) {

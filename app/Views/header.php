@@ -29,17 +29,17 @@
         @font-face{font-family: 'Alata', sans-serif;font-style:normal;font-weight:700;font-display:swap;src:url(<?php echo base_url('assets/fonts/Alata_Regular.woff2');?>) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
     </style>
     <link rel="stylesheet" href="/dist/css/bootstrap.css?v=2.3<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
-    <link rel="stylesheet" href="/dist/css/main.css?v=2.53<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+    <link rel="stylesheet" href="/dist/css/main.css?v=2.54<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
     <link rel="stylesheet" href="/dist/css/customSwiper.css?v=2.73<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
 
     <?php if (isset($loadCss) && is_array($loadCss)) : ?>
         <?php foreach ($loadCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/dist/css/$cssFilename.css?v=2.52".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/dist/css/$cssFilename.css?v=2.54".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
     <?php if (isset($loadAssetsCss) && is_array($loadAssetsCss)) : ?>
         <?php foreach ($loadAssetsCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.52".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.53".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
     <link rel="prefetch" href="/assets/img/timeline-grey-bg.svg">

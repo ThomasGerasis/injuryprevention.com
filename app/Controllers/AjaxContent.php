@@ -99,6 +99,8 @@ class AjaxContent extends BaseController
 //            return $this->fail('not ajax request');
 //        }
 
+ 
+
         $numberOfAnalysis = $this->request->getJSON()->numberOfAnalysis;
         $risk = $this->request->getJSON()->risk;
         $playerPercentages = $this->request->getJSON()->playersRiskPercentages;
@@ -228,18 +230,35 @@ class AjaxContent extends BaseController
 //        if (!$this->request->isAJAX()) {
 //            return $this->fail('not ajax request');
 //        }
-
         ob_start();
 
         $gameOpponent = $this->request->getJSON()->gameOpponent;
         $gameDate = $this->request->getJSON()->gameDate;
         $players = $this->cacheHandler->getFixturePlayers($gameDate);
+
+        $playerStats = fetchPlayersVariation($players);
+
+        $playersVariation = []; 
+        foreach ($playerStats as $playerName => $stats) { 
+            $playersVariation[$playerName] = $stats['variance'];
+        }
+        arsort($playersVariation);
+
+
+        $playerLogos = [];
+        foreach ($players as $player){
+            $playerName = $player['Player'];
+            $playerDetails = $this->cacheHandler->getFixturePlayerDetails($playerName);
+            $playerLogos[$playerName] = $playerDetails['logo'] ?? '';
+        }
+
         echo view('templates/variance',
             [
                 'cacheHandler' => $this->cacheHandler,
                 'gameOpponent' => $gameOpponent,
                 'date' => $gameDate,
-                'players' => !empty($players) ? $players : []
+                'players' => !empty($players) ? $players : [],
+                'playersVariation' => $playersVariation,
             ]
         );
 
@@ -247,6 +266,8 @@ class AjaxContent extends BaseController
 
         return $this->respond([
             'html' => json_encode($html),
+            'playersVariation' => json_encode($playersVariation),
+            'playerLogos' => json_encode($playerLogos),
         ]);
 
         die();

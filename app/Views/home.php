@@ -17,25 +17,13 @@
             <?php echo $pageData['welcome_text'] ?? ''; ?>
         </span>
 
-        <div class="arrow-container d-flex justify-content-center align-items-center overflow-hidden">
+        <div class="arrow-container d-flex justify-content-center margin-top-50 align-items-center overflow-hidden">
          <img class="arrow mx-auto margin-top-20 margin-bottom-20 d-block" 
             src="<?php echo base_url('assets/img/arrow-down.svg'); ?>" 
             loading="lazy" 
             alt="Arrow Down" width="50" height="50">
         </div>
 
-        <div class="about-us font-fff w-100 text-center">
-            <h3 class="d-block mx-auto font-fff margin-bottom-20 font-xl-size-22rem font-size-16rem">ABOUT US</h3>
-            <p class="margin-bottom-10 font-fff d-block">
-              <?php echo $aboutUsText ?? ''; ?>
-            </p>
-
-            <a href="/about-us" class="main-button font-fff primary-gradient">
-                <span class="button-slanted-content"> READ MORE</span>
-            </a>
-
-        </div>
-        
     </div>
 
 </div>
@@ -44,7 +32,7 @@
 $matches = $cacheHandler->getFixtures();
 $timelineTexts = $cacheHandler->getOption('timelineSetup');
 ?>
-<div class="homepage-content bg-white margin-top-100 text-center pb-2 pb-xl-5">
+<div class="homepage-content bg-white text-center pb-2 pb-xl-5">
 
     <div class="matches-container slider-container position-absolute">
         <div class="cutted-border-left d-flex flex-wrap h-100 padding-30 m-auto position-relative outer-container align-items-start">
@@ -59,7 +47,7 @@ $timelineTexts = $cacheHandler->getOption('timelineSetup');
 
     </div>
 
-    <div class="container font-secondary font-xl-size-14rem font-size-11rem">
+    <div class="container content font-secondary font-xl-size-14rem font-size-11rem">
         <?php echo $pageContent;?>
     </div>
 </div>

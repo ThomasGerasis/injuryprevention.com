@@ -296,7 +296,10 @@ export function riskChart(teamData) {
     const width = isMobile ? 360 - margin.left - margin.right : 700 - margin.left - margin.right;
     const height = isMobile ? 240 - margin.top - margin.bottom : 280 - margin.top - margin.bottom;
   
+    console.log(teamData);
+    
     let data  = teamData['teamRiskPercentage'];
+    let teamRiskPercentageCount = teamData['teamRiskCount'];
     let playersRisks = teamData['playersRiskPercentages'];
 
     const svg = d3
@@ -306,6 +309,13 @@ export function riskChart(teamData) {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
   
+
+      //0-1 negligable
+      //2-3 low
+      //4-7 medium
+      //8-10 high
+      //11 very high
+
     const labels = ["0-1", "2-3", "4-7", "8-10", "11"];
     const sectionData = [
         data.slice(0, 1),
@@ -373,10 +383,9 @@ export function riskChart(teamData) {
         // Assign the globalIndex before binding the event listener
         const currentIndex = globalIndex;
         globalIndex++; // Increment for the next bar
-
         // Bind event listener with the correct index
         d3.select(this).on("click", function(event) {
-          handleRiskScalesClick(event, currentIndex, playersRisks);
+          handleRiskScalesClick(event, currentIndex, playersRisks,teamRiskPercentageCount);
         });
       });
 
@@ -414,7 +423,7 @@ export function riskChart(teamData) {
         .style("stroke-opacity", 0.6); // Optional: Set the width of the tick lines
 }
 
-function handleRiskScalesClick(event, d,playersRisks) 
+function handleRiskScalesClick(event, d,playersRisks,teamRiskPercentageCount) 
 {
     fetch(ajaxUrl + 'buildPlayerPercentage', {
         method: "POST",
@@ -424,7 +433,7 @@ function handleRiskScalesClick(event, d,playersRisks)
             "X-Requested-With": "XMLHttpRequest"
         },
         body: JSON.stringify({
-            "numberOfAnalysis": 0,
+            "numberOfAnalysis": teamRiskPercentageCount[d],
             "risk": d,
             "playersRiskPercentages": playersRisks,
         })
@@ -434,34 +443,28 @@ function handleRiskScalesClick(event, d,playersRisks)
     )
     .then(data => {
         let jsonData = JSON.parse(data.html);
-        playerPercentage.innerHTML = jsonData;
+        let playerPercentageBox = document.getElementById('numberOfAnalysis');
+        playerPercentageBox.innerHTML = jsonData;
     })
     .catch(function (error) {
         console.log(error);
     });
 }
 
-export function varianceChart() {
-  
+
+export function varianceChart(playerStats, playerLogos) {
+
+    const playerNames = Object.keys(playerStats); // Get the player names as labels
+    const dataValues = playerNames.map(player => playerStats[player]);
+
     const data = {
-        labels: [
-            'kadeem_allen',
-            'kadeem_allen',
-            'jabari_bird',
-            'Image 4',
-            'Image 5',
-            'jabari_bird',
-            'Image 7',
-            'Image 8',
-            'Image 9',
-            'Image 10',
-        ],
+        labels: playerNames,
         datasets: [
             {
-                label: 'Value',
-                data: [90, 80, 70, 60, 50, 40, 30, 20, 15, 10],
+                label: 'Variance',  // Update label to reflect that it's Variance data
+                data: dataValues,   // Use variance values
                 fill: true,
-                backgroundColor: 'rgb(241, 98, 58)',
+                backgroundColor: 'rgb(241, 98, 58)',  // Customize color
             }
         ]
     };
@@ -534,9 +537,11 @@ export function varianceChart() {
         afterDatasetDraw: (chart, args, options) => {
             const {ctx,data,chartArea:{left,bottom},scales : {x,y}} = chart;
             ctx.save();
-            data.labels.forEach((playerName,index) =>{
+            ctx.imageSmoothingEnabled = false; // Disable image smoothing
+            data.labels.forEach((playerName, index) => {
                 const label = new Image();
-                label.src = getPlayerImageFromName(playerName);
+                const playerLogo = playerLogos[playerName];  // Get the player's logo
+                label.src = getPlayerImageFromName(playerLogo);
                 if (isMobile) {
                     // For mobile, draw images on the y-axis
                     ctx.drawImage(label,left-35,y.getPixelForValue(index) - 12,25,25);
@@ -544,8 +549,10 @@ export function varianceChart() {
                     ctx.drawImage(label,x.getPixelForValue(index) - 25,x.top,50,40);
                 }
             })
-            // ctx.restore();
+
+            ctx.restore();
         },
+
         defaults: {
             color: 'lightGreen'
         }

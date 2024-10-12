@@ -266,9 +266,6 @@ body{
   }
 }
 
-.about-us{
-  margin-top: 25%;
-}
 
 
 .main-home-container {
@@ -315,13 +312,18 @@ body{
 
 .homepage-content {
   @media (min-width:978px){
-    margin-top: -190px;
-    padding-top: 400px !important;
+    margin-top: -120px;
   }
-  // margin-top: -10px;
   padding-top: 400px !important;
+
+  .content{
+    padding-top: 250px;
+  }
 }
 
+.about-us{
+  margin-top: 5%;
+}
 
 
 .bg-page{

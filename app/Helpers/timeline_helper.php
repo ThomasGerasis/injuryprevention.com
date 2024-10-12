@@ -104,3 +104,39 @@ function calculateTeamRisks($playersMovementData) {
         'playersRiskPercentages' => $playerContributionToRiskLevel,
     ];
 }
+
+
+function fetchPlayersVariation($playersMovementData) {
+    $playersVariation = [];
+    foreach ($playersMovementData as $player) {
+        $playerName = $player['Player'];
+        // Extract risk values
+        $riskValues = array_column($player['Player Movement'], 'Risk');
+        // Calculate variance and standard deviation
+        $variation = calculateVariation($riskValues);
+        
+        $playersVariation[$playerName] = $variation;
+    }
+
+    return $playersVariation;
+}
+
+function calculateVariation($risks) {
+    $n = count($risks);
+    $mean = array_sum($risks) / $n;
+    
+    // Calculate variance
+    $variance = 0;
+    foreach ($risks as $risk) {
+        $variance += pow($risk - $mean, 2);
+    }
+    $variance /= $n;
+
+    // Standard deviation
+    $stdDev = sqrt($variance);
+
+    return [
+        'variance' => $variance,
+        'standard_deviation' => $stdDev 
+    ];
+}

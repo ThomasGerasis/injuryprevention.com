@@ -1,7 +1,6 @@
 <span class="font-fff font-weight-normal analysis-text top-0 d-block w-100 mt-1 mb-1 text-end font-xl-size-09rem font-size-07rem">
     NUYMBER OF ANALYSIS: <?= $numberOfAnalysis?>
 </span> 
-
 <?php
 if(!empty($percentages)) 
 {

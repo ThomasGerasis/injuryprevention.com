@@ -47,7 +47,7 @@
 
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -115%);
+  transform: translate(-50%, -80%);
   z-index: 999999;
   display: block;
   width: 97%;
@@ -258,9 +258,8 @@
 
 
   .progress{
-    @media (max-width:978px){
      height: 3rem !important;
-    }
+     margin-bottom: 2px;
   }
 
 }
@@ -271,9 +270,9 @@
 	line-height: 0;		/* remove line-height */ 
 	display: inline-block;	/* circle wraps image */
   margin: auto 5px;
-  border: 2px solid #636363;
+  // border: 2px solid #636363;
 	border-radius: 50%;	/* relative value */
-	background: #fff;
+	background: #9b7d94;
 	transition: linear 0.25s;
   height: 40px;
   width: 40px;
@@ -281,11 +280,10 @@
   img{
     border-radius: 50%;
   }
-  &:hover{
-    transition: ease-out 0.2s;
-    border: 4px solid rgba(0,0,0,0.2);
-
-  }
+  // &:hover{
+  //   // transition: ease-out 0.2s;
+  //   // border: 4px solid rgba(0,0,0,0.2);
+  // }
 }
 
 
