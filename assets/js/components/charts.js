@@ -295,8 +295,6 @@ export function riskChart(teamData) {
     const margin = { top: 20, right: 30, bottom: 40, left: 40 };
     const width = isMobile ? 360 - margin.left - margin.right : 700 - margin.left - margin.right;
     const height = isMobile ? 240 - margin.top - margin.bottom : 280 - margin.top - margin.bottom;
-  
-    console.log(teamData);
     
     let data  = teamData['teamRiskPercentage'];
     let teamRiskPercentageCount = teamData['teamRiskCount'];
@@ -316,7 +314,7 @@ export function riskChart(teamData) {
       //8-10 high
       //11 very high
 
-    const labels = ["0-1", "2-3", "4-7", "8-10", "11"];
+    const labels = ["Negligible", "Low Risk", "Medium Risk", "High Risk", "Very High Risk"];
     const sectionData = [
         data.slice(0, 1),
         data.slice(2, 4),
@@ -385,7 +383,7 @@ export function riskChart(teamData) {
         globalIndex++; // Increment for the next bar
         // Bind event listener with the correct index
         d3.select(this).on("click", function(event) {
-          handleRiskScalesClick(event, currentIndex, playersRisks,teamRiskPercentageCount);
+          handleRiskScalesClick(currentIndex, playersRisks,teamRiskPercentageCount);
         });
       });
 
@@ -393,21 +391,34 @@ export function riskChart(teamData) {
     svg.append("g")
         .call(d3.axisLeft(y));
 
-    // Add "Low Risk" label
-    svg.append("text")
-        .attr("x", -margin.left / 4)
-        .attr("y", height + margin.bottom - 10)
-        .attr("class", "label-text text-white")
-        .style("text-anchor", "start")
-        .text("Low Risk");
 
-    // Add "High Risk" label
-    svg.append("text")
-        .attr("x", width + margin.right / 4)
-        .attr("y", height + margin.bottom - 10)
-        .attr("class", "label-text text-white")
-        .style("text-anchor", "end")
-        .text("High Risk");
+    svg
+    .selectAll(".section-label")
+    .data(labels)
+    .enter()
+    .append("text")
+    .attr("class", "section-label")
+    .attr("x", (d) => x0(d) + x0.bandwidth() / 2) // Center the label within each section
+    .attr("y", height + 20) // Position below the bars
+    .attr("text-anchor", "middle")
+    .attr("fill", "white") // Set text color
+    .text((d) => d);
+
+    // // Add "Low Risk" label
+    // svg.append("text")
+    //     .attr("x", -margin.left / 4)
+    //     .attr("y", height + margin.bottom - 10)
+    //     .attr("class", "label-text text-white")
+    //     .style("text-anchor", "start")
+    //     .text("Low Risk");
+
+    // // Add "High Risk" label
+    // svg.append("text")
+    //     .attr("x", width + margin.right / 4)
+    //     .attr("y", height + margin.bottom - 10)
+    //     .attr("class", "label-text text-white")
+    //     .style("text-anchor", "end")
+    //     .text("High Risk");
         
     const yAxis = d3
     .axisLeft(y)
@@ -423,7 +434,7 @@ export function riskChart(teamData) {
         .style("stroke-opacity", 0.6); // Optional: Set the width of the tick lines
 }
 
-function handleRiskScalesClick(event, d,playersRisks,teamRiskPercentageCount) 
+export function handleRiskScalesClick(d,playersRisks,teamRiskPercentageCount) 
 {
     fetch(ajaxUrl + 'buildPlayerPercentage', {
         method: "POST",

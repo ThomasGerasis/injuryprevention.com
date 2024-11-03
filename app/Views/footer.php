@@ -51,16 +51,16 @@
 
 </div>
 
-<script src="/dist/js/main.js?v=3.96<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/main.js?v=3.98<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/users.js?v=3.97<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/customSwiper.js?v=3.6<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
-<script src="/dist/js/footer.js?v=1.3<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/footer.js?v=1.4<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/bootstrap.js?v=1.2<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <!-- load scripts necessary for curtain pages -->
-<?php //print_r($loadJs);?>
 
 <?php if (isset($loadJs) && is_array($loadJs)) : ?>
     <?php foreach ($loadJs as $script) : ?>
-        <script src="<?php echo base_url("dist/js/$script.js?v=9.76") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
+        <script src="<?php echo base_url("dist/js/$script.js?v=9.77") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 
@@ -82,6 +82,33 @@
 <!--    </script>-->
 <?php } ?>
 
+<div class="modal-popup fade ajaxModal" id="ajaxModal" tabindex="-1" aria-labelledby="ajaxModal" aria-hidden="true">
+    <div class="modal-container">
+        <img width="12" height="12"
+             class="close-modal"
+             src="<?php echo base_url('assets/img/close_icon.svg'); ?>"
+             loading="lazy" alt="close icon">
+            <div class="modal-body">
+                <span class="font-size-12rem text-center text-white">You must be logged in to read this article</span>
+            </div>
+    </div>
+</div>
+
+<div class="modal-popup fade ajaxLoginModal"
+     id="ajaxLoginModal"
+     tabindex="-1" aria-labelledby="ajaxLoginModal"
+     aria-hidden="true">
+    <div class="modal-container">
+        <img width="12" height="12"
+             class="close-modal"
+             src="<?php echo base_url('assets/img/close_icon.svg'); ?>"
+             loading="lazy"
+             alt="close icon">
+        <div class="modal-body">
+
+        </div>
+    </div>
+</div>
 
 
 </body>

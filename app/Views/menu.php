@@ -42,7 +42,13 @@
         <a target="_blank" rel="nofollow"  href="<?php echo $socials['twitter_url'] ?? '#'; ?>" class="social-icon d-inline-block twitter">
             <img src="<?php echo base_url('assets/img/twitter.svg'); ?>" alt="nba" width="15" height="15">
         </a>
+
+       
+
     </div>
 
+    <div class="text-1300-center text-end users-buttons" style="order:4;">
+
+    </div>
 
 </div>

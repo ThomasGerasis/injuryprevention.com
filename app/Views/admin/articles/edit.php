@@ -81,6 +81,15 @@
 			</div>
 			<div class="col-md-4 col-lg-3">
 				
+				<label>Is Locked</label>
+				<div class="form-group">
+					<?php $is_locked = (isset($page['is_locked']) ? $page['is_locked'] : ''); ?>
+					<select class="form-control" name="is_locked">
+						<option value="0" <?php echo ($is_locked == 0 ? 'selected="selected"' : ''); ?>>No</option>
+						<option value="1" <?php echo ($is_locked == 1 ? 'selected="selected"' : ''); ?>>Yes</option>
+					</select>
+				</div>
+
 				<label>Article category*</label>
 				<div class="form-group">
 					<?php $article_category_id = (isset($page['article_category_id']) ? $page['article_category_id'] : ''); ?>

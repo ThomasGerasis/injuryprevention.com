@@ -8,7 +8,7 @@ class Article extends Model
 {
 	protected $table = 'articles';
 	protected $primaryKey = 'id';
-	protected $allowedFields = ['article_category_id', 'title', 'short_title', 'seo_title', 'seo_description', 'permalink', 'opener_image_id', 'social_image_id', 'social_title',  'content', 'date_scheduled', 'date_published','published', 'date_created', 'user_id', 'modified_by', 'modified_date'];
+	protected $allowedFields = ['article_category_id', 'title', 'short_title', 'seo_title', 'seo_description', 'permalink', 'opener_image_id', 'social_image_id', 'social_title', 'content', 'date_scheduled', 'date_published','published','is_locked', 'date_created', 'user_id', 'modified_by', 'modified_date'];
 
 	private ActionLog $actionLogModel;
 	
@@ -214,6 +214,7 @@ class Article extends Model
 			'opener_image_id' => (empty($post_data['opener_image_id']) ? NULL : $post_data['opener_image_id']),
 			'social_image_id' => (empty($post_data['social_image_id']) ? NULL : $post_data['social_image_id']),
 			'social_title' => $post_data['social_title'],
+			'is_locked' => (empty($post_data['is_locked']) ? '0' : '1'),
 			'content' => fixPostContent(str_replace(array(FRONT_SITE_URL,base_url()),'/',$post_data['content']),$user_id)
 		);
 		

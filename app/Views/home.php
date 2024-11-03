@@ -44,7 +44,28 @@ $timelineTexts = $cacheHandler->getOption('timelineSetup');
                 ]
             ); ?>
         </div>
+    </div>
 
+    <div class="d-none matches-container position-absolute slider-step-container info-box-container">
+        <div class="cutted-border-left info-box d-flex flex-column w-100 h-100 padding-30 m-auto align-items-start">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <span class="d-block text-center font-fff font-xl-size-14rem font-size-11rem info-title"></span>
+                <img width="12" height="12"
+                class="close-info-box"
+                src="<?php echo base_url('assets/img/close_icon.svg'); ?>"
+                loading="lazy" alt="close icon">
+            </div>
+            <div class="d-block mb-1 mt-1 w-100 margin-bottom-20" style="height: 1px; opacity: 0.25; border: 1px white solid;"></div>
+            
+            <span class="font-fff font-weight-normal w-100 mt-1 mb-1 font-xl-size-12rem font-size-08rem margin-bottom-20 info-text">
+            </span>
+
+            <span class="font-fff font-weight-normal d-flex align-items-center w-100 mt-1 mb-1 font-xl-size-12rem position-absolute" style="bottom:15px;">
+                *No copyright infringement is intended.
+                <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/info.svg'); ?>" 
+                loading="lazy"  alt="Info" width="18" height="18"> 
+            </span>
+        </div>
     </div>
 
     <div class="container content font-secondary font-xl-size-14rem font-size-11rem">

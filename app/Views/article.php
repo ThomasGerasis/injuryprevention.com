@@ -2,7 +2,7 @@
 $articleCategoryData = $cacheHandler->getArticleCategory($pageData['article_category_id']);
 $publishedDate = isset($pageData['date_published']) ? date('d F Y - H:i', strtotime($pageData['date_published'])) : '';
 ?>
-<div class="container font-fff">
+<div class="container font-fff <?=$pageData['is_locked'] ? 'locked':''?>">
     <div class="article-container d-block mx-auto">
             <?php if (!empty($articleCategoryData)) { ?>
                 <div class="mb-3 d-flex justify-content-center w-100">
@@ -54,7 +54,7 @@ $publishedDate = isset($pageData['date_published']) ? date('d F Y - H:i', strtot
 
     <?php
     $articlesSlider = $cacheHandler->getOption('articlesSlider');
-    $sliderTitle = $articlesSlider['title'] ?? 'Hot Articles';
+    $sliderTitle = $articlesSlider['title'] ?? 'Related Articles';
     $sliderLimit = $articlesSlider['limit'] ?? 4;
     $sliderTitleType = $articlesSlider['heading_type'] ?? 'h2';
     ?>

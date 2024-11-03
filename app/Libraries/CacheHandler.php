@@ -4,6 +4,18 @@ namespace App\Libraries;
 
 use App\Models\Permalink;
 use App\Models\Option;
+use App\Models\FooterMenuItem;
+use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\FooterMenu;
+use App\Models\MenuItem;
+use App\Models\PageFaq;
+use App\Models\Page;
+use App\Models\HomepageData;
+use App\Models\Image;
+use App\Models\FaqCategory;
+use App\Models\User;
+
 
 class CacheHandler
 {
@@ -14,11 +26,6 @@ class CacheHandler
     public function __construct()
     {
         $this->cache = \Config\Services::cache();
-    }
-
-    public function imagePortalUrl($imageData, $folder)
-    {
-        return base_url('images/p/' . $folder . '/' . $imageData['file_name']);
     }
 
     function getPermalink($slug)
@@ -46,36 +53,20 @@ class CacheHandler
         return $cached_response;
     }
 
-    private function my_email_crypt($string, $action = 'e')
-    {
-        // you may change these values to your own
-        $secret_key = 'my_email_crypt_UkGZXahjBA3JfsaoLP5ZbyEk0XcYKzj3';
-        $secret_iv = 'my_email_secret_lku9VFKziq';
-        $output = false;
-        $encrypt_method = "AES-256-CBC";
-        $key = hash('sha256', $secret_key);
-        $iv = substr(hash('sha256', $secret_iv), 0, 16);
-        $string = strtolower($string);
-        if ($action === 'e') {
-            $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
-        } elseif ($action === 'd') {
-            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
-        }
-        return $output;
-    }
-
     public function getFixtures($refreshCache = false)
     {
-        $cache_item_name = "all_fixtures";
+        $cache_item_name = "all_fixtures_v3";
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-        //    $allFixtures = curlGetContent('https://testing.injurypreventionlab.com/assets/stats.json');
-             $allFixtures = file_get_contents(FCPATH .'assets/stats.json');
-            $allFixtures = json_decode($allFixtures, true);
+           $allFixtures = file_get_contents(FCPATH .'assets/stats.json');
+           $allFixtures = json_decode($allFixtures, true);
            $cached_response =  !empty($allFixtures) ? $allFixtures : [];
+
+        //    $allFixtures = curlGetContent('https://testing.injurypreventionlab.com/assets/stats.json');
+        //    $cached_response =  !empty($allFixtures) ? $allFixtures : [];
            $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
         }
         return $cached_response;
@@ -129,15 +120,17 @@ class CacheHandler
 
     public function getAllPlayers($refreshCache = false)
     {
-        $cache_item_name = "players_list";
+        $cache_item_name = "players_list_v3";
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-            $players = file_get_contents(FCPATH .'assets/players.json');
-            $players = json_decode($players, true);
-            $cached_response = !empty($players) ? $players : [];
+           $players = file_get_contents(FCPATH .'assets/players.json');
+           $players = json_decode($players, true);
+           $cached_response = !empty($players) ? $players : [];
+            // $allFixtures = curlGetContent('https://testing.injurypreventionlab.com/assets/players.json');
+            // $cached_response =  !empty($allFixtures) ? $allFixtures : [];
             $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
         }
         return $cached_response;
@@ -145,7 +138,7 @@ class CacheHandler
 
     public function getFixturePlayerDetails($player, $refreshCache = false)
     {
-        $cache_item_name = "playera_".$player."_details";
+        $cache_item_name = "player_".$player."_details";
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
@@ -331,7 +324,7 @@ class CacheHandler
 
     public function getArticle($id, $refreshCache = false)
     {
-        $cache_item_name = "article_$id";
+        $cache_item_name = "article_v2_$id";
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
@@ -613,5 +606,47 @@ class CacheHandler
         }
         return $cached_response;
     }
+
+    private function my_email_crypt($string, $action = 'e')
+    {
+        // you may change these values to your own
+        $secret_key = 'my_email_crypt_UkGZXahjBA3JfsaoLP5ZbyEk0XcYKzj3';
+        $secret_iv = 'my_email_secret_lku9VFKziq';
+        $output = false;
+        $encrypt_method = "AES-256-CBC";
+        $key = hash('sha256', $secret_key);
+        $iv = substr(hash('sha256', $secret_iv), 0, 16);
+        $string = strtolower($string);
+        if ($action === 'e') {
+            $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
+        } elseif ($action === 'd') {
+            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+        }
+        return $output;
+    }
+
+    public function getUser($email, $refreshCache = false)
+	{
+		$cache_item_name = "user_data_v4_" . $this->my_email_crypt($email);
+		$cached_response = false;
+		if (!$refreshCache) {
+			$cached_response = $this->cache->get($cache_item_name);
+		}
+		if (!$cached_response) {
+			log_message('error', 'CACHE NOT FOUND ' . $cache_item_name);
+
+			$userModel = model(User::class);
+			$cached_response = $userModel->getUserByEmail($email);
+
+			if (!$cached_response) {
+				return false;
+			}
+
+			$this->cache->save($cache_item_name, $cached_response, $this->cache_ttl);
+		}
+		if (empty($cached_response)) return false;
+		return $cached_response;
+	}
+
 
 }

@@ -4,6 +4,8 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use CodeIgniter\Controller;
 
+use App\Models\Image;
+
 class MediaServer extends Controller
 {
 	protected $request;

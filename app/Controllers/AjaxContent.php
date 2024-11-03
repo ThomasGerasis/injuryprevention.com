@@ -274,4 +274,60 @@ class AjaxContent extends BaseController
     }
 
 
+    public function getLockedArticle(){
+
+        $userData = $this->cacheHandler->getUser($this->request->getJSON()->email);
+		$profile = [
+			'userName' => $userData['username'] ?? '',
+			'firstName' => $userData['firstname'] ?? '',
+			'email' => $userData['email'] ?? '',
+		];
+
+        return $this->respond([
+			'userAuthenticated' => isset($userData),
+            'profile' => $profile
+		]);
+
+    }
+
+    public function fetchInfo()
+    {
+        $timelineTexts = $this->cacheHandler->getOption('timelineSetup');
+        $key = $this->request->getJSON()->infoKey;
+
+        switch ($key) {
+            case 'players':
+                $databaseKey = 'players_info';
+                $buttonKey = 'button_players_text';
+                break;
+            case 'variance':    
+                $databaseKey = 'variance_info';
+                $buttonKey = 'variance_button_text';
+                break;
+            case 'teams':    
+                $databaseKey = 'team_stats_info';
+                $buttonKey = 'team_stats_button_text';
+                break;
+            case 'player-movement':    
+                $databaseKey = 'player_movement_info';
+                $buttonKey = '';    
+                break;
+            default:
+                $databaseKey = '';
+                break;
+        }
+
+        $information = $timelineTexts[$databaseKey] ?? ''; 
+        $title = $timelineTexts[$buttonKey] ?? 'Player Movement';
+
+        return $this->respond([
+			'title' => $title,
+            'information' => strip_tags($information)
+		]);
+
+    }
+
+
+
+    
 }

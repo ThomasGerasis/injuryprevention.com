@@ -72,9 +72,15 @@ if(count($articleIds) < $attrs['limit']){
                         <a href="<?php echo base_url($articleData['permalink']);?>" class="font-fff font-size-12rem d-block overflow-hidden"><?php echo $articleData['title'];?></a>
                     </div>
                     <div class="read-more">
-                        <a href="<?php echo base_url($articleData['permalink']);?>" class="main-button font-fff primary-gradient">
-                            <span class="button-slanted-content"> READ MORE</span>
-                        </a>
+                        <?php if(!empty($articleData['is_locked'])){ ?>
+                                <a class="main-button font-fff font-size-12rem primary-gradient cursor-pointer loadAuthAjaxModal" data-url="<?=base_url($articleData['permalink'])?>">
+                                    <span class="button-slanted-content">READ MORE</span>         
+                                </a>
+                            <?php }else{ ?>
+                                <a href="<?php echo base_url($articleData['permalink']);?>" class="main-button font-fff font-size-12rem primary-gradient">
+                                    <span class="button-slanted-content">READ MORE</span>
+                                </a>
+                        <?php } ?>
                     </div>
                 </div>
             <?php } ?>

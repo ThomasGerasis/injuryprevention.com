@@ -19,7 +19,7 @@ class AccessControl extends BaseController
 	public function attemptGoogleAuth()
 	{
 		// This is to avoid Firebase\JWT\BeforeValidException. See https://github.com/googleapis/google-api-php-client/issues/1630
-		\Firebase\JWT\JWT::$leeway = 5;
+		\Firebase\JWT\JWT::$leeway = 60;
 
 		$client = new Google_CLient(['client_id' => GOOGLE_CLIENT_ID]);
 		$payload = $client->verifyIdToken($this->request->getPost('credential'));

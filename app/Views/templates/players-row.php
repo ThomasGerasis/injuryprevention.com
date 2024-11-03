@@ -7,7 +7,7 @@
 ); ?>
 
 <?php $randomId = getToken(8); ?>
-<div class="position-relative players-swiper-container swiper-container margin-top-20 w-100 px-3" data-breakpoint="type2" data-prefix="players" id="players-swipe-<?php echo $randomId;?>">
+<div class="position-relative players-swiper-container swiper-container margin-top-0 margin-top-xl-20 w-100 px-3" data-breakpoint="type2" data-prefix="players" id="players-swipe-<?php echo $randomId;?>">
     <div class="swiper players-swiper">
         <div class="swiper-wrapper">
             <?php foreach ($players as $key => $player) {
@@ -31,5 +31,12 @@
     </div>
     <div class="swiper-pagination"></div>
 </div>
+
+
+<span class="font-fff font-weight-normal d-flex d-lg-none align-items-center w-100 font-fff-opacity-75 text-decoration-none justify-content-center font-size-09rem">
+    <?=$timelineTexts['copyright_text'] ?? '*No copyright infringement is intended.'?>  <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/info.svg'); ?>" 
+    loading="lazy"  alt="Info" width="18" height="18"> 
+</span>
+
 
 <?php echo view('templates/timeline-components/see-all-matches-mobile', []); ?>

@@ -2,25 +2,12 @@
 
 namespace Config;
 
-// Create a new instance of our RouteCollection class.
-$routes = Services::routes();
+use CodeIgniter\Router\RouteCollection;
 
-/*
- * --------------------------------------------------------------------
- * Router Setup
- * --------------------------------------------------------------------
+// Create a new instance of our RouteCollection class.
+/**
+ * @var RouteCollection $routes
  */
-$routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Dashboard');
-$routes->setDefaultMethod('index');
-$routes->setTranslateURIDashes(false);
-$routes->set404Override();
-$routes->setAutoRoute(false);
-// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
-// where controller filters or CSRF protection are bypassed.
-// If you don't want to define all routes, please use the Auto Routing (Improved).
-// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -30,7 +17,7 @@ $routes->setAutoRoute(false);
 
 // admin group
 
-$routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function ($routes) {
+$routes->group('admin',['namespace' => 'App\Controllers\Admin'], function (RouteCollection $routes) {
 
     // route since we don't have to scan directories.
     $routes->get('/', 'Dashboard::index',['filter' => 'loggedFilter']);
@@ -83,7 +70,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
 //    $routes->get('crons/publishContent', 'Crons::publishContent');
     $routes->cli('crons/publishContent', 'Crons::publishContent');
 
-    $routes->group('mediaLibrary',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], static function ($routes) {
+    $routes->group('mediaLibrary',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'],  function (RouteCollection $routes) {
         $routes->get('/', 'MediaLibrary::index');
         $routes->post('getPaginatedList', 'MediaLibrary::getPaginatedList');
         $routes->post('update/(:num)', 'MediaLibrary::update/$1');
@@ -91,7 +78,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
         $routes->get('delete/(:num)', 'MediaLibrary::delete/$1');
     });
 
-    $routes->group('faqCategories',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], static function ($routes) {
+    $routes->group('faqCategories',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'],  function (RouteCollection $routes) {
             $routes->get('/', 'FaqCategories::index');
             $routes->get('index', 'FaqCategories::index');
             $routes->get('edit/', 'FaqCategories::edit');
@@ -107,7 +94,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
      });
 
     // Users
-    $routes->group('users',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter',], static function ($routes) {
+    $routes->group('users',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'],  function (RouteCollection $routes) {
         $routes->get('/', 'Users::index');
         $routes->get('index', 'Users::index');
         $routes->post('getPaginatedList', 'Users::getPaginatedList');
@@ -120,7 +107,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
     });
 
     // Site Users
-    $routes->group('siteUsers',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter',], static function ($routes) {
+    $routes->group('siteUsers',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], function (RouteCollection $routes) {
         $routes->get('/','SiteUsers::index');
         $routes->post('getPaginatedList', 'SiteUsers::getPaginatedList');
         $routes->get('activate/(:num)', 'SiteUsers::activate/$1');
@@ -130,7 +117,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
     });
 
 
-    $routes->group('articles',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter',], static function ($routes) {
+    $routes->group('articles',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'],  function (RouteCollection $routes) {
         $routes->get('/', 'Articles::index');
         $routes->get('index', 'Articles::index');
         $routes->post('getPaginatedList', 'Articles::getPaginatedList');
@@ -148,7 +135,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
         $routes->post('schedule/(:num)', 'Articles::schedule/$1');
     });
 
-    $routes->group('articleCategories',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter',], static function ($routes) {
+    $routes->group('articleCategories',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], function (RouteCollection $routes) {
         $routes->get('/', 'ArticleCategories::index');
         $routes->get('index', 'ArticleCategories::index');
         $routes->post('getPaginatedList', 'ArticleCategories::getPaginatedList');
@@ -165,7 +152,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
 
 
     //ajaxData
-    $routes->group('ajaxData',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter',], static function ($routes) {
+    $routes->group('ajaxData',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], function (RouteCollection $routes) {
         $routes->post('editLock', 'AjaxData::editLock');
         $routes->get('(:any)', 'AjaxData::$1');
         $routes->post('(:any)', 'AjaxData::$1');
@@ -175,7 +162,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
         $routes->post('(:any)/(:any)/(:any)', 'AjaxData::$1/$2/$3');
     });
 
-    $routes->group('multiUseContents',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter',], static function ($routes) {
+    $routes->group('multiUseContents',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], function (RouteCollection $routes) {
         $routes->get('/', '::index');
         $routes->get('index', '::index');
         $routes->post('getPaginatedList', '::getPaginatedList');
@@ -191,7 +178,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
     });
 
     //pages
-    $routes->group('pages',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], static function ($routes) {
+    $routes->group('pages',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], function (RouteCollection $routes) {
         $routes->get('/', 'Pages::index');
         $routes->get('index', 'Pages::index');
         $routes->post('getPaginatedList', 'Pages::getPaginatedList');
@@ -208,7 +195,7 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
     });
 
 
-    $routes->group('tokenInputSearch',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], static function ($routes) {
+    $routes->group('tokenInputSearch',['namespace' => 'App\Controllers\Admin','filter' => 'loggedFilter'], function (RouteCollection $routes) {
         $routes->get('searchArticles', 'TokenInputSearch::searchArticles');
         $routes->get('searchArticles/(:any)', 'TokenInputSearch::searchArticles/$1');
         $routes->get('searchArticleCategories', 'TokenInputSearch::searchArticleCategories');
@@ -216,9 +203,17 @@ $routes->group('admin',['namespace' => 'App\Controllers\Admin'], static function
 
 });
 
+$routes->post('login/googleauth', 'Authentication::attemptGoogleAuth');
+$routes->get('login', 'Authentication::login');
+$routes->get('logout', 'Authentication::logout');
+
+$routes->post('ajaxFunctions/displayMenuButtons', 'UserAccount::displayMenuButtons');
+$routes->get('ajaxFunctions/authorizeUser', 'UserAccount::authorizeUser');
+$routes->post('ajaxFunctions/signUpUser', 'UserAccount::signUpUser');
+$routes->get('user/setAuth', 'UserAccount::setAuthToken');
 
 //ajaxData
-$routes->group('ajaxFunctions',['namespace' => 'App\Controllers'], static function ($routes) {
+$routes->group('ajaxFunctions',['namespace' => 'App\Controllers'],[],  function (RouteCollection $routes) {
     $routes->post('(:any)/(:any)', 'AjaxContent::$1/$2');
     $routes->post('(:any)/(:any)/(:any)', 'AjaxContent::$1/$2/$3');
     $routes->post('(:any)', 'AjaxContent::$1');

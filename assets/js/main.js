@@ -1,5 +1,7 @@
 import "../scss/main.scss";
 
+import {closeModal } from "./components/modal";
+
 function handleContentIntersection(entries) {
     entries.map((entry) => {
         if (entry.isIntersecting) {
@@ -78,6 +80,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
             return false;
         });
     }
+
+
+    let modals = document.querySelectorAll(".modal-popup");
+    modals.forEach((modal) => {
+        modal.addEventListener("click", (event) => {
+            if (event.target.matches(".close-modal") || !event.target.closest(".modal-container") && event.target.tagName !== 'BUTTON') {
+                closeModal();
+            }
+        });
+    });
 
     document.querySelectorAll('.toggle-menu').forEach(el => el.addEventListener('click', event => {
         document.body.classList.toggle('show-sidebar');

@@ -16,8 +16,16 @@
 
     </div>
 
-    <div class="d-flex flex-column justify-content-center col-12 col-lg-6 margin-top-20 margin-top-xl-0 movement-chart position-relative">
+    <div class="d-flex flex-column justify-content-center col-12 col-lg-6 margin-top-10 margin-top-xl-0 movement-chart position-relative">
+        <a href="#" role="button" data-info="player-movement" class="font-fff text-decoration-none text-center d-flex font-weight-normal  mb-1 d-lg-none align-items-center font-xl-size-12rem infomodal">
+            Read More <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/arrow-right.svg'); ?>" 
+            loading="lazy"  alt="Info" width="18" height="18"> 
+        </a>
         <h3>Player Movement Analysis</h3>
+        <a href="#" role="button" data-info="player-movement" class="font-fff text-decoration-none justify-content-center text-center d-none font-weight-normal d-lg-flex align-items-center mt-1 mb-3 font-xl-size-12rem infomodal">
+            Read More <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/arrow-right.svg'); ?>" 
+            loading="lazy"  alt="Info" width="18" height="18"> 
+        </a>
         <div class="d-block m-auto outer-circle position-relative">
             <canvas id="radarChart" width="200" height="200"></canvas>
         </div>

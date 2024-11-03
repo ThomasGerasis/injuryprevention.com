@@ -16,6 +16,7 @@ module.exports = {
   context: path.resolve(__dirname, "assets"),
   entry: {
     main: "./js/main.js",
+    users: "./js/users/userActions.js",
     customSwiper: "./js/customSwiper.js",
     bootstrap: "./js/bootstrap.js",
     footer: "./js/footer.js",

@@ -102,10 +102,6 @@ padding-right: 17px;*/
     background: rgba(255, 255, 255, 0.2);
     color: #9fa0a3;
   }
-  .channel-state.live{
-    background: #C60F01;
-    color: var(--white-color);
-  }
 
   .divider{
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -164,30 +160,42 @@ body.show-sidebar #sidebar-nav {
   padding: 10px;
 }
 .dropdown-menu .username{
-  background: #101318;
+  background: #1b0720;
   border-radius: 10px 10px 0 0;
   padding-left: 5px;
   color: var(--bs-secondary);
 }
 
 #dropdownMenuButton{
-  border: 2px solid transparent;
+  border: 2px solid #f1623a;
   &:hover{
-    border: 2px solid #FD960B;
-    box-shadow: 0 0 10px #FD960B;
+    border: 2px solid #f1623a;
+    box-shadow: 0 0 10px #f1623a;
   }
   &:active{
     img{
       filter: brightness(0);
     }
-    background: #FD960B;
+    background: #f1623a;
+    color: #000;
+  }
+}
+
+#socialLogins{
+  background: transparent;
+  border: 2px solid #f1623a;
+  &:hover{
+    box-shadow: 0 0 10px #f1623a;
+  }
+  &:active{
+    background: #f1623a;
     color: #000;
   }
 }
 
 .dropdown-menu{
-  background: #000;
-  border: 1px solid #FD960B;
+  background: #1b0720;
+  border: 1px solid #f1623a;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding: 0;
@@ -232,4 +240,35 @@ body.show-sidebar #sidebar-nav {
   padding-bottom: 10px;
   margin-top: 15px;
   margin-bottom: 30px;
+}
+
+.login-buttons{
+  height: 42px;
+  border-radius: 5px;
+  width: 193px;
+  font-size: 14px;
+  white-space: nowrap;
+  margin-bottom: 20px;
+
+  span{
+    align-self: center;
+  }
+  .text{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+  }
+  .brand{
+    height: 42px;
+    width: 42px;
+    vertical-align: middle;
+  }
+}
+
+.login-buttons.google{
+  background: #4285f4;
+  color: #fff;
+  span.brand{
+    display: inline-block;
+  }
 }

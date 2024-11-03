@@ -1,6 +1,6 @@
 import "../scss/timeline.scss";
 import {setUpSliders} from "./customSwiper";
-import {varianceChart, playerMovementChart, riskChart} from "./components/charts";
+import {varianceChart, playerMovementChart, riskChart,handleRiskScalesClick} from "./components/charts";
 
 const siteUrl = window.location.origin;
 const ajaxUrl = siteUrl + '/ajaxFunctions/';
@@ -153,6 +153,9 @@ window.fetchRiskGraph = function(game,gameDate, gameOpponent)
             gamesContainer.classList.add('slider-step-container');
             sliderContainer.innerHTML = jsonData;
             riskChart(teamRiskData);
+            // let teamRiskPercentageCount = teamRiskData['teamRiskCount'];
+            // let playersRisks = teamRiskData['playersRiskPercentages'];
+            // handleRiskScalesClick(1,playersRisks,teamRiskPercentageCount);
             controlsHandler(game,gameDate,gameOpponent);
         })
         .catch(function (error) {
@@ -226,7 +229,51 @@ window.fetchVariance = function(game,gameDate,gameOpponent){
 }
 
 
+function displayInfo(infoKey)
+{
+    let infoModal = document.querySelector('.info-box-container');
+    let infoTitle = infoModal.querySelector('.info-title');
+    let infoText = infoModal.querySelector('.info-text');
 
+    fetch(ajaxUrl + 'fetchInfo', {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json',
+            "X-Requested-With": "XMLHttpRequest"
+        },
+        body: JSON.stringify({
+            "infoKey": infoKey,
+        })
+    })
+    .then(
+        response => response.json()
+    )
+    .then(data => {
+        infoModal.classList.add('d-flex');
+        infoModal.classList.remove('d-none');
+
+        infoTitle.innerText = data.title;
+        infoText.innerText = data.information;
+
+        let closeInfoModal = document.querySelector('.close-info-box');
+        closeInfoModal.addEventListener("click", (e) => {
+            e.preventDefault();
+            hideInfo(); 
+        });
+
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
+function hideInfo()
+{
+    let infoModal = document.querySelector('.info-box-container');
+    infoModal.classList.remove('d-flex');
+    infoModal.classList.add('d-none');
+}
 
 function controlsHandler(game,gameDate,gameOpponent)
 {
@@ -247,7 +294,18 @@ function controlsHandler(game,gameDate,gameOpponent)
             fetchVariance(game,gameDate, gameOpponent);
         });
     }
-    
+
+    let readInfoButton = document.querySelectorAll('.infomodal');
+
+    if (readInfoButton){
+        readInfoButton.forEach(element => {
+            element.addEventListener("click", (e) => {  
+                e.preventDefault(); 
+                displayInfo(element.dataset.info);   
+            }); 
+        })
+    }
+
     let controls = document.querySelector('.controls');
     if (controls) {
         let chartButtons = document.querySelectorAll('.chartButton');

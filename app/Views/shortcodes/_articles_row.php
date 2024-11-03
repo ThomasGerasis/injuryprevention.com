@@ -53,7 +53,7 @@ if(count($articleIds) < $attrs['limit']){
 
 <div class="article__row mt-5 mb-5">
     <?php foreach($articleIds as $articleId){
-        $articleData = $cacheHandler->getArticle($articleId,true);
+        $articleData = $cacheHandler->getArticle($articleId);
         if(empty($articleData)) continue;?>
         <div class="article-box text-left py-2">
             <?php if(!empty($articleData['opener_image_id'])){?>
@@ -76,9 +76,15 @@ if(count($articleIds) < $attrs['limit']){
                 </span>
             </div>
             <div class="read-more">
-                <a href="<?php echo base_url($articleData['permalink']);?>" class="main-button font-fff font-size-12rem primary-gradient">
-                    <span class="button-slanted-content"> READ MORE</span>
-                </a>
+                <?php if(!empty($articleData['is_locked'])){ ?>
+                    <a class="main-button font-fff font-size-12rem primary-gradient cursor-pointer loadAuthAjaxModal" data-url="<?=base_url($articleData['permalink'])?>">
+                        <span class="button-slanted-content">READ MORE</span>         
+                    </a>
+                <?php }else{ ?>
+                    <a href="<?php echo base_url($articleData['permalink']);?>" class="main-button font-fff font-size-12rem primary-gradient">
+                        <span class="button-slanted-content">READ MORE</span>
+                    </a>
+               <?php } ?>
             </div>
         </div>
     <?php } ?>

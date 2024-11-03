@@ -268,13 +268,7 @@ class User extends Model
         $builder->orderBy($params['sortingColumn'], $params['sortingType']);
         $query = $builder->get();
         $res = array();
-      /*  $s_array = array(
-            'post' => 'Άρθρα',
-            'page' => 'Σελίδες',
-            'guide' => 'Οδηγοί',
-            'transaction' => 'Συναλλαγές',
-            'software' => 'Λογισμικά'
-        );*/
+
         foreach ($query->getResultArray() as $row) {
             $row['groups'] = array();
         

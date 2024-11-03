@@ -1,4 +1,5 @@
 <?php
+use App\Models\FaqCategory;
 function rebuildCache($type, $type_id, $action = 'update')
 {
 	$hash = bin2hex(random_bytes(22));
@@ -13,7 +14,7 @@ function rebuildCache($type, $type_id, $action = 'update')
 	$model->insert($data);
 	$client = \Config\Services::curlrequest();
 	try {
-        $client->request('GET', FRONT_SITE_URL . "cache/rebuild/$hash", ['timeout' => 1]);
+        $client->request('GET', FRONT_SITE_URL . "cache/rebuild/$hash", ['timeout' => 10]);
 	}
 	catch(\Exception $e) {
 		log_message('error','Curl error: ' .$e->getMessage());
@@ -498,7 +499,7 @@ function curlGetContent($url)
     $response = curl_exec($curl);
 
     if (curl_errno($curl)) {
-        log_message('error', curl_error($curl));
+        log_message('error', 'Custom Curl:error '. curl_error($curl));
         curl_close($curl);
         return false;
     }

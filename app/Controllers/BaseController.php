@@ -48,6 +48,7 @@ abstract class BaseController extends Controller
 
     public CacheHandler $cacheHandler;
     public ContentParser $contentParser;
+    public $isMobile = false;
     /**
      * Constructor.
      */

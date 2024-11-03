@@ -1,8 +1,10 @@
 <?php
-
 namespace App\Controllers\Admin;
-
 use App\Controllers\BaseController;
+
+use App\Models\EditingLock;
+use App\Models\Image;
+
 
 class AjaxData extends BaseController
 {
@@ -35,6 +37,12 @@ class AjaxData extends BaseController
 		}
 	}
 
+
+
+
+
+
+	
 	public function getPermalink($check_id = NULL){
 		if (!$this->request->isAJAX()) {
             $resp = array('resp'=>false,'msg'=>'Δεν επιτρέπεται η πρόσβαση');

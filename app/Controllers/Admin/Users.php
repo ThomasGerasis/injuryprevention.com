@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Libraries\User as LibrariesUser;
 use App\Models\User;
 use App\Models\UserGroup;
+use App\Models\EditingLock;
 
 class Users extends BaseController
 {

@@ -1,11 +1,13 @@
 <?php
 namespace App\Controllers\Admin;
+
 use App\Controllers\BaseController;
 
+use App\Models\EditingLock;
+use App\Models\Article;	
 
 class Crons extends BaseController
 {
-
     public function cleanLocks()
 	{
 		//run every 1m

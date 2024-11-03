@@ -55,6 +55,27 @@
         </div>
 
 
+        <div class="mb-3">
+            <label>Player read more info text</label>
+            <textarea class="tinymce_editor" name="players_info" class="form-control"><?php echo htmlentities(@$values['players_info']);?></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Variance read more info text</label>
+            <textarea class="tinymce_editor" name="variance_info" class="form-control"><?php echo htmlentities(@$values['variance_info']);?></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Team Stats read more info text</label>
+            <textarea class="tinymce_editor" name="team_stats_info" class="form-control"><?php echo htmlentities(@$values['team_stats_info']);?></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Player movement analysis read more info text</label>
+            <textarea class="tinymce_editor" name="player_movement_info" class="form-control"><?php echo htmlentities(@$values['player_movement_info']);?></textarea>
+        </div>
+
+
         <div class="form-group row">
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Save <i class="icon-database-add ml-2"></i></button>

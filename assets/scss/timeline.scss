@@ -303,3 +303,24 @@
 .injury-slide{
   flex-direction: row !important;
 }
+
+@media (max-width:977px){
+  .section-label{
+    font-size: 9px;
+  }
+}
+
+.info-box
+{
+  @media (max-width:977px){
+    padding: 18px !important;
+  }
+  @media (min-width:978px){
+    background-image: url('../img/info-box.png');
+  }
+  background-image: url('../img/info-box-mob.png');
+  background-size: cover;
+  .close-info-box{
+    cursor: pointer;
+  }
+}

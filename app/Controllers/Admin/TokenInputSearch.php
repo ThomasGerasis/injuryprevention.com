@@ -24,17 +24,6 @@ class TokenInputSearch extends BaseController
 		echo json_encode($results);
 		return; die();
 	}
-
-
-	function searchPolls(){
-
-		$request = \Config\Services::request();
-		$term = $request->getVar('q');
-		$dbModel = model(Poll::class);
-		$results = $dbModel->tokeniputSearch(array('term'=>$term));
-		echo json_encode($results);
-		return; die();
-	}
 	
 	
 }
