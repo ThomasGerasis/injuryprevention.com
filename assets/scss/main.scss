@@ -230,7 +230,7 @@ body{
   background: #514e4f;
 }
 .homepage-content{
-  background: #fff url('../img/shapes-bg.svg') no-repeat;
+  background: #2a232f;
   background-size: cover;
 }
 .main-faq-container{
@@ -310,8 +310,11 @@ body{
   }
 
 }
-
-
+@media (max-width:97px){
+  .section-label{
+    font-size: 9px;
+  }
+}
 .homepage-content {
   @media (min-width:978px){
     margin-top: -120px;

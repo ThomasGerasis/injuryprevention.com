@@ -209,7 +209,7 @@ $routes->get('logout', 'Authentication::logout');
 
 $routes->post('ajaxFunctions/displayMenuButtons', 'UserAccount::displayMenuButtons');
 $routes->get('ajaxFunctions/authorizeUser', 'UserAccount::authorizeUser');
-$routes->post('ajaxFunctions/signUpUser', 'UserAccount::signUpUser');
+// $routes->post('ajaxFunctions/signUpUser', 'UserAccount::signUpUser');
 $routes->get('user/setAuth', 'UserAccount::setAuthToken');
 
 //ajaxData

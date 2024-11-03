@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\Authentication;
-use App\Models\User;
+use App\Models\SiteUser;
 use App\Libraries\JwtTokenHandler;
 use App\Libraries\User\NotRegisteredUser;
 use App\Libraries\User\User as UserUser;
@@ -79,50 +79,6 @@ class UserAccount extends BaseController
         $menuButtons = view('users/menu/loggedIn', $data);
         $user->userMenuButtons = $menuButtons;
         return $this->respond($data);
-    }
-
-    public function signUpUser()
-    {
-        $emailToRegister = $this->request->getJSON()->email;
-		$userDataByEmail = $this->cacheHandler->getUser($emailToRegister);
-
-		$data['userId'] = $userDataByEmail['id'];
-
-		$userProfile = [
-			'email' => $emailToRegister,
-			'username' => $userDataByEmail['username']
-		];
-
-		$token = $this->tokenHandler->generateToken($userProfile);
-
-		$userProfile['step'] = 4;
-		$userProfile['is_active'] = true;
-		$userProfile['mobile_confirmed'] = true;
-
-		$user = new User();
-		$user->updateProfile(
-			$userProfile,
-			$userDataByEmail['id']
-		);
-
-		$data = [
-			'userName' => $userDataByEmail['username'],
-		];
-
-		$user = new UserUser(
-            $userData["id"],
-			$userData['username'],
-			$userData['email'],
-		);
-
-		$dataLoggedIn = [
-			'user' => $user,
-			'token' => $token
-		];
-
-		$menuButtons = view('users/menu/loggedIn', $dataLoggedIn);
-		$user->userMenuButtons = $menuButtons;
-		return $this->respond($dataLoggedIn);
     }
 
 

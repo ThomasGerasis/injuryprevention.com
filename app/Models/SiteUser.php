@@ -7,7 +7,12 @@ class SiteUser extends Model
 {
 	protected $table = 'site_users';
 	protected $primaryKey = 'id';
-	protected $allowedFields = ['email','firstname', 'lastname' ,'is_active', 'date_added',
+	protected $allowedFields = [
+	'email',
+	'firstname', 
+	'lastname',
+	'is_active',
+	'date_added',
 	'last_connected_provider',
 	'last_connected_provider_token',
 	'last_connected_time',
@@ -22,6 +27,21 @@ class SiteUser extends Model
         $this->actionLogModel = model(ActionLog::class);
     }
 
+	public function registerUser(array $data): string
+	{
+		$userData = array(
+			'firstname' => $data['firstname'],
+			'lastname' => $data['lastname'],
+			'email' => $data['email'],
+			'is_active' => true,
+			'date_added' => date('Y-m-d H:i:s'),
+			'last_connected_time' => date('Y-m-d H:i:s'),
+			'last_connected_ip'	  => $data['ip'],
+		);
+
+		$this->db->table($this->table)->insert($userData);
+		return $this->db->insertID();
+	}
 	function fillParams($builder, $params = null)
     {
         if (is_array($params) && count($params)) {

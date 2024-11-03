@@ -15,7 +15,7 @@
             $i =0;
             foreach ($matches as $date => $game) {
                 $isInjury = isset($game[0]['Injury']) ? true : false;
-                $slideImge = $isInjury ? 'injury' : 'ballv2';
+                $slideImge = $isInjury ? 'injury.svg' : 'ball.svg';
 
                 $date = $isInjury ? str_replace('injury', '', $date) : $date;
                 $timestamp = strtotime($date);
@@ -30,7 +30,7 @@
                      data-year = "<?=$year?>"
                      data-slide = "<?=$i?>"
                 >
-                    <img class="d-block ball-image margin-bottom-2 margin-bottom-xl-40" src="<?php echo base_url('assets/img/'.$slideImge.'.svg'); ?>"
+                    <img class="d-block ball-image margin-bottom-2 margin-bottom-xl-40" src="<?php echo base_url('assets/img/'.$slideImge); ?>"
                          loading="lazy" alt="nba" width="<?= $isInjury ? '150' : '250'?>" height="100" id="<?=$slideImge?>">
                     <div class="match-details margin-top-20 margin-top-xl-0">
                         <div class="d-flex flex-column font-xl-size-09rem">

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Libraries\JwtTokenHandler;
 use CodeIgniter\API\ResponseTrait;
-use App\Models\User;
+use App\Models\SiteUser;
 use Google_Client;
 
 class Authentication extends BaseController
@@ -27,16 +27,16 @@ class Authentication extends BaseController
             return $previousUrlTemplate;
         }
 
-        $userDataByEmail = $this->cacheHandler->getUser($payload['email']);
+//        $userDataByEmail = $this->cacheHandler->getUser($payload['email']);
+//
+//        if ($userDataByEmail && $userDataByEmail['is_active'] === '1') {
+//            $token = (new JwtTokenHandler())->generateToken($userDataByEmail);
+//            $data['personalToken'] = $token;
+//            return view('users/setToken', $data);
+//        }
 
-        if ($userDataByEmail && $userDataByEmail['is_active'] === '1') {
-            $token = (new JwtTokenHandler())->generateToken($userDataByEmail);
-            $data['personalToken'] = $token;
-            return view('users/setToken', $data);
-        }
-
-        if (!$userDataByEmail) {
-            $userHandler = new User();
+//        if (!$userDataByEmail) {
+            $userHandler = new SiteUser();
             $userHandler->registerUser([
                 'firstname' => $payload['given_name'],
                 'lastname'  => $payload['family_name'],
@@ -45,7 +45,7 @@ class Authentication extends BaseController
                 'provider'  => 'Google',
                 'ip'        => $this->request->getIPAddress(),
             ]);
-        }
+//        }
 
         return redirect()->to('/');
     }

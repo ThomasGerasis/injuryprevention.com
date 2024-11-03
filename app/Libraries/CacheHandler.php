@@ -55,14 +55,14 @@ class CacheHandler
 
     public function getFixtures($refreshCache = false)
     {
-        $cache_item_name = "all_fixtures_v3";
+        $cache_item_name = "all_fixtures_v5";
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-           $allFixtures = file_get_contents(FCPATH .'assets/stats.json');
-           $allFixtures = json_decode($allFixtures, true);
+           $file_path = FCPATH . 'assets/min-stats.json';
+           $allFixtures = json_decode(file_get_contents($file_path), true);
            $cached_response =  !empty($allFixtures) ? $allFixtures : [];
 
         //    $allFixtures = curlGetContent('https://testing.injurypreventionlab.com/assets/stats.json');
@@ -120,17 +120,15 @@ class CacheHandler
 
     public function getAllPlayers($refreshCache = false)
     {
-        $cache_item_name = "players_list_v3";
+        $cache_item_name = "players_list_v4";
         $cached_response = false;
         if (!$refreshCache) {
             $cached_response = $this->cache->get($cache_item_name);
         }
         if (!$cached_response) {
-           $players = file_get_contents(FCPATH .'assets/players.json');
-           $players = json_decode($players, true);
-           $cached_response = !empty($players) ? $players : [];
-            // $allFixtures = curlGetContent('https://testing.injurypreventionlab.com/assets/players.json');
-            // $cached_response =  !empty($allFixtures) ? $allFixtures : [];
+            $file_path = FCPATH . 'assets/players.json';
+            $players = json_decode(file_get_contents($file_path), true);
+            $cached_response = !empty($players) ? $players : [];
             $this->cache->save($cache_item_name, $cached_response, $this->cacheStatsTTl);
         }
         return $cached_response;

@@ -60,7 +60,7 @@
 			</div>
 			<div class="row">
 				<div class="col-12">
-					<p class="text-center mb-0">&nbsp;<span id="ci_datatable_loader" style="display: none;"><img src="<?php echo base_url('assets/img/sp-loading.gif'); ?>"></span></p>
+					<p class="text-center mb-0">&nbsp;<span id="ci_datatable_loader" style="display: none;"><img src="<?php echo base_url('admin/assets/img/sp-loading.gif'); ?>"></span></p>
 					<div id="ci_datatable_container">
 						<?php echo view(
 							'admin/articles_categories/_table_data',

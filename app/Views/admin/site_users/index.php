@@ -32,13 +32,7 @@
 								<button class="btn btn-light btn-icon" type="button" id="search_term"><i class="icon-search4"></i></button>
 							</span>
 						</div>
-						<?php $filter_type = (isset($sessionData['filter_type']) ? $sessionData['filter_type'] : 'all'); ?>
-						<select class="form-control submit-on-change mr-2" name="filter_type">
-							<option value="all" <?php echo ($filter_type == 'all' ? 'selected="selected"' : ''); ?>>All types</option>
-							<option value="isStreamer" <?php echo ($filter_type == 'isStreamer' ? 'selected="selected"' : ''); ?>>Streamers</option>
-							<option value="isModerator" <?php echo ($filter_type == 'isModerator' ? 'selected="selected"' : ''); ?>>Moderators</option>
-							<option value="isSimple" <?php echo ($filter_type == 'isSimple' ? 'selected="selected"' : ''); ?>>Simple users</option>
-						</select>
+					
 						<?php $is_active = (isset($sessionData['is_active']) ? $sessionData['is_active'] : 'all'); ?>
 						<select class="form-control submit-on-change mr-2" name="is_active">
 							<option value="all" <?php echo ($is_active == 'all' ? 'selected="selected"' : ''); ?>>All statuses</option>
@@ -54,7 +48,7 @@
 						</div>
 						<button type="submit" class="btn btn-secondary" title="refresh results"><i class="icon-rotate-cw3 "></i></button>
 						<a href="<?php echo base_url('admin/siteUsers/exportResults');?>" class="btn btn-primary ml-2" data-toggle="tooltip" title="export to excel"><i class="icon-file-excel "></i></a>
-						<input type="hidden" name="sortingColumn" value="<?php echo (!empty($sessionData['sortingColumn']) ? $sessionData['sortingColumn'] : 'username'); ?>">
+						<input type="hidden" name="sortingColumn" value="<?php echo (!empty($sessionData['sortingColumn']) ? $sessionData['sortingColumn'] : 'firstname'); ?>">
 						<input type="hidden" name="sortingType" value="<?php echo (!empty($sessionData['sortingType']) ? $sessionData['sortingType'] : 'asc'); ?>">
 						<input type="hidden" name="page" id="current_page" value="<?php echo $page; ?>">
 						<input type="hidden" name="form_data_changed" id="form_data_changed" value="0">

@@ -73,7 +73,7 @@ var BasicFormFunctions = function()
 		formData: {filename: $('input.image_name_input').val()},
 		send: function (e, data) {
 			var target = $(this).attr('data-target');
-			$('#'+target+' .loading').html('<img src="'+config.base_url+'assets/img/sp-loading.gif"> Please wait...');
+			$('#'+target+' .loading').html('<img src="'+config.base_url+'admin/assets/img/sp-loading.gif"> Please wait...');
 			$('#'+target+' .img-container').hide;
 		},
 		done: function (e, data) {
@@ -98,7 +98,7 @@ var BasicFormFunctions = function()
 		formData: function(){return [];},
 		send: function (e, data) {
 			var target = $(this).attr('data-target');
-			$('#'+target+' .loading').html('<img src="'+config.base_url+'assets/img/sp-loading.gif"> Please wait...');
+			$('#'+target+' .loading').html('<img src="'+config.base_url+'admin/assets/img/sp-loading.gif"> Please wait...');
 			$('#'+target+' .img-container').hide;
 		},
 		done: function (e, data) {
