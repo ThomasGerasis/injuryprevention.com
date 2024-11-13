@@ -104,7 +104,21 @@
     }
   }
 
-
+ 
+    @media (max-width: 978px) {
+      .swiper-slide:not(.swiper-slide-active) {
+        transform: scale(0.7);
+        .match-details{
+          display: none;
+        }
+      }
+      .swiper-slide-active {
+        .match-details{
+          width: 200px;
+        }
+        transform: scale(1);
+      }
+  }
 }
 
 .player-movement-box{
@@ -324,3 +338,5 @@
     cursor: pointer;
   }
 }
+
+

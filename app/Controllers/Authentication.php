@@ -27,15 +27,15 @@ class Authentication extends BaseController
             return $previousUrlTemplate;
         }
 
-//        $userDataByEmail = $this->cacheHandler->getUser($payload['email']);
-//
-//        if ($userDataByEmail && $userDataByEmail['is_active'] === '1') {
-//            $token = (new JwtTokenHandler())->generateToken($userDataByEmail);
-//            $data['personalToken'] = $token;
-//            return view('users/setToken', $data);
-//        }
+       $userDataByEmail = $this->cacheHandler->getUser($payload['email']);
 
-//        if (!$userDataByEmail) {
+       if ($userDataByEmail && $userDataByEmail['is_active'] === '1') {
+           $token = (new JwtTokenHandler())->generateToken($userDataByEmail);
+           $data['personalToken'] = $token;
+           return view('users/setToken', $data);
+       }
+
+       if (!$userDataByEmail) {
             $userHandler = new SiteUser();
             $userHandler->registerUser([
                 'firstname' => $payload['given_name'],
@@ -45,7 +45,7 @@ class Authentication extends BaseController
                 'provider'  => 'Google',
                 'ip'        => $this->request->getIPAddress(),
             ]);
-//        }
+       }
 
         return redirect()->to('/');
     }

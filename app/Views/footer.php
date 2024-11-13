@@ -60,7 +60,7 @@
 
 <?php if (isset($loadJs) && is_array($loadJs)) : ?>
     <?php foreach ($loadJs as $script) : ?>
-        <script src="<?php echo base_url("dist/js/$script.js?v=9.77") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
+        <script src="<?php echo base_url("dist/js/$script.js?v=9.78") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 

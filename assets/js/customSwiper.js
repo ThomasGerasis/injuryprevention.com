@@ -4,12 +4,20 @@ import Swiper from 'swiper/bundle';
 
 const breakpointsType1 = {
     320: {
-        slidesPerView: 1,
-        spaceBetween: 0
+        slidesPerView: 3,
+        spaceBetween: 0,
+        spaceBetween: 0,
+        centeredSlides: true,     // Centers the active slide
+        loop: true,               // Enables looping
+        slideToClickedSlide: true // Allows sliding to the clicked slide
     },
     576: {
-        slidesPerView: 1,
-        spaceBetween: 0
+        slidesPerView: 3,
+        spaceBetween: 0,
+        spaceBetween: 0,
+        centeredSlides: true,     // Centers the active slide
+        loop: true,               // Enables looping
+        slideToClickedSlide: true // Allows sliding to the clicked slide
     },
     992: {
         slidesPerView: 4,
