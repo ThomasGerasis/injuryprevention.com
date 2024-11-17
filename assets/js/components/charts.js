@@ -1,6 +1,6 @@
 import Chart from 'chart.js/auto';
 import * as d3 from 'd3';
-
+import {setUpSliders} from "../customSwiper";
 const siteUrl = window.location.origin;
 const ajaxUrl = siteUrl + '/ajaxFunctions/';
 const isMobile = window.innerWidth <= 768; // Check if the device is mobile (width <= 768px) indexAxis based on device type
@@ -292,6 +292,7 @@ export function playerMovementChart(playerMovementData)
 
 //D3 js risk chart
 export function riskChart(teamData) {
+
     const margin = { top: 20, right: 30, bottom: 40, left: 40 };
     const width = isMobile ? 360 - margin.left - margin.right : 700 - margin.left - margin.right;
     const height = isMobile ? 240 - margin.top - margin.bottom : 280 - margin.top - margin.bottom;
@@ -353,6 +354,7 @@ export function riskChart(teamData) {
       .attr("fill", "rgba(154, 149, 151, 0.5)");
   
     let globalIndex = 1;
+
     // Add bars
     svg
       .append("g")
@@ -391,7 +393,6 @@ export function riskChart(teamData) {
     svg.append("g")
         .call(d3.axisLeft(y));
 
-
     svg
     .selectAll(".section-label")
     .data(labels)
@@ -404,22 +405,6 @@ export function riskChart(teamData) {
     .attr("fill", "white") // Set text color
     .text((d) => d);
 
-    // // Add "Low Risk" label
-    // svg.append("text")
-    //     .attr("x", -margin.left / 4)
-    //     .attr("y", height + margin.bottom - 10)
-    //     .attr("class", "label-text text-white")
-    //     .style("text-anchor", "start")
-    //     .text("Low Risk");
-
-    // // Add "High Risk" label
-    // svg.append("text")
-    //     .attr("x", width + margin.right / 4)
-    //     .attr("y", height + margin.bottom - 10)
-    //     .attr("class", "label-text text-white")
-    //     .style("text-anchor", "end")
-    //     .text("High Risk");
-        
     const yAxis = d3
     .axisLeft(y)
     .tickSize(-width) // Extend the tick lines across the width of the chart
@@ -456,6 +441,8 @@ export function handleRiskScalesClick(d,playersRisks,teamRiskPercentageCount)
         let jsonData = JSON.parse(data.html);
         let playerPercentageBox = document.getElementById('numberOfAnalysis');
         playerPercentageBox.innerHTML = jsonData;
+        setUpSliders('.swiper-container');
+
     })
     .catch(function (error) {
         console.log(error);

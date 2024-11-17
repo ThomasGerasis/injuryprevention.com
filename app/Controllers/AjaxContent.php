@@ -98,9 +98,6 @@ class AjaxContent extends BaseController
 //        if (!$this->request->isAJAX()) {
 //            return $this->fail('not ajax request');
 //        }
-
- 
-
         $numberOfAnalysis = $this->request->getJSON()->numberOfAnalysis;
         $risk = $this->request->getJSON()->risk;
         $playerPercentages = $this->request->getJSON()->playersRiskPercentages;

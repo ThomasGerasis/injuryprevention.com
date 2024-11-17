@@ -1,6 +1,6 @@
 import "../scss/timeline.scss";
 import {setUpSliders} from "./customSwiper";
-import {varianceChart, playerMovementChart, riskChart,handleRiskScalesClick} from "./components/charts";
+import {varianceChart, playerMovementChart, riskChart} from "./components/charts";
 
 const siteUrl = window.location.origin;
 const ajaxUrl = siteUrl + '/ajaxFunctions/';

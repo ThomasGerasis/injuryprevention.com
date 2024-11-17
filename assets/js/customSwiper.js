@@ -32,22 +32,19 @@ const breakpointsType1 = {
 const breakpointsType5 = {
     320: {
         slidesPerView: 1,
-        spaceBetween: 0
     },
     576: {
         slidesPerView: 1,
-        spaceBetween: 0
     },
     992: {
-        slidesPerView: 1,
+        slidesPerView: 3,
         spaceBetween: 0
     },
     1400: {
-        slidesPerView: 1,
+        slidesPerView: 5,
         spaceBetween: 0
     }
 };
-
 
 const breakpointsType2 = {
     320: {
@@ -100,6 +97,15 @@ export function setUpSliders(selector)
 
         let activeSlide = activeMatch ? Number(activeMatch) : 0;
 
+        let navigation = false; 
+        if(breakpointType === 'type3'){
+            navigation = 
+            {    
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }   
+        } 
+
         let swiper = new Swiper('.' + prefix + '-swiper-' + i, {
             loop: false,
             speed: 400,
@@ -113,7 +119,8 @@ export function setUpSliders(selector)
                 el: ".swiper-pagination",
                 dynamicBullets: true,
             },
-            breakpoints: breakpointsTypes[breakpointType]
+            breakpoints: breakpointsTypes[breakpointType],
+            navigation: navigation
         });
 
         swiper.slideTo(activeSlide ?? 0); // Scroll to the third slide

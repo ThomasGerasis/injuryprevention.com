@@ -2,14 +2,14 @@
 
     <?php if (strpos($pageContent,'<h1') === false) { ?>
         <div class="heading-container">
-            <h1 class="font-fff font-weight-700 text-center d-block border-radius-40 px-4">
+            <h1 class="font-fff font-weight-700 text-center d-block border-radius-40">
                 <?php echo $pageData['title'];?>
             </h1>
         </div>
         <div class="vertical-space"></div>
     <?php } ?>
 
-    <div class="page-content text-center">
+    <div class="page-content">
         <?php echo $pageContent;?>
     </div>
 

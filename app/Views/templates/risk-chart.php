@@ -11,7 +11,7 @@
         <svg id="riskChart" width="700" height="280"></svg>
     </div>
 
-    <div class="col-12 col-lg-5 position-relative d-flex flex-column justify-content-center" id="numberOfAnalysis">
+    <div class="col-12 col-lg-5 position-relative d-flex flex-column" id="numberOfAnalysis">
        
     </div>
 </div>

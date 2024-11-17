@@ -50,43 +50,37 @@ if(count($articleIds) < $attrs['limit']){
     }
 }?>
 
-<div class="position-relative article-swiper-container mt-5 mb-5 swiper-container px-3" data-breakpoint="type1" data-prefix="article" id="swipe-<?php echo $randomId;?>">
-    <div class="swiper article-swiper">
-        <div class="swiper-wrapper">
-            <?php foreach($articleIds as $articleId){
-                $articleData = $cacheHandler->getArticle($articleId);
-                if(empty($articleData)) continue;?>
-                <div class="swiper-slide py-2">
-                    <?php if(!empty($articleData['opener_image_id'])){?>
-                        <a href="<?php echo base_url($articleData['permalink']);?>" class="d-block mb-2">
-                            <img loading="lazy" width="400" height="225" src="<?php echo $cacheHandler->imageUrl($articleData['opener_image_id'],'rect400');?>" class="img-fluid mx-auto border-radius-10">
-                        </a>
-                    <?php } ?>
-                    <div class="mb-2 article-category-title">
-                        <?php $articleCategoryData = $cacheHandler->getArticleCategory($articleData['article_category_id']);?>
-                        <?php if(!empty($articleCategoryData)){?>
-                            <a href="<?php echo base_url($articleCategoryData['permalink']);?>" class="font-fff text-decoration-none font-size-11rem font-weight-500"><?php echo $articleCategoryData['title'];?></a>
-                        <?php } ?>
-                    </div>
-                    <div class="article-title">
-                        <a href="<?php echo base_url($articleData['permalink']);?>" class="font-fff font-size-12rem d-block overflow-hidden"><?php echo $articleData['title'];?></a>
-                    </div>
-                    <div class="read-more">
-                        <?php if(!empty($articleData['is_locked'])){ ?>
-                                <a class="main-button font-fff font-size-12rem primary-gradient cursor-pointer loadAuthAjaxModal" data-url="<?=base_url($articleData['permalink'])?>">
-                                    <span class="button-slanted-content">READ MORE</span>         
-                                </a>
-                            <?php }else{ ?>
-                                <a href="<?php echo base_url($articleData['permalink']);?>" class="main-button font-fff font-size-12rem primary-gradient">
-                                    <span class="button-slanted-content">READ MORE</span>
-                                </a>
-                        <?php } ?>
-                    </div>
-                </div>
+<div class="position-relative mt-5 mb-5 px-3 related-articles">
+    <?php foreach($articleIds as $articleId){
+        $articleData = $cacheHandler->getArticle($articleId);
+        if(empty($articleData)) continue;?>
+        <div class="article-item py-2">
+            <?php if(!empty($articleData['opener_image_id'])){?>
+                <a href="<?php echo base_url($articleData['permalink']);?>" class="d-block mb-2">
+                    <img loading="lazy" width="400" height="225" src="<?php echo $cacheHandler->imageUrl($articleData['opener_image_id'],'rect400');?>" class="img-fluid mx-auto border-radius-10">
+                </a>
             <?php } ?>
+            <div class="mb-2 article-category-title">
+                <?php $articleCategoryData = $cacheHandler->getArticleCategory($articleData['article_category_id']);?>
+                <?php if(!empty($articleCategoryData)){?>
+                    <a href="<?php echo base_url($articleCategoryData['permalink']);?>" class="font-fff text-decoration-none font-size-09rem font-weight-500"><?php echo $articleCategoryData['title'];?></a>
+                <?php } ?>
+            </div>
+            <div class="article-title">
+                <a href="<?php echo base_url($articleData['permalink']);?>" class="font-fff font-size-12rem text-decoration-none d-block overflow-hidden"><?php echo $articleData['title'];?></a>
+            </div>
+            <div class="read-more">
+                <?php if(!empty($articleData['is_locked'])){ ?>
+                        <a class="main-button font-fff font-size-09rem margin-5 primary-gradient cursor-pointer loadAuthAjaxModal" data-url="<?=base_url($articleData['permalink'])?>">
+                            <span class="button-slanted-content">READ MORE</span>         
+                        </a>
+                    <?php }else{ ?>
+                        <a href="<?php echo base_url($articleData['permalink']);?>" class="main-button margin-5 font-fff font-size-09rem primary-gradient">
+                            <span class="button-slanted-content">READ MORE</span>
+                        </a>
+                <?php } ?>
+            </div>
         </div>
-    </div>
-    <div class="swiper-button-next swiper-button-lock border-circle"><img src="<?php echo base_url('assets/img/chevron_right.svg'); ?>" alt="next slide" width="12" height="22" class=""></div>
-    <div class="swiper-button-prev swiper-button-lock border-circle"><img src="<?php echo base_url('assets/img/chevron_right.svg'); ?>" alt="previus slide" width="12" height="22" class=""></div>
+    <?php } ?>
 </div>
 <div class="vertical-space"></div>

@@ -77,9 +77,9 @@ $publishedDate = isset($pageData['date_published']) ? date('d F Y - H:i', strtot
         }
     }
     if (count($articleIds)) { ?>
-        <div class="related-articles mt-5">
+        <div class="related-articles-container mt-5">
             <div class="heading-container">
-                <<?php echo $sliderTitleType; ?> class="font-fff font-weight-700 border-radius-40 px-4 m-0">
+                <<?php echo $sliderTitleType; ?> class="font-fff font-weight-700 border-radius-40 px-3 m-0">
                     <?php echo $sliderTitle; ?>
                 </<?php echo $sliderTitleType; ?>>
             </div>

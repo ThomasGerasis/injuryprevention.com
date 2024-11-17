@@ -1,4 +1,4 @@
-<form class="contact-form mt-5 mb-5" action="<?=base_url('sendEmail')?>" method="post" accept-charset="utf-8">
+<form class="contact-form mt-5 mb-5 text-center" action="<?=base_url('sendEmail')?>" method="post" accept-charset="utf-8">
     <div class="input-group">
         <input type="text" name="name" class="form-control me-2" id="name" placeholder="John">
         <input type="text" name="surname" class="form-control" id="surname" placeholder="Doe">
