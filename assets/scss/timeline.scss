@@ -23,6 +23,8 @@
   @media (min-width:978px){
     width: 94%;
     height: 470px;
+    background-position: center;
+    min-height: auto;
   }
   @media (min-width:1160px){
     width: 94%;
@@ -53,7 +55,8 @@
   width: 97%;
   background-size: cover;
   height: 100%;
-  background-position: center;
+
+  min-height: 810px;
 
   .controls{
     div:not(:first-child){

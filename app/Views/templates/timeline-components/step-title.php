@@ -1,6 +1,6 @@
 <div class="step-title d-flex text-white flex-column flex-md-row justify-content-center align-items-center w-100 padding-xl-30">
     <div class="d-flex flex-column align-items-center flex-md-row col-12 col-lg-6 border-right border-1 step-title-text position-relative">
-        <img class="d-block ball-image" src="<?php echo base_url('assets/img/ball.svg'); ?>"
+        <img class="d-block ball-image" src="<?php echo base_url('assets/img/basketball.svg'); ?>"
              loading="lazy" alt="nba" width="170" height="100" id="player">
         <div class="d-flex flex-column text-center text-lg-start">
              <a href="#" class="d-lg-flex d-none font-weight-normal font-fff-opacity-75 text-decoration-none font-size-09rem align-items-center all-matches">

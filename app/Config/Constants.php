@@ -94,8 +94,9 @@ defined('PORT')               || define('PORT', 3306);
 defined('GOOGLE_CLIENT_ID')   || define('GOOGLE_CLIENT_ID', '1078091740673-ml7du6h63rvhfpojb7v1u8kmpqlpap7l.apps.googleusercontent.com');
 defined('MEMCACHE_HOST')      || define('MEMCACHE_HOST', 'localhost');
 defined('MEMCACHE_PORT')      || define('MEMCACHE_PORT', '11211');
+defined('CAPTCHA_KEY')        || define('CAPTCHA_KEY', '6LfGTI8qAAAAAIKApINY6q_gNX3s_S-gbNqnr9jK');
+defined('CAPTCHA_SECRET_KEY') || define('CAPTCHA_SECRET_KEY', '6LfGTI8qAAAAACHSx2ota9_MOXIU8mUggBgdcfsG');
 
-//secret = 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
 
 /**
  * @deprecated Use \CodeIgniter\Events\Events::PRIORITY_LOW instead.

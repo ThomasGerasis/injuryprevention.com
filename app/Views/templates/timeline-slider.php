@@ -15,7 +15,7 @@
             $i =0;
             foreach ($matches as $date => $game) {
                 $isInjury = isset($game[0]['Injury']) ? true : false;
-                $slideImge = $isInjury ? 'injury.svg' : 'ball.svg';
+                $slideImge = $isInjury ? 'injury.svg' : 'basketball.svg';
 
                 $date = $isInjury ? str_replace('injury', '', $date) : $date;
                 $timestamp = strtotime($date);
