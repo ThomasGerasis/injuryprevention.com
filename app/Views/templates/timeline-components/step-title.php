@@ -9,9 +9,9 @@
                 SEE ALL MATCHES 
              </a>
              <div class="d-lg-block d-none mb-1 mt-1" style="width: 90%; height: 1px; opacity: 0.25; border: 1px white solid"></div>
-            <span class="d-block font-size-12rem font-xl-size-16rem ">Boston Celtics </span>
-            <span class="d-block font-size-12rem font-xl-size-16rem "> VS <?=$gameOpponent?> </span>
-            <span class="d-block font-size-09rem font-xl-size-12rem "> <?=$date?></span>
+            <span class="d-block font-size-12rem font-xl-size-16rem">BOSTON CELTICS </span>
+            <span class="d-block font-size-12rem font-xl-size-16rem"> VS <?=strtoupper($gameOpponent)?></span>
+            <span class="d-block font-size-09rem font-xl-size-12rem"> <?=$date?></span>
         </div>
     </div>
     <?php echo view('templates/timeline-components/timeline-controls',

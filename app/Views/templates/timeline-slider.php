@@ -35,13 +35,13 @@
                     <div class="match-details margin-top-20 margin-top-xl-0">
                         <div class="d-flex flex-column font-xl-size-09rem">
                             <span class="d-block font-xl-size-09rem">
-                                Boston Celtics 
+                                BOSTON CELTICS
                             </span>
                             <span class="d-block font-xl-size-09rem ">
                                <?php if($isInjury){ ?>
-                                    Injuries
+                                    INJURIES
                                <?php }else{ ?>
-                                VS <?=$game[0]['Opponent']?> 
+                                VS <?=strtoupper($game[0]['Opponent'])?> 
                                 <?php  } ?>
                             </span>
                         </div>

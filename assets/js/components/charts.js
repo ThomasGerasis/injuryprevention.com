@@ -1,6 +1,7 @@
 import Chart from 'chart.js/auto';
 import * as d3 from 'd3';
 import {setUpSliders} from "../customSwiper";
+
 const siteUrl = window.location.origin;
 const ajaxUrl = siteUrl + '/ajaxFunctions/';
 const isMobile = window.innerWidth <= 768; // Check if the device is mobile (width <= 768px) indexAxis based on device type
@@ -110,30 +111,30 @@ export function playerMovementChart(playerMovementData)
             // let space = 1; // space between sections
             // Draw the outline
             let colors = [
-                '#dae020',
-                '#e7ed19',
-                '#fcf062',
-                '#f9dd60',
-                '#f5c05c',
-                '#f3b159',
-                '#ef9454',
-                '#e96a41',
-                '#dd4932',
-                '#cb422d',
-                '#b41f29',
-                '#7aaa35',
-                '#84b939',
-                '#8ec63e',
-                '#c0d72f'
+                '#fae35f',
+                '#f8db5f',
+                '#f5c65c',
+                '#f2af59',
+                '#f09c54',
+                '#ea7441',
+                '#e05c33',
+                '#d7502e',
+                '#c7432a',
+                '#c82c23',
+                '#c60d1e',
+                '#7ef849',
+                '#8de743',
+                '#adcb30',
+                '#c0d630'
             ];
             // Example colors
             for (let i = 0; i < numSections; i++) {
-                let startAngle = i * sectionAngle;
-                let endAngle = (i + 1) * sectionAngle;
+                let startAngle = i * sectionAngle - 0.02; // Overlap by a small angle
+                let endAngle = (i + 1) * sectionAngle + 0.02;
                 ctx.beginPath();
                 ctx.strokeStyle = colors[i];
                 ctx.arc(centerX, centerY, radius + padding, startAngle, endAngle);
-                ctx.lineWidth = 12;
+                ctx.lineWidth = 12; // Keep the line width
                 ctx.stroke();
             }
             ctx.restore();
@@ -351,7 +352,7 @@ export function riskChart(teamData) {
       .attr("y", 0)
       .attr("width", x0.bandwidth())
       .attr("height", height)
-      .attr("fill", "rgba(154, 149, 151, 0.5)");
+      .attr("fill", "rgba(150, 146, 149, 1)");
   
     let globalIndex = 1;
 
@@ -451,9 +452,12 @@ export function handleRiskScalesClick(d,playersRisks,teamRiskPercentageCount)
 
 
 export function varianceChart(playerStats, playerLogos) {
-
     const playerNames = Object.keys(playerStats); // Get the player names as labels
     const dataValues = playerNames.map(player => playerStats[player]);
+
+    let barChartIdentifier = isMobile ? 'barChartMobile' : 'barChart';
+    let ctx = document.getElementById(barChartIdentifier).getContext("2d");
+
 
     const data = {
         labels: playerNames,
@@ -462,7 +466,22 @@ export function varianceChart(playerStats, playerLogos) {
                 label: 'Variance',  // Update label to reflect that it's Variance data
                 data: dataValues,   // Use variance values
                 fill: true,
-                backgroundColor: 'rgb(241, 98, 58)',  // Customize color
+                backgroundColor: function (context) {
+                    const chart = context.chart;
+                    const { ctx, chartArea } = chart;
+
+                    // Ensure chartArea is available
+                    if (!chartArea) return 'rgba(180, 225, 230, 1)';
+
+                    // Create a linear gradient for each bar
+                    const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                    gradient.addColorStop(0, 'rgba(209, 165, 148, 1)');  // Bottom of the bar
+                    gradient.addColorStop(0.2, 'rgba(241, 98, 58, 1)');
+                    gradient.addColorStop(0.4, 'rgba(241, 98, 58, 1)');
+                    gradient.addColorStop(0.8, 'rgba(241, 98, 58, 1)');
+                    gradient.addColorStop(1, 'rgba(241, 98, 58, 1)');    // Top of the bar
+                    return gradient;
+                    },
             }
         ]
     };
@@ -535,16 +554,18 @@ export function varianceChart(playerStats, playerLogos) {
         afterDatasetDraw: (chart, args, options) => {
             const {ctx,data,chartArea:{left,bottom},scales : {x,y}} = chart;
             ctx.save();
-            ctx.imageSmoothingEnabled = false; // Disable image smoothing
+
             data.labels.forEach((playerName, index) => {
                 const label = new Image();
                 const playerLogo = playerLogos[playerName];  // Get the player's logo
                 label.src = getPlayerImageFromName(playerLogo);
+                ctx.imageSmoothingEnabled = false; // Disable image smoothing
+
                 if (isMobile) {
                     // For mobile, draw images on the y-axis
                     ctx.drawImage(label,left-35,y.getPixelForValue(index) - 12,25,25);
                 } else {
-                    ctx.drawImage(label,x.getPixelForValue(index) - 25,x.top,50,40);
+                    ctx.drawImage(label,x.getPixelForValue(index) - 25,x.top,50,37);
                 }
             })
 
@@ -556,9 +577,7 @@ export function varianceChart(playerStats, playerLogos) {
         }
     }
 
-    let barChartIdentifier = isMobile ? 'barChartMobile' : 'barChart';
-
-    let ctx = document.getElementById(barChartIdentifier).getContext("2d");
+ 
 
     let barChart = new Chart(
         ctx,
@@ -572,7 +591,8 @@ export function varianceChart(playerStats, playerLogos) {
 
 }
 
-function getPlayerImageFromName(playerName) {
-  return window.location.origin + '/assets/img/players/'+playerName+'.svg'
-}
 
+
+function getPlayerImageFromName(playerName) {
+    return window.location.origin + '/assets/img/players/'+playerName+'.svg'
+}

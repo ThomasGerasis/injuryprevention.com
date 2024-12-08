@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="<?php echo base_url('/assets/img/android-chrome-192x192.png') ?>">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('/assets/img/favicon-32x32.png') ?>">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('/assets/img/favicon-16x16.png') ?>">
-    <link rel="preload" href="<?php echo base_url('assets/fonts/Alata_Regular.woff2');?>" as="font" type="font/woff2" crossorigin>
+
     <?php
     /**
      * load conditional header meta like google signin client id
@@ -26,29 +26,29 @@
         }
     }
     ?>
-    <style>
-        @font-face{font-family: 'Alata', sans-serif;font-style:normal;font-weight:300;font-display:swap;src:url(<?php echo base_url('assets/fonts/Alata_Regular.woff2');?>) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-        @font-face{font-family: 'Alata', sans-serif;font-style:normal;font-weight:400;font-display:swap;src:url(<?php echo base_url('assets/fonts/Alata_Regular.woff2');?>) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-        @font-face{font-family: 'Alata', sans-serif;font-style:normal;font-weight:500;font-display:swap;src:url(<?php echo base_url('assets/fonts/Alata_Regular.woff2');?>) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-        @font-face{font-family: 'Alata', sans-serif;font-style:normal;font-weight:700;font-display:swap;src:url(<?php echo base_url('assets/fonts/Alata_Regular.woff2');?>) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+
+
     <link rel="stylesheet" href="/dist/css/bootstrap.css?v=2.51<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
-    <link rel="stylesheet" href="/dist/css/main.css?v=2.59<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+    <link rel="stylesheet" href="/dist/css/main.css?v=2.60<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
     <link rel="stylesheet" href="/dist/css/customSwiper.css?v=2.76<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
 
     <?php if (isset($loadCss) && is_array($loadCss)) : ?>
         <?php foreach ($loadCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/dist/css/$cssFilename.css?v=2.57".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/dist/css/$cssFilename.css?v=2.58".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
     <?php if (isset($loadAssetsCss) && is_array($loadAssetsCss)) : ?>
         <?php foreach ($loadAssetsCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.57".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.58".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
     <link rel="prefetch" href="/assets/img/arrow-down.svg" as="image">
-    <link rel="preload" href="/assets/stats.json" as="fetch" type="application/json" crossorigin="anonymous">
-    <link rel="preload" href="/assets/players.json" as="fetch" type="application/json" crossorigin="anonymous">
+    <link rel="preload" href="/assets/stats.json"  type="application/json" crossorigin="anonymous">
+    <link rel="preload" href="/assets/players.json" type="application/json" crossorigin="anonymous">
 </head>
 
 <body class="min-vh-100 body-pd primary-bg" id="body">

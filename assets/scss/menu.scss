@@ -24,7 +24,6 @@
     }
     color: #fff;
     text-decoration: none;
-    font-family: sans-serif;
   }
   .menu-item:nth-of-type(n+3) {
     order: 2;
@@ -38,7 +37,6 @@
 @media all and (max-width: 800px) {
   .menu-item {
     text-align: center;
-    //border-bottom: 1px solid #111;
   }
   .users-buttons{
     order: inherit !important;
