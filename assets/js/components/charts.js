@@ -456,8 +456,26 @@ export function varianceChart(playerStats, playerLogos) {
     const dataValues = playerNames.map(player => playerStats[player]);
 
     let barChartIdentifier = isMobile ? 'barChartMobile' : 'barChart';
-    let ctx = document.getElementById(barChartIdentifier).getContext("2d");
+    let canvas = document.getElementById(barChartIdentifier);
 
+    // Adjust canvas resolution for high-DPI screens (Retina displays)
+    const devicePixelRatio = window.devicePixelRatio || 1;
+    const canvasWidth = isMobile ? canvas.offsetWidth : 1000;
+    const canvasHeight = isMobile ? canvas.offsetHeight + 200 : 300;
+
+    // Set canvas width and height based on the device's pixel ratio
+    canvas.width = canvasWidth * devicePixelRatio;
+    canvas.height = canvasHeight * devicePixelRatio;
+
+    // Scale the canvas context to match the device's pixel ratio
+    let ctx = canvas.getContext("2d");
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+
+     // Set the CSS display size of the canvas (how it appears on screen)
+    canvas.style.width = canvasWidth + 'px';  // Display width
+    canvas.style.height = canvasHeight + 'px';  // Display height
+
+    ctx.imageSmoothingEnabled = false; // Disable image smoothing
 
     const data = {
         labels: playerNames,
@@ -474,7 +492,7 @@ export function varianceChart(playerStats, playerLogos) {
                     if (!chartArea) return 'rgba(180, 225, 230, 1)';
 
                     // Create a linear gradient for each bar
-                    const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                    const gradient = isMobile ? ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0) : ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
                     gradient.addColorStop(0, 'rgba(209, 165, 148, 1)');  // Bottom of the bar
                     gradient.addColorStop(0.2, 'rgba(241, 98, 58, 1)');
                     gradient.addColorStop(0.4, 'rgba(241, 98, 58, 1)');
@@ -504,7 +522,7 @@ export function varianceChart(playerStats, playerLogos) {
         },
         layout: {
             padding: {
-                left: isMobile ? 35 : 0, // Add left padding for mobile, adjust as needed
+                left:  0, // Add left padding for mobile, adjust as needed
                 right: 0, // Optional: Add right padding if needed
                 top: 0, // Optional: Add top padding if needed
                 bottom: 0 // Optional: Add bottom padding if needed
@@ -513,26 +531,23 @@ export function varianceChart(playerStats, playerLogos) {
         scales: {
             y: {
                 beginAtZero: !isMobile,
-                padding: isMobile ? 55 : 0,
+                padding: isMobile ? 25 : 0,
                 grid: {
                     color: "rgba(255, 255, 255, 1)",
                     display: !isMobile
                     // Color of the angle lines
                 },
                 ticks: {
-                    padding: 45,
+                    padding: isMobile ? 15 : 0,
                     color: "rgba(255, 255, 255, 1)", // Color of the angle lines
-                    display: false // Hide y-axis labels
+                    display: isMobile // Hide y-axis labels
                 }
             },
             x: {
                 beginAtZero: isMobile,
                 ticks: {
-                    padding: isMobile ? 0 : 45, // Add padding at the bottom for x-axis labels on mobile
+                    padding: 0, // Add padding at the bottom for x-axis labels on mobile
                     color: "rgba(255, 255, 255, 1)" // Color of the angle lines
-                    // callback: ((value,index,values) => {
-                    //     return '';
-                    // })
                 },
                 grid: {
                     color: "rgba(255, 255, 255, 1)",
@@ -552,20 +567,16 @@ export function varianceChart(playerStats, playerLogos) {
     const playerImages = {
         id: 'playerImage',
         afterDatasetDraw: (chart, args, options) => {
+
             const {ctx,data,chartArea:{left,bottom},scales : {x,y}} = chart;
             ctx.save();
 
             data.labels.forEach((playerName, index) => {
-                const label = new Image();
+                const img = new Image();
                 const playerLogo = playerLogos[playerName];  // Get the player's logo
-                label.src = getPlayerImageFromName(playerLogo);
-                ctx.imageSmoothingEnabled = false; // Disable image smoothing
-
-                if (isMobile) {
-                    // For mobile, draw images on the y-axis
-                    ctx.drawImage(label,left-35,y.getPixelForValue(index) - 12,25,25);
-                } else {
-                    ctx.drawImage(label,x.getPixelForValue(index) - 25,x.top,50,37);
+                img.src = getPlayerImageFromName(playerLogo);
+                if (!isMobile) {
+                    ctx.drawImage(img,x.getPixelForValue(index) - 25,x.top - 40,50,37);
                 }
             })
 
@@ -577,7 +588,6 @@ export function varianceChart(playerStats, playerLogos) {
         }
     }
 
- 
 
     let barChart = new Chart(
         ctx,

@@ -123,6 +123,14 @@ function fetchPlayersVariation($playersMovementData) {
 
 function calculateVariation($risks) {
     $n = count($risks);
+
+    if ($n <= 1) {
+        return [
+            'variance' => 0,
+            'standard_deviation' => 0
+        ];
+    }
+    
     $mean = array_sum($risks) / $n;
     
     // Calculate variance

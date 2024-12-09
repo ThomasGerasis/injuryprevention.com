@@ -1,7 +1,8 @@
 <div class="position-relative main-home-container">
 
-    <video autoplay muted loop id="bg-video">
+    <video autoplay muted loop playsinline id="bg-video">
         <source src="<?php echo base_url('assets/img/homepage.webm'); ?>" type="video/webm">
+        <source src="<?php echo base_url('assets/img/homepage.mp4'); ?>" type="video/mp4">
     </video>
 
 <?= view("mobile-menu", ["cacheHandler" => $cacheHandler]) ?>

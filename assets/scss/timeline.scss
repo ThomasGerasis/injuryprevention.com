@@ -386,3 +386,10 @@
         content: "»";
     }
 }
+
+#barChart{
+  @media (min-width:978px){
+    height: 280px !important;
+  }
+  // height: 350px;
+}

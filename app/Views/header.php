@@ -33,7 +33,7 @@
 
 
     <link rel="stylesheet" href="/dist/css/bootstrap.css?v=2.51<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
-    <link rel="stylesheet" href="/dist/css/main.css?v=2.60<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+    <link rel="stylesheet" href="/dist/css/main.css?v=2.61<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
     <link rel="stylesheet" href="/dist/css/customSwiper.css?v=2.76<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
 
     <?php if (isset($loadCss) && is_array($loadCss)) : ?>
@@ -47,8 +47,8 @@
         <?php endforeach; ?>
     <?php endif; ?>
     <link rel="prefetch" href="/assets/img/arrow-down.svg" as="image">
-    <link rel="preload" href="/assets/stats.json"  type="application/json" crossorigin="anonymous">
-    <link rel="preload" href="/assets/players.json" type="application/json" crossorigin="anonymous">
+    <link rel="preload" href="/assets/stats.json" as="fetch" type="application/json" crossorigin="anonymous">
+    <link rel="preload" href="/assets/players.json" as="fetch" type="application/json" crossorigin="anonymous">
 </head>
 
 <body class="min-vh-100 body-pd primary-bg" id="body">
