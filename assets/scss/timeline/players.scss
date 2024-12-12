@@ -15,5 +15,12 @@
     background-position: bottom;
     background-repeat: no-repeat;
     padding: 10px;
+
+    .player-image{
+      @media (max-width:978px){
+        height: 100px;
+        margin-bottom: 10px;
+      }
+    }
   }
 }

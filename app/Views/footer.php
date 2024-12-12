@@ -1,41 +1,42 @@
 <footer>
-    <div class="main-content w-100 d-flex flex-wrap">
-        <div class="logo_breadcrumbs col-12 col-lg-6 d-flex flex-column flex-lg-row">
+    <div class="main-content w-100 d-flex flex-wrap justify-content-between">
+        
+        <div class="logo_breadcrumbs d-flex flex-column flex-lg-row">
             <a href="<?php echo base_url(); ?>" class="d-inline-block mx-auto pb-lg-3">
                 <img src="<?php echo base_url('assets/img/footer-logo.svg'); ?>" style="filter: invert(1)" loading="lazy" alt="logo" width="150" height="100" id="site-logo">
             </a>
-            <div class="d-flex w-100 flex-column align-items-center mt-lg-2">
-                <?php $menuItems = $cacheHandler->getMenuItems();?>
-                <?php $openParent = false; $parentId = false;
-                foreach($menuItems as $key => $menuItem){
-                    $url = (empty($menuItem['relative_url']) ? (empty($menuItem['external_url']) ? false : $menuItem['external_url']) : ($menuItem['relative_url'] == 'homepage' ? base_url() : base_url($menuItem['relative_url'])));
-                    if($menuItem['type'] == 'link'){ ?>
-                        <a href="<?php echo $url;?>" class="menu-item ps-2 margin-bottom-20 d-flex align-items-center justify-content-center">
-                            <div class="sidebar-menu-item-text margin-left-5 font-fff flex-fill mx-2 hide-on-toggle">
-                                <?php echo $menuItem['title'];?>
-                            </div>
-                        </a>
-                    <?php } ?>
-                <?php } ?>
-            </div>
+        </div>
 
+        <div class="d-flex flex-column align-items-center mt-lg-2">
+            <?php $menuItems = $cacheHandler->getMenuItems();?>
+            <?php $openParent = false; $parentId = false;
+            foreach($menuItems as $key => $menuItem){
+                $url = (empty($menuItem['relative_url']) ? (empty($menuItem['external_url']) ? false : $menuItem['external_url']) : ($menuItem['relative_url'] == 'homepage' ? base_url() : base_url($menuItem['relative_url'])));
+                if($menuItem['type'] == 'link'){ ?>
+                    <a href="<?php echo $url;?>" class="menu-item ps-2 margin-bottom-20 text-decoration-none d-flex align-items-center justify-content-center">
+                        <div class="sidebar-menu-item-text margin-left-5 font-fff flex-fill mx-2 hide-on-toggle">
+                            <?php echo $menuItem['title'];?>
+                        </div>
+                    </a>
+                <?php } ?>
+            <?php } ?>
         </div>
 
         <?php $socials = $cacheHandler->getOption('info');?>
-        <div class="footer_info col-12 col-lg-6 d-flex flex-column justify-content-center justify-content-lg-end">
+        <div class="footer_info d-flex flex-column justify-content-center">
             <span class="font-fff text-center text-lg-end">INJURY PREVENTION LAB</span>
             <span class="font-fff text-center text-lg-end"><?=$socials['email']?></span>
             <span class="font-fff text-center text-lg-end"><?=$socials['mobile']?></span>
             <div class="socials menu-item pt-2">
-                <a target="_blank" rel="nofollow" href="<?php echo $socials['facebook_url'] ?? '#'; ?>" class="social-icon d-inline-block facebook">
+                <a target="_blank" rel="nofollow" href="<?php echo $socials['facebook_url'] ?? '#'; ?>" class="social-icon text-decoration-none d-inline-block facebook">
                     <img src="<?php echo base_url('assets/img/facebook.svg'); ?>" alt="nba" width="15" height="15">
                 </a>
 
-                <a target="_blank" rel="nofollow" href="<?php echo $socials['instagram_url'] ?? '#'; ?>" class="social-icon d-inline-block instagram">
+                <a target="_blank" rel="nofollow" href="<?php echo $socials['instagram_url'] ?? '#'; ?>" class="social-icon text-decoration-none d-inline-block instagram">
                     <img src="<?php echo base_url('assets/img/instagram.svg'); ?>" alt="nba" width="15" height="15">
                 </a>
 
-                <a target="_blank" rel="nofollow"  href="<?php echo $socials['twitter_url'] ?? '#'; ?>" class="social-icon d-inline-block twitter">
+                <a target="_blank" rel="nofollow"  href="<?php echo $socials['twitter_url'] ?? '#'; ?>" class="social-icon text-decoration-none d-inline-block twitter">
                     <img src="<?php echo base_url('assets/img/twitter.svg'); ?>" alt="nba" width="15" height="15">
                 </a>
             </div>
@@ -51,7 +52,7 @@
 
 </div>
 
-<script src="/dist/js/main.js?v=4.34<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/main.js?v=4.36<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/users.js?v=3.97<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/customSwiper.js?v=3.61<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/footer.js?v=1.4<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
@@ -60,7 +61,7 @@
 
 <?php if (isset($loadJs) && is_array($loadJs)) : ?>
     <?php foreach ($loadJs as $script) : ?>
-        <script src="<?php echo base_url("dist/js/$script.js?v=19") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
+        <script src="<?php echo base_url("dist/js/$script.js?v=20") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 

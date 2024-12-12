@@ -31,7 +31,7 @@
     </a>
 
     <span class="font-fff font-weight-normal d-none d-lg-flex align-items-center mt-1 mb-1 font-xl-size-12rem">
-        <?=$timelineTexts['copyright_text'] ?? '*No copyright infringement is intended.'?>  <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/info.svg'); ?>" 
+        <?=$timelineTexts['copyright_text'] ?? '*No copyright infringement is intended.'?>  <img class="d-block ms-2" src="<?php echo base_url('assets/img/info.svg'); ?>" 
         loading="lazy"  alt="Info" width="18" height="18"> 
     </span>
 

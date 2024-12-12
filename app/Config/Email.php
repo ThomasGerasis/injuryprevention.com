@@ -13,7 +13,7 @@ class Email extends BaseConfig
     /**
      * The "user agent"
      */
-    public string $userAgent = 'CodeIgniter';
+    public string $userAgent = 'Injury Prevention Lab';
 
     /**
      * The mail sending protocol: mail, sendmail, smtp
@@ -38,7 +38,7 @@ class Email extends BaseConfig
     /**
      * SMTP Password
      */
-    public string $SMTPPass = 'o??O$DX]M8lH';
+    public string $SMTPPass = 'ZXRIA=dB=j!U';
 
     /**
      * SMTP Port

@@ -1,4 +1,4 @@
-<div class="container font-fff">
+<div class="container font-fff mt-4 mb-4">
 
     <?php if (strpos($pageContent,'<h1') === false) { ?>
         <div class="heading-container">

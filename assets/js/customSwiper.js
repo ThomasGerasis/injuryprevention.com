@@ -37,11 +37,11 @@ const breakpointsType5 = {
         slidesPerView: 1,
     },
     992: {
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween: 0
     },
     1400: {
-        slidesPerView: 5,
+        slidesPerView: 1,
         spaceBetween: 0
     }
 };

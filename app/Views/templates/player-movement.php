@@ -12,7 +12,9 @@
         </div>
 
         <img class="d-block player-image" alt="<?=$playerName?>" height="300" width="250" src="<?= $playerLogo; ?>">
-        <span class="d-block font-weight-bold font-fff font-size-16rem"> <?=$playerName?></span>
+        <span class="d-block font-weight-bold font-fff font-size-16rem"> 
+            <?=strtoupper($playerName)?>
+        </span>
 
     </div>
 
@@ -29,7 +31,7 @@
         <div class="d-block m-auto outer-circle position-relative">
             <canvas id="radarChart" width="200" height="200"></canvas>
         </div>
-        <a href="#" class="main-button m-auto font-fff mt-2 primary-gradient variancePlayersButton">
+        <a href="#" class="main-button m-auto font-fff mt-3 mb-2 primary-gradient variancePlayersButton">
             <span class="button-slanted-content">SEE PLAYER ON VARIANCE</span>
         </a>
         <?php $timelineTexts = $cacheHandler->getOption('timelineSetup');?>

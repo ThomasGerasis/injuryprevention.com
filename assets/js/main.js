@@ -93,6 +93,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     document.querySelectorAll('.toggle-menu').forEach(el => el.addEventListener('click', event => {
         document.body.classList.toggle('show-sidebar');
+
+        document.querySelector('.main-home-container').classList.toggle('show-sidebar');
+
         if (document.body.classList.contains('show-sidebar')) {
             document.body.setAttribute('scroll', 'no');
         } else {

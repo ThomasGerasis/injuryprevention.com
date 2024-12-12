@@ -29,11 +29,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=alata:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
 
     <link rel="stylesheet" href="/dist/css/bootstrap.css?v=2.51<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
-    <link rel="stylesheet" href="/dist/css/main.css?v=2.61<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+    <link rel="stylesheet" href="/dist/css/main.css?v=2.64<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
     <link rel="stylesheet" href="/dist/css/customSwiper.css?v=2.76<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
 
     <?php if (isset($loadCss) && is_array($loadCss)) : ?>
@@ -43,7 +42,7 @@
     <?php endif; ?>
     <?php if (isset($loadAssetsCss) && is_array($loadAssetsCss)) : ?>
         <?php foreach ($loadAssetsCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.58".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.59".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
     <link rel="prefetch" href="/assets/img/arrow-down.svg" as="image">

@@ -11,7 +11,6 @@
   }
 }
 
-
 .slider-container{
   @media (min-width:978px){
     background-image: url('../img/timeline-bg.png');
@@ -19,16 +18,28 @@
   background-image: url('../img/timeline-bg-mobile.png');
 }
 
+.matches-container.risk {
+  @media (max-width:978px){
+    min-height: 810px !important;
+  }
+}
+
+.matches-container {
+  @media (max-width:978px){
+    min-height: 745px !important;
+  }
+}
+
 .matches-container{
   @media (min-width:978px){
     width: 94%;
-    height: 470px;
+    height: 530px;
     background-position: center;
     min-height: auto;
   }
   @media (min-width:1160px){
     width: 94%;
-    height: 549px;
+    height: 570px;
   }
   @media (min-width:1366px){
     width: 90%;
@@ -44,7 +55,7 @@
   }
   @media (min-width:1700px){
     width: 65%;
-    height: 570px;
+    height: 580px;
   }
 
   position: absolute;
@@ -55,8 +66,6 @@
   width: 97%;
   background-size: cover;
   height: 100%;
-
-  min-height: 810px;
 
   .controls{
     div:not(:first-child){

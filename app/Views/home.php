@@ -10,11 +10,11 @@
 
     <div class="main-content mt-5 pb-5">
 
-        <h1 class="font-fff margin-0 d-block text-center font-xl-size-27rem font-size-22rem">
+        <h1 class="font-fff margin-0 d-block text-center font-xl-size-40rem font-size-22rem">
             <?php echo $pageData['welcome_title'] ?? 'Welcome'; ?>
         </h1>
 
-        <span class="d-block text-center font-fff font-xl-size-22rem font-size-16rem">
+        <span class="d-block text-center font-fff font-xl-size-29rem font-size-16rem">
             <?php echo $pageData['welcome_text'] ?? ''; ?>
         </span>
 
@@ -36,7 +36,7 @@ $timelineTexts = $cacheHandler->getOption('timelineSetup');
 <div class="homepage-content bg-white text-center pb-2 pb-xl-5">
 
     <div class="matches-container slider-container position-absolute">
-        <div class="cutted-border-left d-flex flex-wrap h-100 padding-30 m-auto position-relative outer-container align-items-start">
+        <div class="cutted-border-left d-flex flex-wrap h-100 padding-top-20 padding-left-30 padding-right-30 m-auto position-relative outer-container align-items-start">
             <?php echo view('templates/timeline-slider',
                 [
                     'cacheHandler' => $cacheHandler,

@@ -25,11 +25,14 @@
     color: #fff;
     text-decoration: none;
   }
-  .menu-item:nth-of-type(n+3) {
+  .menu-item:nth-of-type(n+4) {
     order: 2;
   }
   .socials{
     order: 3;
+    @media (max-width:978px){
+      display: none !important;
+    }
   }
 }
 

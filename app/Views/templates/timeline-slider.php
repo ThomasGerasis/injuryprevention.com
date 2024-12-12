@@ -8,7 +8,7 @@
 
 </span>
 <?php $randomId = getToken(8); ?>
-<div class="position-relative timeline-swiper-container swiper-container margin-top-xl-20 w-100 px-3 matches-slider" data-breakpoint="type1" data-prefix="timeline" id="timeline-swipe-<?php echo $randomId;?>">
+<div class="position-relative timeline-swiper-container swiper-container margin-top-xl-20 w-100 matches-slider" data-breakpoint="type1" data-prefix="timeline" id="timeline-swipe-<?php echo $randomId;?>">
     <div class="swiper timeline-swiper">
         <div class="swiper-wrapper">
             <?php
