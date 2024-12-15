@@ -10,7 +10,7 @@
 
     <div class="main-content mt-5 pb-5">
 
-        <h1 class="font-fff margin-0 d-block text-center font-xl-size-40rem font-size-22rem">
+        <h1 class="font-fff margin-top-xl-100 d-block text-center font-xl-size-40rem font-size-22rem">
             <?php echo $pageData['welcome_title'] ?? 'Welcome'; ?>
         </h1>
 
@@ -18,12 +18,34 @@
             <?php echo $pageData['welcome_text'] ?? ''; ?>
         </span>
 
-        <div class="arrow-container d-flex justify-content-center margin-top-50 align-items-center overflow-hidden">
+
+        <div class="arrow-container d-none d-lg-flex justify-content-center margin-top-10 margin-top-xl-50 align-items-center overflow-hidden">
+         <img class="arrow mx-auto margin-top-20 margin-bottom-20 d-block" 
+            src="<?php echo base_url('assets/img/arrow-down.svg'); ?>" 
+            alt="Arrow Down" width="50" height="50">
+        </div>
+
+
+        <div class="about-us font-fff w-100 text-center">
+            <h3 class="d-none d-lg-block mx-auto font-fff margin-bottom-20 font-xl-size-29rem font-size-12rem">ABOUT US</h3>
+            <div class="margin-bottom-10 font-xl-size-12rem font-size-08rem font-fff d-block">
+                <?php echo $pageData['about_us_text'] ?? ''; ?>
+            </div>
+
+            <a href="/about-us" class="main-button font-fff primary-gradient">
+                <span class="button-slanted-content"> READ MORE</span>
+            </a>
+
+        </div>
+
+
+        <div class="arrow-container d-flex d-lg-none justify-content-center margin-top-10 margin-top-xl-50 align-items-center overflow-hidden">
          <img class="arrow mx-auto margin-top-20 margin-bottom-20 d-block" 
             src="<?php echo base_url('assets/img/arrow-down.svg'); ?>" 
             loading="lazy" 
-            alt="Arrow Down" width="50" height="50">
+            alt="Arrow Down" width="30" height="30">
         </div>
+
 
     </div>
 

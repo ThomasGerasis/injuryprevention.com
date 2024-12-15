@@ -1,5 +1,5 @@
 <div class="main-menu">
-    <div class="text-left d-block d-xl-none mobile-col-4 toggle-menu cursor-pointer ps-2">
+    <div class="text-left d-block d-lg-none mobile-col-4 toggle-menu cursor-pointer ps-2">
         <img src="<?php echo base_url('assets/img/mobile_menu_bars.svg'); ?>" alt="" width="20" height="14">
     </div>
 
@@ -18,7 +18,7 @@
     foreach($menuItems as $menuItem){
         $url = (empty($menuItem['relative_url']) ? (empty($menuItem['external_url']) ? false : $menuItem['external_url']) : ($menuItem['relative_url'] == 'homepage' ? base_url() : base_url($menuItem['relative_url'])));
          if($menuItem['type'] == 'link'){ ?>
-            <a href="<?php echo $url;?>" class="menu-item ps-2 d-flex align-items-center d-xl-block d-none justify-content-center">
+            <a href="<?php echo $url;?>" class="menu-item ps-2 d-flex align-items-center d-lg-block d-none justify-content-center">
                 <?php if (!empty($menuItem['image_id'])){ ?>
                     <div class="menu-item-icon text-center">
                         <img height="30" width="30" src="<?php echo $cacheHandler->imageUrl($menuItem['image_id'],'sqr30');?>" class="mx-auto">

@@ -1,6 +1,6 @@
 
 <?php $randomId = getToken(8); ?>
-<div class="position-relative injury-swiper-container swiper-container margin-top-20 w-100 px-3" data-breakpoint="type5" data-prefix="injury" id="injury-swipe-<?php echo $randomId;?>">
+<div class="position-relative injury-swiper-container swiper-container m-auto w-100 px-3" data-breakpoint="type5" data-prefix="injury" id="injury-swipe-<?php echo $randomId;?>">
     <div class="swiper injury-swiper">
         <div class="swiper-wrapper">
             <?php foreach ($players as $key => $player) 
@@ -34,9 +34,9 @@
                             <span class="d-block font-weight-bold font-fff font-size-16rem">
                                 <?=$player['Injury']?>
                             </span>
-                            <?php if(!isset($player['Date of return']) || $player['Date of return'] != '') { ?>
+                            <?php if(isset($player['Date of return'])) { ?>
                                 <span class="d-block font-xl-size-12rem text-center">
-                                    Date Of Return : <?=$player['Date of return'];?>
+                                    Date Of Return : <?=$player['Date of return'] ;?>
                                 </span>
                             <?php } ?>
                             <?php $timelineTexts = $cacheHandler->getOption('timelineSetup');?>

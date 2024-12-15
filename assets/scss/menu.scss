@@ -1,5 +1,5 @@
 .main-menu {
-  @media (min-width:978px){
+  @media (min-width:998px){
     justify-content: center;
     padding: 0;
     flex-direction: row;
@@ -10,7 +10,7 @@
   flex-direction: row-reverse;
   padding: 2px;
   .logo {
-    @media (min-width:978px){
+    @media (min-width:998px){
       order: 2;
       width: 125px;
     }
@@ -19,25 +19,25 @@
     width: 70px;
   }
   .menu-item {
-    @media (min-width:978px){
+    @media (min-width:998px){
       padding: 24px;
     }
     color: #fff;
     text-decoration: none;
   }
-  .menu-item:nth-of-type(n+4) {
+  .menu-item:nth-of-type(n+3) {
     order: 2;
   }
   .socials{
     order: 3;
-    @media (max-width:978px){
+    @media (max-width:998px){
       display: none !important;
     }
   }
 }
 
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 998px) {
   .menu-item {
     text-align: center;
   }

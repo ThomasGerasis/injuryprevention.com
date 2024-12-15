@@ -18,6 +18,23 @@
   background-image: url('../img/timeline-bg-mobile.png');
 }
 
+.injury-swiper-container{
+  background-repeat: no-repeat;
+  background-position: center;
+  @media (min-width:978px){
+    padding: 40px !important;
+    background-image: url('../img/injury-desktop.png');
+  }
+  @media (max-width:977px){
+    padding-top: 40px;
+    padding-bottom: 40px !important;
+    background-size: contain;
+    background-image: url('../img/injury-mobile.png');
+  }
+
+}
+
+
 .matches-container.risk {
   @media (max-width:978px){
     min-height: 810px !important;

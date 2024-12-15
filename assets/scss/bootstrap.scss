@@ -8,6 +8,14 @@ $progress-height-sm: 2rem;
 $progress-border-radius: 2px;
 $progress-bg: transparent;
 
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 978px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 .table{

@@ -3,7 +3,7 @@
         
         <div class="logo_breadcrumbs d-flex flex-column flex-lg-row">
             <a href="<?php echo base_url(); ?>" class="d-inline-block mx-auto pb-lg-3">
-                <img src="<?php echo base_url('assets/img/footer-logo.svg'); ?>" style="filter: invert(1)" loading="lazy" alt="logo" width="150" height="100" id="site-logo">
+                <img src="<?php echo base_url('assets/img/logo-plain.svg'); ?>" loading="lazy" alt="logo" width="150" height="100" id="site-logo">
             </a>
         </div>
 
@@ -43,7 +43,7 @@
         </div>
 
         <span class="d-block w-100 text-center pt-5 font-fff-opacity-60">
-            INJURY PREVENTION LAB <?=date('Y')?>. All Rights Reserved
+            INJURY PREVENTION LAB <?=date('Y')?>. All Rights Reserved  / <a class="text-decoration-none font-fff" href="privacy-policy">Privacy Policy</a>
         </span>
 
     </div>
@@ -52,16 +52,16 @@
 
 </div>
 
-<script src="/dist/js/main.js?v=4.36<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/main.js?v=4.37<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/users.js?v=3.97<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/customSwiper.js?v=3.61<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
-<script src="/dist/js/footer.js?v=1.4<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
-<script src="/dist/js/bootstrap.js?v=1.2<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/footer.js?v=1.5<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/bootstrap.js?v=1.3<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <!-- load scripts necessary for curtain pages -->
 
 <?php if (isset($loadJs) && is_array($loadJs)) : ?>
     <?php foreach ($loadJs as $script) : ?>
-        <script src="<?php echo base_url("dist/js/$script.js?v=20") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
+        <script src="<?php echo base_url("dist/js/$script.js?v=2") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 
