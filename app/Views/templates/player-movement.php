@@ -1,4 +1,9 @@
-<div class="d-flex text-white flex-column flex-md-row justify-content-center w-100">
+<?php 
+$timelineTexts = $cacheHandler->getOption('timelineSetup');
+$copyrightSize = $timelineTexts['copyright_text_size'] ?? '12'
+?>
+
+<div class="d-flex text-white flex-column flex-md-row justify-content-center w-100 align-self-center">
     <div class="d-flex flex-column align-items-center col-12 col-lg-6 player-movement-box align-items-center">
         <div class="d-flex flex-column">
             <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center controls">
@@ -33,7 +38,9 @@
             Read More <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/arrow-right.svg'); ?>" 
             loading="lazy"  alt="Info" width="18" height="18"> 
         </a>
-        <h3>Player Movement Analysis</h3>
+        <h3>
+            <?=$timelineTexts['player_movement_title'] ?? 'Player Movement Analysis.'?>         
+        </h3>
         <a href="#" role="button" data-info="player-movement" class="font-fff text-decoration-none justify-content-center text-center d-none font-weight-normal d-lg-flex align-items-center mt-1 mb-3 font-xl-size-12rem infomodal">
             Read More <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/arrow-right.svg'); ?>" 
             loading="lazy"  alt="Info" width="18" height="18"> 
@@ -44,8 +51,8 @@
         <a href="#" class="main-button m-auto font-fff mt-3 mb-2 primary-gradient variancePlayersButton">
             <span class="button-slanted-content">SEE PLAYER ON VARIANCE</span>
         </a>
-        <?php $timelineTexts = $cacheHandler->getOption('timelineSetup');?>
-        <span class="font-fff font-weight-normal d-block w-100 mt-2 text-center font-xl-size-12rem">
+    
+        <span class="font-fff font-weight-normal d-block w-100 mt-2 text-center font-xl-size-<?=$copyrightSize?>rem ">
              <?=$timelineTexts['copyright_text'] ?? '*No copyright infringement is intended.'?>
         </span>
     </div>

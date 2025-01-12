@@ -12,11 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
     handleMatches();
 }, false);
 
-function removeRiskClass() {
-    if (gamesContainer.classList.contains('risk')) {
-        gamesContainer.classList.remove('risk');
-    }
+function removeClassesFromParent(classes) {
+    classes.forEach((className) => {
+        if (gamesContainer.classList.contains(className)) {
+            gamesContainer.classList.remove(className);
+        }
+    });
 }
+
+
 
 function handleMatches() {
     let matches = document.querySelectorAll('.timeline-slide');
@@ -49,8 +53,8 @@ window.fetchMatches = function(){
         .then(data => {
             let jsonData = JSON.parse(data.html);
             gamesContainer.classList.add('slider-container');
-            gamesContainer.classList.remove('slider-step-container');
-            removeRiskClass();
+            removeClassesFromParent(['slider-step-container','risk','players']);
+
             sliderContainer.innerHTML = jsonData;
             setUpSliders('.swiper-container');
             handleMatches();
@@ -81,9 +85,9 @@ window.fetchPlayers = function(game){
         )
         .then(data => {
             let jsonData = JSON.parse(data.html);
-            gamesContainer.classList.remove('slider-container');
             gamesContainer.classList.add('slider-step-container');
-            removeRiskClass();
+            gamesContainer.classList.add('players');
+            removeClassesFromParent(['slider-container','risk']);
             sliderContainer.innerHTML = jsonData;
             setUpSliders('.swiper-container');
 
@@ -122,9 +126,8 @@ window.fetchInjuries = function(game){
         )
         .then(data => {
             let jsonData = JSON.parse(data.html);
-            gamesContainer.classList.remove('slider-container');
+            removeClassesFromParent(['slider-container','risk','players']);
             gamesContainer.classList.add('slider-step-container');
-            removeRiskClass();
             sliderContainer.innerHTML = jsonData;
             setUpSliders('.swiper-container');
             controlsHandler(game,gameDate,gameOpponent);
@@ -156,9 +159,12 @@ window.fetchRiskGraph = function(game,gameDate, gameOpponent)
         .then(data => {
             let jsonData = JSON.parse(data.html);
             let teamRiskData = JSON.parse(data.teamRisk);
-            gamesContainer.classList.remove('slider-container');
+
             gamesContainer.classList.add('slider-step-container');
             gamesContainer.classList.add('risk');
+
+            removeClassesFromParent(['slider-container','players']);
+
             sliderContainer.innerHTML = jsonData;
             riskChart(teamRiskData);
             // let teamRiskPercentageCount = teamRiskData['teamRiskCount'];
@@ -200,7 +206,7 @@ window.buildPlayerChart = function (game,player,gameDate,gameOpponent) {
         sliderContainer.innerHTML = jsonData;
         playerMovementChart(playerMovementData);
         controlsHandler(game,gameDate,gameOpponent);
-        removeRiskClass();
+        removeClassesFromParent(['risk','players']);
     })
     .catch(function (error) {
         console.log(error);
@@ -231,7 +237,7 @@ window.fetchVariance = function(game,gameDate,gameOpponent){
         let playerLogos = JSON.parse(data.playerLogos);
         varianceChart(playersVariation,playerLogos);
         controlsHandler(game,gameDate,gameOpponent);
-        removeRiskClass();
+        removeClassesFromParent(['risk','players']);
     })
     .catch(function (error) {
         console.log(error);

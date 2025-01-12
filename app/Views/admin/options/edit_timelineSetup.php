@@ -33,48 +33,75 @@
             <input type="text" name="main_description" class="form-control" placeholder="Main mini description" value="<?php echo @$values['main_description'];?>">
         </div>
 
-        <label>Copyright Message</label>
-        <div class="form-group">
-            <input type="text" name="copyright_text" class="form-control" placeholder="Copyright Message" value="<?php echo @$values['copyright_text'];?>">
+        <div class="d-flex flex-wrap">
+            <div class="col-12 col-lg-6 pl-0">
+                <label>Copyright Message</label>
+                <div class="form-group">
+                    <input type="text" name="copyright_text" class="form-control" placeholder="Copyright Message" value="<?php echo @$values['copyright_text'];?>">
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6 pl-0">
+                <label>Copyright Message Font size</label>
+                <div class="form-group">
+                    <input type="number" min="8" name="copyright_text_size" class="form-control" placeholder="Copyright Message font size" value="<?php echo @$values['copyright_text_size'];?>">
+                </div>
+            </div>
+
         </div>
 
+        <div class="d-flex flex-wrap">
+            <div class="col-12 col-lg-6 pl-0">
+                <label>All Players Button Text</label>
+                <div class="form-group">
+                    <input type="text" name="button_players_text" class="form-control" placeholder="All Players Button Text" value="<?php echo @$values['button_players_text'];?>">
+                </div>
 
-        <label>All Players Button Text</label>
-        <div class="form-group">
-            <input type="text" name="button_players_text" class="form-control" placeholder="All Players Button Text" value="<?php echo @$values['button_players_text'];?>">
+                <label>Variance Button Text</label>
+                <div class="form-group">
+                    <input type="text" name="variance_button_text" class="form-control" placeholder="Variance Button Text" value="<?php echo @$values['variance_button_text'];?>">
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 pl-0">
+                <label>Team Stats Button Text</label>
+                <div class="form-group">
+                    <input type="text" name="team_stats_button_text" class="form-control" placeholder="Team Stats Button Text" value="<?php echo @$values['team_stats_button_text'];?>">
+                </div>
+
+                <label>Player movement Title</label>
+                <div class="form-group">
+                    <input type="text" name="player_movement_title" class="form-control" placeholder="Player movement Title" value="<?php echo @$values['player_movement_title'];?>">
+                </div>
+        
+            </div>
         </div>
+      
 
-        <label>Variance Button Text</label>
-        <div class="form-group">
-            <input type="text" name="variance_button_text" class="form-control" placeholder="Variance Button Text" value="<?php echo @$values['variance_button_text'];?>">
+        <div class="d-flex flex-wrap">
+            <div class="col-12 col-lg-6 pl-0">
+                <div class="mb-3">
+                    <label>Player read more info text</label>
+                    <textarea class="tinymce_editor" name="players_info" class="form-control"><?php echo htmlentities(@$values['players_info']);?></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Variance read more info text</label>
+                    <textarea class="tinymce_editor" name="variance_info" class="form-control"><?php echo htmlentities(@$values['variance_info']);?></textarea>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 pl-0">
+                <div class="mb-3">
+                    <label>Team Stats read more info text</label>
+                    <textarea class="tinymce_editor" name="team_stats_info" class="form-control"><?php echo htmlentities(@$values['team_stats_info']);?></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Player movement analysis read more info text</label>
+                    <textarea class="tinymce_editor" name="player_movement_info" class="form-control"><?php echo htmlentities(@$values['player_movement_info']);?></textarea>
+                </div>
+            </div>
         </div>
-
-        <label>Team Stats Button Text</label>
-        <div class="form-group">
-            <input type="text" name="team_stats_button_text" class="form-control" placeholder="Team Stats Button Text" value="<?php echo @$values['team_stats_button_text'];?>">
-        </div>
-
-
-        <div class="mb-3">
-            <label>Player read more info text</label>
-            <textarea class="tinymce_editor" name="players_info" class="form-control"><?php echo htmlentities(@$values['players_info']);?></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label>Variance read more info text</label>
-            <textarea class="tinymce_editor" name="variance_info" class="form-control"><?php echo htmlentities(@$values['variance_info']);?></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label>Team Stats read more info text</label>
-            <textarea class="tinymce_editor" name="team_stats_info" class="form-control"><?php echo htmlentities(@$values['team_stats_info']);?></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label>Player movement analysis read more info text</label>
-            <textarea class="tinymce_editor" name="player_movement_info" class="form-control"><?php echo htmlentities(@$values['player_movement_info']);?></textarea>
-        </div>
-
+      
 
         <div class="form-group row">
             <div class="col-12">

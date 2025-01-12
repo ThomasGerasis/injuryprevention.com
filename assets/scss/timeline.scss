@@ -41,9 +41,10 @@
   }
 }
 
-.matches-container {
+
+.matches-container.slider-container, .matches-container.players {
   @media (max-width:978px){
-    min-height: 745px !important;
+    height: 100%;
   }
 }
 
@@ -72,7 +73,7 @@
   }
   @media (min-width:1700px){
     width: 65%;
-    height: 580px;
+    height: 590px;
   }
 
   position: absolute;
@@ -82,7 +83,6 @@
   display: block;
   width: 97%;
   background-size: cover;
-  height: 100%;
 
   .controls{
     div:not(:first-child){

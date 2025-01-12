@@ -299,9 +299,6 @@ export function riskChart(teamData) {
     const height = isMobile ? 240 - margin.top - margin.bottom : 280 - margin.top - margin.bottom;
     
     let data  = teamData['teamRiskPercentage'];
-
-    console.log(data);
-
     let dataArray = Object.values(data); // Convert object to array
 
     let teamRiskPercentageCount = teamData['teamRiskCount'];
@@ -313,7 +310,6 @@ export function riskChart(teamData) {
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
-  
 
       //1 negligable
       //2-3 low
@@ -323,81 +319,93 @@ export function riskChart(teamData) {
 
     const labels = ["Negligible", "Low Risk", "Medium Risk", "High Risk", "Very High Risk"];
     const sectionData = [
-         [dataArray[0]],                              // Negligible (Risk 1)
-         dataArray.slice(1, 3),                       // Low Risk (Risk 2-3)
-         dataArray.slice(3, 6),                       // Medium Risk (Risk 4-6)
-         dataArray.slice(6, 8),                       // High Risk (Risk 7-8)
-         dataArray.slice(8, 11)                       // Very High Risk (Risk 9-11)
+         [dataArray[0] + dataArray[1]],               // Negligible (Risk 1)
+         dataArray.slice(2, 4),                       // Low Risk (Risk 2-3)
+         dataArray.slice(4, 7),                       // Medium Risk (Risk 4-6)
+         dataArray.slice(7, 9),                       // High Risk (Risk 7-8)
+         dataArray.slice(9, 12)                       // Very High Risk (Risk 9-11)
     ];
   
     // Define scales
     const x0 = d3.scaleBand().domain(labels).range([0, width]).padding(0.2);
-  
-    const x1 = d3
-      .scaleBand()
-      .domain(d3.range(4)) // Maximum of 4 bars per section
-      .range([0, x0.bandwidth()])
-      .padding(0.1);
-  
     const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
-  
+
+    const maxBarWidth = 60; // Define the maximum width for the bars
+
     const color = d3
-      .scaleOrdinal()
-      .domain(d3.range(4))
-      .range(["#f1633b", "#e34c22", "#ff7a00", "#e34c22"]);
-  
+        .scaleOrdinal()
+        .domain(d3.range(4))
+        .range(["#f1633b", "#e34c22", "#ff7a00", "#e34c22"]);
+
+    // const maxBackgroundWidth = 40; // Define the maximum width for the background rectangles
+
     // Add shaded background areas
     svg
-      .selectAll(".background-rect")
-      .data(labels)
-      .enter()
-      .append("rect")
-      .attr("class", "background-rect")
-      .attr("x", (d) => x0(d))
-      .attr("y", 0)
-      .attr("width", x0.bandwidth())
-      .attr("height", height)
-      .attr("fill", "rgba(150, 146, 149, 1)");
+    .selectAll(".background-rect")
+    .data(labels)
+    .enter()
+    .append("rect")
+    .attr("x", (d) => x0(d) + (x0.bandwidth() - Math.min(x0.bandwidth(), maxBarWidth)) / 2) // Center the rectangle
+    .attr("y", 0)
+    .attr("width", (d) => Math.min(x0.bandwidth(), maxBarWidth)) // Apply the max width constraint
+    .attr("height", height)
+    .attr("fill", "rgba(150, 146, 149, 1)");
   
     let globalIndex = 1;
-
+    let firstBar = true; // Flag to ensure you only trigger it for the first bar
     // Add bars
     svg
-      .append("g")
-      .selectAll("g")
-      .data(sectionData)
-      .enter()
-      .append("g")
-      .attr("transform", (d, i) => `translate(${x0(labels[i])},0)`)
-      .selectAll("rect")
-      .data((d, i) => d.map((value, index) => ({ value, index }))) // Create an  .data((d, i) => d.map((value, index) => ({ value, index }))) // Create an 
-      .enter()
-      .append("rect")
-      .attr("x", (d, i) => x1(i))
-      .attr("y", (d) => y(d.value))
-      .attr("width", x1.bandwidth())
-      .attr("height", (d) => height - y(d.value))
-      .attr("fill", (d, i) => color(i))
-      .attr("class", (d, i) => ("bar"))
-      .on("mouseover", function(event, d) {
-        d3.select(this).classed("highlight", true); // Add 'hovered' class on hover
+    .append("g")
+    .selectAll("g")
+    .data(sectionData)
+    .enter()
+    .append("g")
+    .attr("transform", (d, i) => {
+        const sectionWidth = Math.min(x0.bandwidth(), maxBarWidth); // Constrained section width
+        const offset = x0(labels[i]) + (x0.bandwidth() - sectionWidth) / 2; // Center the section
+        return `translate(${offset},0)`;
       })
-      .on("mouseout", function(event, d) {
-        d3.select(this).classed("highlight", false); // Remove 'hovered' class when not hovering
-      })
-      .each(function(d, i) {
-        // Assign the globalIndex before binding the event listener
-        const currentIndex = globalIndex;
-        globalIndex++; // Increment for the next bar
-        // Bind event listener with the correct index
-        d3.select(this).on("click", function(event) {
-          handleRiskScalesClick(currentIndex, playersRisks,teamRiskPercentageCount);
-        });
-      });
+    .each(function (sectionData, sectionIndex) {
+        // Define x1 scale dynamically for this section
+        const sectionWidth = Math.min(x0.bandwidth(), maxBarWidth);
+        const x1 = d3.scaleBand()
+          .domain(d3.range(sectionData.length)) // Number of bars
+          .range([0, sectionWidth]) // Adjust range to constrained width
 
+        d3.select(this)
+            .selectAll("rect")
+            .data(sectionData.map((value, index) => ({ value, index }))) // Map data to include index
+            .enter()
+            .append("rect")
+            .attr("x", (d) => x1(d.index)) // Position bars using adjusted scale
+            .attr("y", (d) => y(d.value))
+            .attr("width", Math.min(x1.bandwidth(), sectionWidth / sectionData.length - x1.paddingInner() * sectionWidth)) // Ensure bars fit
+            .attr("height", (d) => height - y(d.value))
+            .attr("fill", (d) => color(d.index))
+            .attr("class", "bar")
+            .on("mouseover", function () {
+                d3.select(this).classed("highlight", true);
+            })
+            .on("mouseout", function () {
+                d3.select(this).classed("highlight", false);
+            })
+            .each(function (d) {
+                const currentIndex = globalIndex;
+                globalIndex++;
+                d3.select(this).on("click", function () {
+                    handleRiskScalesClick(currentIndex, playersRisks, teamRiskPercentageCount);
+                });
+
+                 // Automatically trigger the click handler for the first bar
+                if (firstBar) {
+                    handleRiskScalesClick(currentIndex, playersRisks, teamRiskPercentageCount);
+                    firstBar = false; // Ensure it only triggers once
+                }
+                
+            });
+    });
     // Add y-axis with labels
-    svg.append("g")
-        .call(d3.axisLeft(y));
+    svg.append("g").call(d3.axisLeft(y));
 
     svg
     .selectAll(".section-label")

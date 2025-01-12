@@ -52,7 +52,7 @@
 
 </div>
 
-<script src="/dist/js/main.js?v=6<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/main.js?v=6.5<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/users.js?v=7<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/customSwiper.js?v=3.61<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/footer.js?v=1.5<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
@@ -61,7 +61,7 @@
 
 <?php if (isset($loadJs) && is_array($loadJs)) : ?>
     <?php foreach ($loadJs as $script) : ?>
-        <script src="<?php echo base_url("dist/js/$script.js?v=4") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
+        <script src="<?php echo base_url("dist/js/$script.js?v=4.5") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 

@@ -32,17 +32,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
 
     <link rel="stylesheet" href="/dist/css/bootstrap.css?v=2.53<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
-    <link rel="stylesheet" href="/dist/css/main.css?v=2.69<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+    <link rel="stylesheet" href="/dist/css/main.css?v=2.70<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
     <link rel="stylesheet" href="/dist/css/customSwiper.css?v=2.78<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
 
     <?php if (isset($loadCss) && is_array($loadCss)) : ?>
         <?php foreach ($loadCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/dist/css/$cssFilename.css?v=2.62".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/dist/css/$cssFilename.css?v=2.69".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
     <?php if (isset($loadAssetsCss) && is_array($loadAssetsCss)) : ?>
         <?php foreach ($loadAssetsCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.3".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.7".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
 

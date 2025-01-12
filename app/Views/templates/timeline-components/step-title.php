@@ -21,17 +21,20 @@
     ); ?>
 </div>
 
-<?php $timelineTexts = $cacheHandler->getOption('timelineSetup');?>
+<?php 
+$timelineTexts = $cacheHandler->getOption('timelineSetup');
+$copyrightSize = $timelineTexts['copyright_text_size'] ?? '12'
+?>
 
 <div class="information-titles d-flex justify-content-between w-100">
 
     <a href="#" role="button" data-info="<?=$chart?>" class="font-fff font-weight-normal text-decoration-none d-flex align-items-center mt-1 mb-1 font-xl-size-12rem infomodal">
-        Read More <img class="d-block me-2 ms-2" src="<?php echo base_url('assets/img/arrow-right.svg'); ?>" 
+        Read More <img class="d-block me-2 ms-2" loading="lazy" src="<?php echo base_url('assets/img/arrow-right.svg'); ?>" 
         loading="lazy"  alt="Info" width="18" height="18"> 
     </a>
 
-    <span class="font-fff font-weight-normal d-none d-lg-flex align-items-center mt-1 mb-1 font-xl-size-12rem">
-        <?=$timelineTexts['copyright_text'] ?? '*No copyright infringement is intended.'?>  <img class="d-block ms-2" src="<?php echo base_url('assets/img/info.svg'); ?>" 
+    <span class="font-fff font-weight-normal d-none d-lg-flex align-items-center mt-1 mb-1 font-xl-size-<?=$copyrightSize?>rem">
+        <?=$timelineTexts['copyright_text'] ?? '*No copyright infringement is intended.'?>  <img class="d-block ms-2" loading="lazy" src="<?php echo base_url('assets/img/info.svg'); ?>" 
         loading="lazy"  alt="Info" width="18" height="18"> 
     </span>
 
