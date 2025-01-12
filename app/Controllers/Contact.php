@@ -45,6 +45,9 @@ class Contact extends BaseController
 
         if (!$responseKeys['success'] || $responseKeys['score'] < 0.5) {
             log_message('error', 'reCAPTCHA verification failed');
+            // Set flash message for failed reCAPTCHA
+            session()->setFlashdata('message', 'reCAPTCHA verification failed. Please try again.');
+            return redirect()->to(base_url('/contact-us'));
         }
 
         $email = \Config\Services::email();
@@ -61,9 +64,13 @@ class Contact extends BaseController
 
         if (!$email->send()) {
             log_message('error', 'Email not sent to ' . $emailToSend);
-            return false;
+            // Set flash message for email failure
+            session()->setFlashdata('message', 'Failed to send email.');
+            return redirect()->to(base_url('/contact-us'));  // Fixed redirect
         }
     
-        return 'Email sent successfully!';
+        // Set flash message for success
+        session()->setFlashdata('message', 'Email sent successfully!');
+        return redirect()->to(base_url('/contact-us'));  // Fixed redirect
 	}
 }

@@ -163,12 +163,40 @@ class CacheHandler
                     $this->getPage($cacheRow['type_id'], true);
                 }
                 break;
+
+            case 'article':
+                if ($cacheRow['action'] == 'unpublish') {
+                    $this->deletePage($cacheRow['type_id']);
+                } else {
+                    $this->getArticle($cacheRow['type_id'], true);
+                }
+                break;
+
+            case 'articleCategories':
+                $this->getArticleCategories(true);
+            case 'articleCategory':
+                if ($cacheRow['action'] == 'unpublish') {
+                    $this->unpublishArticleCategory($cacheRow['type_id']);
+                    $this->getArticleCategories(true);
+                } elseif ($cacheRow['action'] == 'feed') {
+                    $this->getCategoryFeedLength($cacheRow['type_id'], true);
+                    $this->getCategoryFeed(1, $cacheRow['type_id'], true);
+                } else {
+                    $this->getArticleCategory($cacheRow['type_id'], true);
+                    $this->getArticleCategories(true);
+                }
+                break;
+            case 'generalArticleCategory':
+                $this->getGenenalCategoryFeedLength(true);
+                $this->getGenenalCategoryFeed(1, true);
+                break;
             case 'faqCategories':
                 $this->getFaqCategories(true);
                 break;
             case 'option':
                 $this->getOption($cacheRow['type_id'], true);
                 break;
+        
             case 'image':
                 if ($cacheRow['action'] === 'delete') {
                     $this->deleteImage($cacheRow['type_id']);
@@ -625,7 +653,7 @@ class CacheHandler
 
     public function getUser($email, $refreshCache = false)
 	{
-		$cache_item_name = "user_data_v4_" . $this->my_email_crypt($email);
+		$cache_item_name = "user_data_v7_" . $this->my_email_crypt($email);
 		$cached_response = false;
 		if (!$refreshCache) {
 			$cached_response = $this->cache->get($cache_item_name);

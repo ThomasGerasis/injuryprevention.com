@@ -52,8 +52,8 @@
 
 </div>
 
-<script src="/dist/js/main.js?v=4.37<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
-<script src="/dist/js/users.js?v=3.97<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/main.js?v=6<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
+<script src="/dist/js/users.js?v=7<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/customSwiper.js?v=3.61<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/footer.js?v=1.5<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
 <script src="/dist/js/bootstrap.js?v=1.3<?php echo ENVIRONMENT === 'development' ? time() : ''; ?>"></script>
@@ -61,7 +61,7 @@
 
 <?php if (isset($loadJs) && is_array($loadJs)) : ?>
     <?php foreach ($loadJs as $script) : ?>
-        <script src="<?php echo base_url("dist/js/$script.js?v=2") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
+        <script src="<?php echo base_url("dist/js/$script.js?v=4") . (ENVIRONMENT == 'development' ? time() : ''); ?>"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 
@@ -74,13 +74,15 @@
 
 
 <?php if (ENVIRONMENT !== 'development') { ?>
-<!--    <script async src="https://www.googletagmanager.com/gtag/js?id="></script>-->
-<!--    <script>-->
-<!--        window.dataLayer = window.dataLayer || [];-->
-<!--        function gtag(){dataLayer.push(arguments);}-->
-<!--        gtag('js', new Date());-->
-<!--        gtag('config', '');-->
-<!--    </script>-->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S79MSW1BMX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-S79MSW1BMX');
+    </script>
 <?php } ?>
 
 <div class="modal-popup fade ajaxModal" id="ajaxModal" tabindex="-1" aria-labelledby="ajaxModal" aria-hidden="true">

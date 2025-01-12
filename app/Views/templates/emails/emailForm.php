@@ -84,7 +84,7 @@
     <tbody>
     <tr>
         <td>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0; background-color: #0974BA;" width="100%">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0; background-color: #f1623a;" width="100%">
                 <tbody>
                 <tr>
                     <td>
@@ -113,7 +113,7 @@
                 </tr>
                 </tbody>
             </table>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-3" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0; background-color: #0974BA;" width="100%">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-3" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0; background-color: #f1623a;" width="100%">
                 <tbody>
                 <tr>
                     <td class="column column" style="mso-table-lspace: 0; mso-table-rspace: 0; font-weight: 400; text-align: left; vertical-align: top; border-top: 0; border-right: 0; border-bottom: 0; border-left: 0;" width="50%">
@@ -150,7 +150,7 @@
                                     <div style="font-family: sans-serif">
                                         <div class="" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
                                             <p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 16.8px;">
-                                                <span style="font-size:20px;color:#0974BA;">
+                                                <span style="font-size:20px;color:#000;">
                                                         <strong><span style=""> <?=$message;?><br></span></strong>
                                                 </span>
                                             </p>
@@ -181,7 +181,7 @@
                                     <div style="font-family: sans-serif">
                                         <div class="" style="font-size: 14px; mso-line-height-alt: 16.8px; color: #555555; line-height: 1.2; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
                                             <p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 16.8px;">
-                                                    Contact Details : <?=$name?> - <?=$email?>
+                                                    Contact Details : <?=$name?> <?=$surname?> - <?=$email?>
                                             </p>
                                         </div>
                                     </div>

@@ -108,8 +108,10 @@ class AjaxContent extends BaseController
         $topPlayers = [];
         $limit = 4;
         $countGroups = 0;
+
         foreach ($dataArray as $player => $stats) 
         {
+            $stats = (array) $stats;
             $playerRiskValue = $stats[$risk];
 
             if ($countGroups < $limit) {

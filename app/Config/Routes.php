@@ -16,11 +16,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 // admin group
+$routes->addRedirect('admin', 'admin/login');
+
 
 $routes->group('admin',['namespace' => 'App\Controllers\Admin'], function (RouteCollection $routes) {
 
     // route since we don't have to scan directories.
-    $routes->get('/', 'Dashboard::index',['filter' => 'loggedFilter']);
+    $routes->get('', 'Dashboard::index',['filter' => 'loggedFilter']);
 
     $routes->get('migrate', 'Migrate::index',['filter' => 'adminFilter']);
 

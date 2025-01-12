@@ -23,7 +23,7 @@ class JwtTokenHandler
         $token = array(
             "iat" => $now,
             "exp" => $expirationTime,
-            'username' => $profile['username'],
+            'username' => $profile['firstname'],
             'email' => $profile['email'],
         );
         return JWT::encode($token, $this->privateKey, 'RS256');

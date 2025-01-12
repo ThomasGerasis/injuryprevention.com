@@ -299,6 +299,11 @@ export function riskChart(teamData) {
     const height = isMobile ? 240 - margin.top - margin.bottom : 280 - margin.top - margin.bottom;
     
     let data  = teamData['teamRiskPercentage'];
+
+    console.log(data);
+
+    let dataArray = Object.values(data); // Convert object to array
+
     let teamRiskPercentageCount = teamData['teamRiskCount'];
     let playersRisks = teamData['playersRiskPercentages'];
 
@@ -310,19 +315,19 @@ export function riskChart(teamData) {
       .attr("transform", `translate(${margin.left},${margin.top})`);
   
 
-      //0-1 negligable
+      //1 negligable
       //2-3 low
-      //4-7 medium
-      //8-10 high
-      //11 very high
+      //4-6 medium
+      //7-8 high
+      //9-11 very high
 
     const labels = ["Negligible", "Low Risk", "Medium Risk", "High Risk", "Very High Risk"];
     const sectionData = [
-        data.slice(0, 1),
-        data.slice(2, 4),
-        data.slice(4, 8),
-        data.slice(8, 11),
-        data.slice(11)
+         [dataArray[0]],                              // Negligible (Risk 1)
+         dataArray.slice(1, 3),                       // Low Risk (Risk 2-3)
+         dataArray.slice(3, 6),                       // Medium Risk (Risk 4-6)
+         dataArray.slice(6, 8),                       // High Risk (Risk 7-8)
+         dataArray.slice(8, 11)                       // Very High Risk (Risk 9-11)
     ];
   
     // Define scales

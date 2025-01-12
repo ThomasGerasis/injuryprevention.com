@@ -14,14 +14,14 @@
                 $playerDetails = $cacheHandler->getFixturePlayerDetails($player['Player']);
                 $dataLogo = isset($playerDetails['logo']) ? base_url('assets/img/players/'.$playerDetails['logo'].'.svg') : '';
                 ?>
-                <div class="swiper-slide player-row-slide d-flex align-items-center text-center font-fff" data-key="<?=$player['Player']?>"  data-name="<?=$playerDetails['name']?>" data-img="<?=$dataLogo?>">
+                <div class="swiper-slide player-row-slide d-flex align-items-center text-center font-fff" data-key="<?=$player['Player'] ?? ''?>"  data-name="<?=$playerDetails['name'] ?? ''?>" data-img="<?=$dataLogo?>">
                     <div class="player-box position-relative" style="background-image: url('<?=base_url('assets/img/player_frame.svg')?>')">
                         <?php if(!empty($playerDetails['logo'])) { ?>
                             <img class="d-block player-image padding-top-10" src="<?php echo base_url('assets/img/players/'.$playerDetails['logo'].'.svg'); ?>"
-                                 width="150" height="150" alt="<?=$playerDetails['name']?>">
+                                 width="150" height="150" alt="<?=$playerDetails['name'] ?? ''?>">
                         <?php } ?>
                         <span class="d-block font-fff font-bold font-size-07rem font-size-xl-09rem margin-bottom-25">
-                            <?=strtoupper($playerDetails['name'])?>
+                            <?=strtoupper($playerDetails['name'] ?? '')?>
                         </span>
                     </div>
                 </div>

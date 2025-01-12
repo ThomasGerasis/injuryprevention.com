@@ -100,10 +100,13 @@ $timelineTexts = $cacheHandler->getOption('timelineSetup');
     $faqCategories = $cacheHandler->getFaqCategories();
     $randomFaqId = getToken(10);?>
     <div class="position-relative main-faq-container pb-5 pt-5">
-        <div class="d-flex flex-wrap container">
+
+        <img src="<?php echo base_url('assets/img/logo-plain.svg'); ?>" class="faq-logo" loading="lazy" alt="logo" width="150" height="150">
+
+        <div class="d-flex flex-wrap container questions-container">
                 <div class="col-12 text-center font-secondary mb-3">
                     <div class="pe-lg-4">
-                        <<?php echo empty($pageData['faq_heading']) ? 'div' : $pageData['faq_heading'];?> class="font-weight-700 font-size-12rem font-xl-size-18rem mb-3">
+                        <<?php echo empty($pageData['faq_heading']) ? 'div' : $pageData['faq_heading'];?> class="font-weight-700 font-size-16rem font-xl-size-29rem mb-3">
                         <?php echo empty($pageData['faq_title']) ? 'Frequently ask questions' : $pageData['faq_title'];?>
                     </<?php echo empty($pageData['faq_heading']) ? 'div' : $pageData['faq_heading'];?>>
                     <?php if(!empty($pageData['faq_subtitle'])){?>
@@ -120,7 +123,7 @@ $timelineTexts = $cacheHandler->getOption('timelineSetup');
             </div>
 
             <div class="col-12 d-flex flex-column align-items-center align-content-center">
-                <?php foreach($pageData['faqs'] as $faq){?>
+                <?php foreach($pageData['faqs'] as $faq){ ?>
                     <div class="faq_<?php echo $faq['faq_category_id'].'_'.$randomFaqId;?> filter-content faq-block background-fff mb-1 closed toggle-content border-radius-5">
                         <div class="faq-question position-relative font-xl-size-14rem font-size-11rem border-radius-5 position-relative cursor-pointer"><?php echo $faq['question'];?>
                             <svg class="faq-question-icon position-absolute" width="20" height="20" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">

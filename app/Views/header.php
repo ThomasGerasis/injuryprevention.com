@@ -32,22 +32,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
 
     <link rel="stylesheet" href="/dist/css/bootstrap.css?v=2.53<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
-    <link rel="stylesheet" href="/dist/css/main.css?v=2.65<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+    <link rel="stylesheet" href="/dist/css/main.css?v=2.69<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
     <link rel="stylesheet" href="/dist/css/customSwiper.css?v=2.78<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
 
     <?php if (isset($loadCss) && is_array($loadCss)) : ?>
         <?php foreach ($loadCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/dist/css/$cssFilename.css?v=2.59".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/dist/css/$cssFilename.css?v=2.62".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
     <?php if (isset($loadAssetsCss) && is_array($loadAssetsCss)) : ?>
         <?php foreach ($loadAssetsCss as $cssFilename) : ?>
-            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.0".(ENVIRONMENT == 'development' ? time() : '');?>">
+            <link rel="stylesheet" href="<?php echo "/assets/css/$cssFilename.css?v=2.3".(ENVIRONMENT == 'development' ? time() : '');?>">
         <?php endforeach; ?>
     <?php endif; ?>
+
     <link rel="prefetch" href="/assets/img/arrow-down.svg" as="image">
-    <link rel="preload" href="/assets/stats.json" as="fetch" type="application/json" crossorigin="anonymous">
-    <link rel="preload" href="/assets/players.json" as="fetch" type="application/json" crossorigin="anonymous">
 </head>
 
 <body class="min-vh-100 body-pd primary-bg" id="body">
@@ -59,10 +58,9 @@ if (!isset($isHomePage) && isset($pageData['bg_image_id']) && !empty($pageData['
     $backgroundImage = $cacheHandler->imageUrl($pageData['bg_image_id'], 'rect1100');
 } ?>
 
-<div class="<?php echo !empty($backgroundImage) ? 'bg-page'  : $bgClass; ?>" id="page-container"
-    <?php if (!empty($backgroundImage)) : ?> style="background-image: url('<?php echo $backgroundImage; ?>')" <?php endif; ?> >
+<div class="<?php echo !empty($backgroundImage) ? 'bg-page'  : $bgClass; ?>" id="page-container" <?php if (!empty($backgroundImage)) : ?> style="background-image: url('<?php echo $backgroundImage; ?>')" <?php endif; ?>>
 
-    <?php if (!isset($isHomePage)){ ?>
-        <?= view("mobile-menu", ["cacheHandler" => $cacheHandler]) ?>
-        <?= view('menu', ['cacheHandler' => $cacheHandler]); ?>
-    <?php } ?>
+<?php if (!isset($isHomePage)){ ?>
+    <?= view("mobile-menu", ["cacheHandler" => $cacheHandler]) ?>
+    <?= view('menu', ['cacheHandler' => $cacheHandler]); ?>
+<?php } ?>

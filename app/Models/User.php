@@ -33,7 +33,7 @@ class User extends Model
     public function googleLogin($email, $ip)
     {
 
-        $user = $this->getUserByEmail($email);
+        $user = $this->getAdminUserByEmail($email);
 
         if ($user === null) {
             return null;
@@ -115,9 +115,15 @@ class User extends Model
 		return array('response'=>true,'message'=>'The user was activated.');
 	}
 
-    public function getUserByEmail(string $email)
+    public function getAdminUserByEmail(string $email)
     {
         $user = $this->where('email', $email)->first();
+        return $user ?? false;
+    }
+
+    public function getUserByEmail(string $email)
+    {
+        $user = $this->db->table('site_users')->where('email', $email)->get()->getRowArray();
         return $user ?? false;
     }
 

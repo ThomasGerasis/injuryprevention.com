@@ -1,84 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="ltr" xml:lang="el" lang="el">
 <head>
-    <meta charset="utf-8">
-    <title><?= lang('Errors.pageNotFound') ?></title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Language" content="el" />
+<meta http-equiv="Content-Type" context="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="noindex, nofollow" name="robots">
+<title> 404 Something went wrong - Injury Prevention Lab</title>
+<style type="text/css">
+    body{
+        color: #ffffff;
+        background: linear-gradient(180deg, #f1623a 5%, var(--bs-primary) 100%);
+        background-repeat:no-repeat;
+        background-size: cover;
+        overflow-x: hidden;
+        height: 100vh;
+        width: 100vw;
+    }
+    .m-0{margin:0}.mainc{text-align:center; margin: auto; padding: 200px 0; max-width: 500px;}
+    a{text-decoration:none;}p{line-height: 1.6}
+</style>
 
-    <style>
-        div.logo {
-            height: 200px;
-            width: 155px;
-            display: inline-block;
-            opacity: 0.08;
-            position: absolute;
-            top: 2rem;
-            left: 50%;
-            margin-left: -73px;
-        }
-        body {
-            height: 100%;
-            background: #fafafa;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            color: #777;
-            font-weight: 300;
-        }
-        h1 {
-            font-weight: lighter;
-            letter-spacing: normal;
-            font-size: 3rem;
-            margin-top: 0;
-            margin-bottom: 0;
-            color: #222;
-        }
-        .wrap {
-            max-width: 1024px;
-            margin: 5rem auto;
-            padding: 2rem;
-            background: #fff;
-            text-align: center;
-            border: 1px solid #efefef;
-            border-radius: 0.5rem;
-            position: relative;
-        }
-        pre {
-            white-space: normal;
-            margin-top: 1.5rem;
-        }
-        code {
-            background: #fafafa;
-            border: 1px solid #efefef;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            display: block;
-        }
-        p {
-            margin-top: 1.5rem;
-        }
-        .footer {
-            margin-top: 2rem;
-            border-top: 1px solid #efefef;
-            padding: 1em 2em 0 2em;
-            font-size: 85%;
-            color: #999;
-        }
-        a:active,
-        a:link,
-        a:visited {
-            color: #dd4814;
-        }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+
+<link rel="stylesheet" href="/dist/css/bootstrap.css?v=2.53<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+<link rel="stylesheet" href="/dist/css/main.css?v=2.65<?php echo ENVIRONMENT == 'development' ? time() : '';?>">
+
 </head>
 <body>
-    <div class="wrap">
-        <h1>404</h1>
+	<div class="mainc text-center text-white">
+		<h1 class="m-0">
+            <a href="<?=base_url()?>">
+                <img src="<?php echo base_url('assets/img/404-bg.png'); ?>" class="img-fluid d-block m-auto" alt="404" width="460" height="180">
+		    </a>
+        </h1>
+		<p class="text-secondary font-xl-size-14rem mt-3 mb-3 ">Page not found!</p>
 
-        <p>
-            <?php if (ENVIRONMENT !== 'production') : ?>
-                <?= nl2br(esc($message)) ?>
-            <?php else : ?>
-                <?= lang('Errors.sorryCannotFind') ?>
-            <?php endif ?>
-        </p>
-    </div>
+        <a href="<?=base_url()?>" class="main-button font-fff primary-gradient">
+            <span class="button-slanted-content"> Go Back</span>
+        </a>
+  
+	</div>
+	<div class="my-2"><div class="py-1"></div></div>
 </body>
 </html>

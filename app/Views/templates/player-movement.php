@@ -1,14 +1,24 @@
 <div class="d-flex text-white flex-column flex-md-row justify-content-center w-100">
     <div class="d-flex flex-column align-items-center col-12 col-lg-6 player-movement-box align-items-center">
         <div class="d-flex flex-column">
-             <a href="#" class="d-none d-lg-flex pb-1 font-weight-normal text-center font-fff-opacity-75 text-decoration-none justify-content-center font-size-11rem align-items-center all-matches"> 
-                <img class="d-block me-2" src="<?php echo base_url('assets/img/calendar.svg'); ?>" 
-                loading="lazy"  alt="Arrow Right" width="17" height="18"> 
-                SEE ALL MATCHES 
-             </a>
-             <div class="m-auto d-none d-lg-block mb-1 mt-1" style="width: 70%; height: 1px; opacity: 0.25; border: 1px white solid"></div>
+            <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center controls">
+                <a href="#" class="d-none d-lg-flex pb-1 font-weight-normal text-center font-fff-opacity-75 margin-right-xl-15 text-decoration-none justify-content-center font-size-07rem font-xl-size-12rem align-items-center all-matches"> 
+                    <img class="d-block me-2" src="<?php echo base_url('assets/img/calendar.svg'); ?>" 
+                    loading="lazy"  alt="Arrow Right" width="17" height="18"> 
+                    SEE ALL MATCHES 
+                </a>
+                <span class="d-none d-lg-block"> | </span>
+                <span class="d-flex chartButton font-size-07rem font-xl-size-12rem pb-1 font-fff-opacity-75 margin-left-xl-15 align-items-center justify-content-center position-relative" data-chart="players">
+                    <img class="d-block me-2" src="<?php echo base_url('assets/img/people-fill.svg'); ?>" 
+                    loading="lazy"  alt="Arrow Right" width="17" height="18">    
+                    SEE ALL PLAYERS
+                </span>
+            </div>
+
+            <div class="m-auto d-none d-lg-block mb-1 mt-1" style="width: 70%; height: 1px; opacity: 0.25; border: 1px white solid"></div>
             <span class="d-block font-xl-size-14rem">Boston Celtics VS <?=$gameOpponent?> </span>
             <span class="d-block font-xl-size-12rem"> <?=$date?></span>
+
         </div>
 
         <img class="d-block player-image" alt="<?=$playerName?>" height="300" width="250" src="<?= $playerLogo; ?>">

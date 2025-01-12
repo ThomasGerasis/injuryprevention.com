@@ -73,24 +73,26 @@ export async function userActions() {
 }
 
 function loadAuthAjaxModal(userData) {
-    let modalButton = document.querySelector(".loadAuthAjaxModal");
-    if (modalButton) {
-        if ('modalLogin' in userData) {
-            modalButton.onclick = function() {
-                const currentUrl = window.location.href;
-                localStorage.setItem('signUpGoBackUrl', currentUrl);
-                localStorage.setItem('signUpGoBackExpiration', Date.now() + 30 * 60 * 1000);  //set 30 minutes expiration
-                showLoginModal();
-            }
-        } else {
-            modalButton.onclick = function() {
-                if (modalButton.classList.contains('loaded')) {
-                    showModalWithoutData();
-                } else {
-                    getLockedArticle(userData, modalButton);
+    let modalButtons = document.querySelectorAll(".loadAuthAjaxModal");
+    if (modalButtons) {
+        modalButtons.forEach((modalButton) => {
+            if ('modalLogin' in userData) {
+                modalButton.onclick = function() {
+                    const currentUrl = window.location.href;
+                    localStorage.setItem('signUpGoBackUrl', currentUrl);
+                    localStorage.setItem('signUpGoBackExpiration', Date.now() + 30 * 60 * 1000);  //set 30 minutes expiration
+                    showLoginModal();
+                }
+            } else {
+                modalButton.onclick = function() {
+                    if (modalButton.classList.contains('loaded')) {
+                        showModalWithoutData();
+                    } else {
+                        getLockedArticle(userData, modalButton);
+                    }
                 }
             }
-        }
+        })
     }
 
 }

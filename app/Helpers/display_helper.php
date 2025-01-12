@@ -41,8 +41,8 @@ function constructPagedata($pagedata = array())
     $headerData = array();
 
     if (empty($pagedata['seoType'])) $pagedata['seoType'] = 'article';
-    if (empty($pagedata['seoTitle'])) $pagedata['seoTitle'] = 'Somalab';//todo
-    if (empty($pagedata['seoDescription'])) $pagedata['seoDescription'] = 'Somalab default descr';//todo
+    if (empty($pagedata['seoTitle'])) $pagedata['seoTitle'] = 'Injury Prevention Lab';//todo
+    if (empty($pagedata['seoDescription'])) $pagedata['seoDescription'] = 'Injury Prevention Lab';//todo
     $pagedata['seoTitle'] = str_replace('\"', '', $pagedata['seoTitle']);
     $pagedata['seoTitle'] = str_replace('"', '', $pagedata['seoTitle']);
     $pagedata['seoDescription'] = str_replace('\"', '', $pagedata['seoDescription']);
@@ -64,7 +64,7 @@ function constructPagedata($pagedata = array())
     $headerData[] = '<title>' . $pagedata['seoTitle'] . '</title>';
     $headerData[] = '<meta content="' . $pagedata['seoDescription'] . '" name="description">';
 
-    $headerData[] = '<meta content="Somalab.com" property="og:site_name">';//todo
+    $headerData[] = '<meta content="injurypreventionlab.com" property="og:site_name">';//todo
     $headerData[] = '<meta content="' . (empty($pagedata['socialTitle']) ? $pagedata['seoTitle'] : $pagedata['socialTitle']) . '" property="og:title">';
     $headerData[] = '<meta content="' . $pagedata['seoDescription'] . '" property="og:description">';
     $headerData[] = '<meta content="' . $pagedata['url'] . '" property="og:url">';
@@ -78,10 +78,10 @@ function constructPagedata($pagedata = array())
     $headerData[] = '<link rel="canonical" href="' . $pagedata['url'] . '">';
     $headerData[] = '<meta content="1200" property="og:image:width">';
     $headerData[] = '<meta content="628" property="og:image:height">';
-    $headerData[] = '<meta content="@Somalab" name="twitter:site">';
-    $headerData[] = '<meta content="@Somalab" name="twitter:creator">';
+    $headerData[] = '<meta content="@Injury Prevention Lab" name="twitter:site">';
+    $headerData[] = '<meta content="@Injury Prevention Lab" name="twitter:creator">';
 
-    $imageSrc = base_url('assets/img/Somalab-social.jpg');
+    $imageSrc = base_url('assets/img/sample-social.jpg');
     //todo default social image
 
     $imageMimetype = 'image/jpg';

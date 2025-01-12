@@ -237,16 +237,19 @@ class Article extends Model
 		} else {
 			$original_data = $this->find($id);
 			$this->update($id, $data);
+
+            $updateCache = true;
 			if($original_data['published']){
-				$updateCache = true;
 				if($original_data['article_category_id'] != $data['article_category_id']){
 					if(!empty($original_data['article_category_id'])) $updateCategories[$original_data['article_category_id']] = $original_data['article_category_id'];
 					if(!empty($data['article_category_id'])) $updateCategories[$data['article_category_id']] = $data['article_category_id'];
 				}
 			}
+
 			if($original_data['permalink'] != $data['permalink']){
 				$update_permalink_data = true;
 			}
+			
 			$actionData['model_id'] = $id;
 			$actionData['what'] = 'Update article';
 		}
